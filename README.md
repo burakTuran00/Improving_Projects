@@ -1,3 +1,5 @@
 # Improving_Projects
 
 Hi there,
+
+I need to imrove my skills and I'm trying to make video games. In here Projects made other people but I'm learing too much.
