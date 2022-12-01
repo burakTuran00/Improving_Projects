@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             direction = Vector3.up * strenght;
+
         }
 
         direction.y += gravity * Time.deltaTime;
@@ -30,9 +31,9 @@ public class Player : MonoBehaviour
         {
             FindObjectOfType<GameManager>().IncreaseScore();
         }
-       
-    }
 
+    }
+   
     private void OnEnable()
     {
         Vector3 position = transform.position;

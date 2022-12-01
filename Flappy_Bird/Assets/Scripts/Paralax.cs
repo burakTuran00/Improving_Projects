@@ -5,7 +5,7 @@ using UnityEngine;
 public class Paralax : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
-    public float animationSpeed = 1f;
+    public float animationSpeed = .1f;
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();

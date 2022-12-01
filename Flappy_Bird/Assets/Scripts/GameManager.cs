@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Image GmOver_Image;
     public Player player;
 
+
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
