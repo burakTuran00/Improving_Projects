@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Snake : MonoBehaviour
 {
     private Vector2 _direction = Vector2.right;
     private List<Transform> _segments;
     public Transform segmentPrefab;
+    int score = 0;
+    public Text score_Text;
     private void Start()
     {
         _segments = new List<Transform>();
@@ -48,6 +50,9 @@ public class Snake : MonoBehaviour
         Transform segment = Instantiate(this.segmentPrefab);
         segment.position = _segments[_segments.Count - 1].position;
         _segments.Add(segment);
+        score++;
+        score_Text.text = score.ToString();
+
     }
     private void ResetState()
     {
@@ -58,6 +63,8 @@ public class Snake : MonoBehaviour
         _segments.Clear();
         _segments.Add(this.transform);
         this.transform.position = Vector2.zero;
+        score = 0;
+        score_Text.text = score.ToString();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
