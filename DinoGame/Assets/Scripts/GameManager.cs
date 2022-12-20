@@ -76,5 +76,6 @@ public class GameManager : MonoBehaviour
         spawner.gameObject.SetActive(false);
         gameover_Text.gameObject.SetActive(true);
         retry_Button.gameObject.SetActive(true);
+        
     }
 }

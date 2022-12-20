@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         direction = Vector3.zero;
+        direction = Vector3.zero;
     }
     private void Update()
     {
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         characterController.Move(direction * Time.deltaTime);
 
     }
+
 
 
     private void OnTriggerEnter(Collider other)
