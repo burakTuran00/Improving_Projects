@@ -52,13 +52,7 @@ public class Gun : MonoBehaviour
         currentAmount--;
         ammount_Text.text = "x" + currentAmount.ToString();
         RaycastHit hit;
-        if (
-            Physics
-                .Raycast(cross.transform.position,
-                cross.transform.forward,
-                out hit,
-                range)
-        )
+        if ( Physics.Raycast(cross.transform.position,cross.transform.forward, out hit,range))
         {
             Debug.Log(hit.transform.name.ToString());
             Target target = hit.transform.GetComponent<Target>();
