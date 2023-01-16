@@ -47,7 +47,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3.8
-  m_Radius: 0.6
+  m_Radius: 0.8
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 2495461471510438174}
   m_Layer: 0
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 2495461471867262992}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 2495461473031111531}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,6 +295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MCX
       objectReference: {fileID: 0}
+    - target: {fileID: 708565261683047321, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4579612719276771722, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -343,10 +347,38 @@ PrefabInstance:
       propertyPath: cross
       value: 
       objectReference: {fileID: 2495461471867262998}
+    - target: {fileID: 5466024272884082206, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 37101444}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
+--- !u!1 &708565260444433444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 708565261683047321, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
+  m_PrefabInstance: {fileID: 1513375677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4579612719982710327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4579612719276771722, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
   m_PrefabInstance: {fileID: 1513375677}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &37101444
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708565260444433444}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89aa6eb1a401b1e47b0f92f7d4c0c04e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
