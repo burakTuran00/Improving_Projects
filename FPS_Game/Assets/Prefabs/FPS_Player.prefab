@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2495461471361830882}
   - component: {fileID: 2495461471361830883}
   - component: {fileID: 2495461471361830893}
+  - component: {fileID: 2037508334}
   m_Layer: 0
   m_Name: FPS_Player
   m_TagString: Player
@@ -74,6 +75,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jumpHeight: 3
+--- !u!114 &2037508334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495461471361830880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6924a0d82763624d9fed4ce65a2ed49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  playerText: {fileID: 0}
 --- !u!1 &2495461471510438175
 GameObject:
   m_ObjectHideFlags: 0

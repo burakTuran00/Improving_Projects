@@ -9,6 +9,8 @@ public class EnemyMove : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    public float attackTime = 10f;
+
     PlayerHealthy playerHealthy = new PlayerHealthy();
 
     private void Update()

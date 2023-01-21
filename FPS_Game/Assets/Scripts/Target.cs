@@ -10,7 +10,7 @@ public class Target : MonoBehaviour
         Debug.Log(health.ToString());
         if (health <= 0)
         {
-            Destroy (gameObject);
+            Destroy(gameObject);
         }
     }
 }
