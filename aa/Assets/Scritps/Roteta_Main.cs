@@ -16,9 +16,9 @@ public class Roteta_Main : MonoBehaviour
 
     private void Update()
     {
+         
         transform.Rotate(new Vector3(0f, 0f, 1f) * eulerSpeed * Time.deltaTime);
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,3 +30,4 @@ public class Roteta_Main : MonoBehaviour
         }
     }
 }
+

@@ -19,7 +19,6 @@ public class Stic_Movement : MonoBehaviour
         else if (other.transform.CompareTag("Stick"))
         {
             Time.timeScale = 0f;
-            Debug.Log("Game Over");
         }
     }
 
