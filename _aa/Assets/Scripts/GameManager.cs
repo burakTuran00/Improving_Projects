@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         current_Pos = restartButton.transform.position;
         scoreText.text = score.ToString();
         restartButton.transform.position = new Vector2(2000f, 2000f);
+        restartButton.interactable = false;
     }
 
     public void IncreaseScore()
@@ -37,10 +38,12 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         Time.timeScale = 1f;
         restartButton.transform.position = new Vector2(2000f, 2000f);
+        restartButton.interactable = false;
     }
 
     public void ResButPos()
     {
         restartButton.transform.position = current_Pos; //new Vector2(540f, 500f);
+        restartButton.interactable = true;
     }
 }
