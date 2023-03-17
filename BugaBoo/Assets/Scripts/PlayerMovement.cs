@@ -24,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
 
-    private CapsuleCollider2D capsuleCollider2D;
+    private CapsuleCollider2D capsuleCollider2D; //Body
+
+    private BoxCollider2D boxCollider2D; // Feet
 
     private float gravityScaleAtStart;
 
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
 
         gravityScaleAtStart = rb.gravityScale;
     }
@@ -41,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Run();
         FlipSprite();
-        ClimLatter();
+        ClimbLatter();
     }
 
     private void OnMove(InputValue value)
@@ -52,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputValue value)
     {
-        if (!capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
         }
@@ -82,9 +85,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ClimLatter()
+    private void ClimbLatter()
     {
-        if (!capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             rb.gravityScale = gravityScaleAtStart;
             animator.SetBool("isClimbing", false);
