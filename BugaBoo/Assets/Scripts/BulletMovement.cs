@@ -28,7 +28,7 @@ public class BulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.transform.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
         }
