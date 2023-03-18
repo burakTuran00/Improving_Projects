@@ -17,6 +17,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Vector2 deathKick = new Vector2(20.0f, 20.0f);
 
+    [SerializeField]
+    GameObject bulletPrefab;
+
+    [SerializeField]
+    Transform gun;
+
     Vector2 moveInput;
 
     private bool playerHasHorSpeed;
@@ -56,6 +62,16 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         ClimbLatter();
         Die();
+    }
+
+    private void OnFire(InputValue value)
+    {
+        if (!isAlive)
+        {
+            return;
+        }
+
+        Instantiate(bulletPrefab, gun.position, transform.rotation);
     }
 
     private void OnMove(InputValue value)
@@ -128,7 +144,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        if (capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy" , "Hazard")))
+        if (
+            capsuleCollider2D
+                .IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazard"))
+        )
         {
             isAlive = false;
             animator.SetTrigger("Dying");
