@@ -189,6 +189,7 @@ MonoBehaviour:
   speed: 6
   jumpForce: 20
   climbSpeed: 5
+  deathKick: {x: 20, y: 20}
 --- !u!61 &137072842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,7 +199,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4392782271649616714}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8bfbd6757aef25541949249ce19312fd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
