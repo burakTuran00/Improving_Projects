@@ -1,9 +1,16 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
-    public int playerLives = 3;
+    private int playerLives = 3;
+
+    private float score = 0.0f;
+
+    public TextMeshProUGUI livesText;
+
+    public TextMeshProUGUI scoreText;
 
     private void Awake()
     {
@@ -17,6 +24,18 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad (gameObject);
         }
+    }
+
+    private void Start()
+    {
+        livesText.text = playerLives.ToString();
+        scoreText.text = score.ToString();
+    }
+
+    public void IncreaseScore(int value)
+    {
+        score += value;
+        scoreText.text = score.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -42,5 +61,6 @@ public class GameSession : MonoBehaviour
         playerLives--;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene (currentSceneIndex);
+        livesText.text = playerLives.ToString();
     }
 }
