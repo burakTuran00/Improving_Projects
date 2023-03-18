@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
-    private int playerLives = 3;
+    public int playerLives = 3;
 
-    private float score = 0.0f;
+    public int score = 0;
 
     public TextMeshProUGUI livesText;
 
@@ -52,6 +52,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
+        FindObjectOfType<ScenePersist>().ResetScenePersist();
         SceneManager.LoadScene(0); // First Level
         Destroy (gameObject);
     }
