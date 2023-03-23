@@ -3,6 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Rigidbody2D rb;
+
+    private Animator animator;
+
+    private CapsuleCollider2D capsuleCollider2D;
+
     [Header("Player")]
     public float speed = 8.0f;
 
@@ -10,11 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
 
-    private Rigidbody2D rb;
-
-    private Animator animator;
-
     private bool playerHasHorSpeed;
+
+    private bool isGround;
 
     private enum MovementState
     {
@@ -28,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
     private void Update()
@@ -44,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
+        if (!capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            return;
+        }
+
         if (value.isPressed)
         {
             rb.velocity += new Vector2(rb.velocity.x, jumpForce);
@@ -64,11 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1.0f);
         }
-    }
-
-    private Animator GetAnimator()
-    {
-        return animator;
     }
 
     private void AnimatorState()
