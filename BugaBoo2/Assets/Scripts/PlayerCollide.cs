@@ -8,5 +8,9 @@ public class PlayerCollide : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        else if (other.transform.CompareTag("Spike"))
+        {
+            Debug.Log("Spike");
+        }
     }
 }
