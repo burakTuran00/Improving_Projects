@@ -4199,7 +4199,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4242,7 +4242,7 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6517,6 +6517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2584508490878924332, guid: 37ff20307b1ad0640b90cdb2097b6b3a, type: 3}
+      propertyPath: ThrowVector.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4680469295344760978, guid: 37ff20307b1ad0640b90cdb2097b6b3a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6565,7 +6569,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1779184533044929289, guid: 37ff20307b1ad0640b90cdb2097b6b3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37ff20307b1ad0640b90cdb2097b6b3a, type: 3}
 --- !u!1001 &7692890666990028821
 PrefabInstance:

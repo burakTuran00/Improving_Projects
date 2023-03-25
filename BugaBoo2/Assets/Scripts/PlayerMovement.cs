@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
 
-    private CapsuleCollider2D capsuleCollider2D;
+    private CapsuleCollider2D capsuleCollider2D; // Body Collider
 
     [Header("Player")]
     public float speed = 8.0f;
