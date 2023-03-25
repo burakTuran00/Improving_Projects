@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickingCoin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioClip coinSFX;
 
-    // Update is called once per frame
-    void Update()
+    private bool wasPicked = false;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.transform.CompareTag("Player"))
+        {
+            wasPicked = true;
+            AudioSource
+                .PlayClipAtPoint(coinSFX, Camera.main.transform.position);
+            Destroy(this.gameObject);
+        }
     }
 }

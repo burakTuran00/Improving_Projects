@@ -132,3 +132,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f91e10aa673424bb8d303ee971df71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSFX: {fileID: 8300000, guid: f8ac8ab643c42a843966b525ab5d6097, type: 3}
