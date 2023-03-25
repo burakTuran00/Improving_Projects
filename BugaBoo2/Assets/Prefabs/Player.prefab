@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dabc7524434994ca7cc065d3aa87e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSFX: {fileID: 8300000, guid: f8ac8ab643c42a843966b525ab5d6097, type: 3}
 --- !u!95 &4680469295344760983
 Animator:
   serializedVersion: 3
