@@ -8,7 +8,7 @@ public class PickingCoin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Player") && !wasPicked)
         {
             wasPicked = true;
             AudioSource
