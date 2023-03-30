@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    Vector2 deathKick = new Vector2(20.0f, 20.0f);
+
     private Rigidbody2D rb;
 
     private Animator animator;
@@ -28,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera cam;
 
+    private bool isAlive = true;
+
     private enum MovementState
     {
         idle = 0,
@@ -45,23 +50,44 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         Run();
         Flip();
         AnimatorState();
+        Die();
     }
 
     private void OnFire(InputValue value)
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         Instantiate(bulletPrefab, gun.position, transform.rotation);
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         movement = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         if (!capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
@@ -86,6 +112,18 @@ public class PlayerMovement : MonoBehaviour
         if (playerHasHorSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1.0f);
+        }
+    }
+
+    private void Die()
+    {
+        if (
+            capsuleCollider2D
+                .IsTouchingLayers(LayerMask.GetMask("Enemy", "Spike"))
+        )
+        {
+            isAlive = true;
+            rb.velocity = deathKick;
         }
     }
 
