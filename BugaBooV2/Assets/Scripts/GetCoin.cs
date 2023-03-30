@@ -11,7 +11,7 @@ public class GetCoin : MonoBehaviour
         if (other.CompareTag("Player") && !wasPicked)
         {
             wasPicked = true;
-
+            FindObjectOfType<GameManager>().TakeGold();
             AudioSource
                 .PlayClipAtPoint(coinSound, Camera.main.transform.position);
             Destroy (gameObject);

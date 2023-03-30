@@ -1,29 +1,27 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameSession : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public int playerLives = 3;
 
-    public int score = 0;
+    public int playerGold = 0;
 
-    private void Awake()
+    public TextMeshProUGUI goldText;
+
+    public TextMeshProUGUI livesText;
+
+    private void Start()
     {
-        int numberGameSession = FindObjectsOfType<GameSession>().Length;
-
-        if (numberGameSession > 1)
-        {
-            Destroy (gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad (gameObject);
-        }
+        goldText.text = playerGold.ToString();
+        livesText.text = playerLives.ToString();
     }
 
-    public void IncreaseScore(int value)
+    public void TakeGold()
     {
-        score += value;
+        playerGold++;
+        goldText.text = playerGold.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -40,8 +38,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
-        Debug.Log("Reseting...");
-        FindObjectOfType<ScenePersist>().ResetScenePersist();
+        FindObjectOfType<GamePersist>().ResetScenePersist();
         SceneManager.LoadScene(0); // First Level
         Destroy (gameObject);
     }
@@ -51,6 +48,6 @@ public class GameSession : MonoBehaviour
         playerLives--;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene (currentSceneIndex);
-        Debug.Log("Player Life " + playerLives.ToString());
+        livesText.text = playerLives.ToString();
     }
 }

@@ -124,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isAlive = true;
             rb.velocity = deathKick;
+            FindObjectOfType<GameManager>().ProcessPlayerDeath();
         }
     }
 

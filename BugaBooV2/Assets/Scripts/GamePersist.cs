@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class ScenePersist : MonoBehaviour
+public class GamePersist : MonoBehaviour
 {
     private void Awake()
     {
-        int numberScenePersist = FindObjectsOfType<ScenePersist>().Length;
+        int numberScenePersist = FindObjectsOfType<GameManager>().Length;
 
         if (numberScenePersist > 1)
         {
