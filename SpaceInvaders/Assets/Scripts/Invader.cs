@@ -6,6 +6,8 @@ public class Invader : MonoBehaviour
 
     public float animationTime;
 
+    public System.Action killed;
+
     private SpriteRenderer spriteRenderer;
 
     private int animationFrame;
@@ -30,5 +32,15 @@ public class Invader : MonoBehaviour
         }
 
         spriteRenderer.sprite = animationSprites[animationFrame];
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
+        {
+            this.killed.Invoke();
+            this.gameObject.SetActive(false);
+            Destroy (gameObject);
+        }
     }
 }
