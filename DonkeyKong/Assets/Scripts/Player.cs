@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
     public float moveSpeed = 1.0f;
 
+    public float jumpStrength = 1.0f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Jumping();
         PlayerMovement();
         PlayerFlip();
     }
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     private void PlayerMovement()
     {
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
+        direction.y = Mathf.Max(direction.y, -1.0f);
 
         rb.MovePosition(rb.position + direction * Time.fixedDeltaTime);
     }
@@ -35,6 +39,18 @@ public class Player : MonoBehaviour
         else if (direction.x < 0f)
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+    }
+
+    private void Jumping()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            direction = Vector2.up * jumpStrength;
+        }
+        else
+        {
+            direction += Physics2D.gravity * Time.deltaTime;
         }
     }
 }
