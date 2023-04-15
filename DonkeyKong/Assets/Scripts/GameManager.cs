@@ -7,8 +7,11 @@ public class GameManager : MonoBehaviour
 
     private int score;
 
+    private int level;
+
     private void Start()
     {
+        DontDestroyOnLoad (gameObject);
         NewGame();
     }
 
@@ -17,14 +20,41 @@ public class GameManager : MonoBehaviour
         lives = 3;
         score = 0;
 
-        // Load level
+        LoadLevel(1);
+    }
+
+    private void LoadLevel(int index)
+    {
+        level = index;
+        Camera cam = Camera.main;
+
+        if (cam != null)
+        {
+            cam.cullingMask = 0;
+        }
+
+        Invoke(nameof(LoadScene), 1.0f);
+    }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene (level);
     }
 
     public void LevelComplete()
     {
         score += 1000;
 
-        //Load next level.
+        int nextLevel = level + 1;
+
+        if (nextLevel < SceneManager.sceneCountInBuildSettings)
+        {
+            LoadLevel (nextLevel);
+        }
+        else
+        {
+            LoadLevel(1);
+        }
     }
 
     public void LevelFailed()
@@ -37,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //Reload current level
+            LoadLevel (level);
         }
     }
 }
