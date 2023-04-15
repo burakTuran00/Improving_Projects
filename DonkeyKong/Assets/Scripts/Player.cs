@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     private bool grounded;
 
+    private bool climbing;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     private void CheckCollision()
     {
         grounded = false;
+        climbing = false;
 
         Vector2 size = collider.bounds.size;
         size.y += 0.1f;
@@ -43,6 +46,10 @@ public class Player : MonoBehaviour
                     hit.transform.position.y < (transform.position.y - 0.5f);
 
                 Physics2D.IgnoreCollision(collider, results[i], !grounded);
+            }
+            else if (hit.layer == LayerMask.NameToLayer("Ladder"))
+            {
+                climbing = true;
             }
         }
     }
@@ -82,7 +89,11 @@ public class Player : MonoBehaviour
 
     private void Jumping()
     {
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (climbing)
+        {
+            direction.y = Input.GetAxis("Vertical") * moveSpeed;
+        }
+        else if (Input.GetButtonDown("Jump") && grounded)
         {
             direction = Vector2.up * jumpStrength;
         }
