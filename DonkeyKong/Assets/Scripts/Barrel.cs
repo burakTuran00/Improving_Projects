@@ -17,5 +17,9 @@ public class Barrel : MonoBehaviour
         {
             rb.AddForce(other.transform.right * speed, ForceMode2D.Impulse);
         }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Barrier"))
+        {
+            Destroy (gameObject);
+        }
     }
 }
