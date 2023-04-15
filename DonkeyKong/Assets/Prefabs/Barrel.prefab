@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 574085981162587662}
   - component: {fileID: 2678208745090186014}
   - component: {fileID: 5259709438115274813}
+  - component: {fileID: 8444041360888579346}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -121,3 +122,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
+--- !u!114 &8444041360888579346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574085981162587661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae55b4b04abc844b9de0d5d858f93c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
