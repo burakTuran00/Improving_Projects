@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(SetRandomTrajectory), 1.0f);
+        ResetBall();
     }
 
     private void SetRandomTrajectory()
@@ -23,5 +23,13 @@ public class Ball : MonoBehaviour
         force.y = -1.0f;
 
         rb.AddForce(force.normalized * ballForce);
+    }
+
+    public void ResetBall()
+    {
+        this.transform.position = Vector2.zero;
+        rb.velocity = Vector2.zero;
+
+        Invoke(nameof(SetRandomTrajectory), 1.0f);
     }
 }

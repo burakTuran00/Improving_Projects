@@ -8,6 +8,8 @@ public class Brick : MonoBehaviour
 
     public int health { get; private set; }
 
+    public int points = 100;
+
     public bool unbreakable;
 
     private void Awake()
@@ -17,6 +19,13 @@ public class Brick : MonoBehaviour
 
     private void Start()
     {
+        ResetBrick();
+    }
+
+    public void ResetBrick()
+    {
+        this.gameObject.SetActive(true);
+
         if (!unbreakable)
         {
             health = state.Length;
@@ -36,12 +45,13 @@ public class Brick : MonoBehaviour
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
-            Destroy (gameObject);
         }
         else
         {
             spriteRenderer.sprite = state[health - 1];
         }
+
+        FindObjectOfType<GameManager>().Hit(this);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
