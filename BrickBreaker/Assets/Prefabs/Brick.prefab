@@ -122,3 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1de710172df4ed4583082f0d38efcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state:
+  - {fileID: 21300000, guid: 6eab41b4d7062954a8c7b3e972fb3670, type: 3}
+  - {fileID: 21300000, guid: 21d8e44e1c933f94fbac4488be3d1893, type: 3}
+  - {fileID: 21300000, guid: bd1fd48f84064694fab65b0f77e3f5b1, type: 3}
+  - {fileID: 21300000, guid: 5be232735423a784ea302633fe2ec1b2, type: 3}
+  - {fileID: 21300000, guid: ea9e968a8aecbff4282be75c50a4dab5, type: 3}
+  unbreakable: 0
