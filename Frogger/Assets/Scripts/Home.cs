@@ -19,6 +19,9 @@ public class Home : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             enabled = true;
+
+            Frogger frogger = other.GetComponent<Frogger>();
+            frogger.Respawn();
         }
     }
 }
