@@ -113,6 +113,7 @@ public class Frogger : MonoBehaviour
         transform.rotation = Quaternion.identity;
         transform.position = spawnPosition;
         spriteRenderer.sprite = idleSprite;
+        gameObject.SetActive(true);
         enabled = true;
     }
 

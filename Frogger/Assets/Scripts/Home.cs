@@ -21,7 +21,8 @@ public class Home : MonoBehaviour
             enabled = true;
 
             Frogger frogger = other.GetComponent<Frogger>();
-            frogger.Respawn();
+            frogger.gameObject.SetActive(false);
+            frogger.Invoke(nameof(frogger.Respawn), 1f);
         }
     }
 }
