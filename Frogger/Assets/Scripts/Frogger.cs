@@ -40,12 +40,23 @@ public class Frogger : MonoBehaviour
         Vector3 destinaiton = transform.position+ direction;
 
         Collider2D barrier = Physics2D.OverlapBox(destinaiton, Vector2.zero, 0f, LayerMask.GetMask("Barrier"));
+        Collider2D platform = Physics2D.OverlapBox(destinaiton, Vector2.zero, 0f, LayerMask.GetMask("Platform"));
 
         if(barrier != null)
         {
             return;
         }
-        
+
+
+        if (platform != null)
+        {
+            transform.SetParent(platform.transform);
+        }
+        else
+        {
+            transform.SetParent(null);
+        }
+
         StartCoroutine(Leap(destinaiton));
     }
 
