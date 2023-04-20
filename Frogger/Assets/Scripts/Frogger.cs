@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 public class Frogger : MonoBehaviour
 {
-
     private SpriteRenderer spriteRenderer;
     public Sprite idleSprite;
     public Sprite leapSprite;
