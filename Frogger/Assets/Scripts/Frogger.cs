@@ -38,6 +38,14 @@ public class Frogger : MonoBehaviour
     private void Move(Vector3 direction)
     {
         Vector3 destinaiton = transform.position+ direction;
+
+        Collider2D barrier = Physics2D.OverlapBox(destinaiton, Vector2.zero, 0f, LayerMask.GetMask("Barrier"));
+
+        if(barrier != null)
+        {
+            return;
+        }
+        
         StartCoroutine(Leap(destinaiton));
     }
 
