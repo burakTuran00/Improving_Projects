@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7174249569341211871}
   - component: {fileID: 6405892928205804295}
   - component: {fileID: 5006021390983602786}
-  m_Layer: 0
+  - component: {fileID: -8672916768414636818}
+  m_Layer: 6
   m_Name: Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +111,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8672916768414636818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820600442516570447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d1dfb4ad414434bbe1cb439409d9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homeFrog: {fileID: 8211222762342614602}
 --- !u!1 &8211222762342614602
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +135,7 @@ GameObject:
   - component: {fileID: 8349051388875890859}
   - component: {fileID: 1491869335490904395}
   - component: {fileID: 4371749105331426592}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HomeFrog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

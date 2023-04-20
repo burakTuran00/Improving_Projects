@@ -5,6 +5,7 @@ public class Frogger : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite idleSprite;
     public Sprite leapSprite;
+    public Sprite deadSprite;
 
     private void Awake()
     {
@@ -41,12 +42,12 @@ public class Frogger : MonoBehaviour
 
         Collider2D barrier = Physics2D.OverlapBox(destinaiton, Vector2.zero, 0f, LayerMask.GetMask("Barrier"));
         Collider2D platform = Physics2D.OverlapBox(destinaiton, Vector2.zero, 0f, LayerMask.GetMask("Platform"));
+        Collider2D obstacle = Physics2D.OverlapBox(destinaiton, Vector2.zero, 0f, LayerMask.GetMask("Obstacle"));
 
         if(barrier != null)
         {
             return;
         }
-
 
         if (platform != null)
         {
@@ -57,7 +58,15 @@ public class Frogger : MonoBehaviour
             transform.SetParent(null);
         }
 
-        StartCoroutine(Leap(destinaiton));
+        if (obstacle != null && platform == null)
+        {
+            transform.position = destinaiton;
+            Death();
+        }
+        else
+        {
+            StartCoroutine(Leap(destinaiton));
+        }
     }
 
     private void RotateFrog(float zRot)
@@ -84,5 +93,20 @@ public class Frogger : MonoBehaviour
 
         transform.position = destination;
         spriteRenderer.sprite = idleSprite;
+    }
+
+    private void Death()
+    {
+        transform.rotation = Quaternion.identity;
+        spriteRenderer.sprite = deadSprite;
+        enabled = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle") && enabled && transform.parent == null)
+        {
+            Death();
+        }    
     }
 }
