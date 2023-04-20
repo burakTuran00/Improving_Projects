@@ -7,6 +7,7 @@ public class Frogger : MonoBehaviour
     public Sprite leapSprite;
     public Sprite deadSprite;
     private Vector3 spawnPosition;
+    private float farthestRow;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -66,6 +67,12 @@ public class Frogger : MonoBehaviour
         }
         else
         {
+            if (destinaiton.y > farthestRow)
+            {
+                farthestRow = destinaiton.y;
+                FindObjectOfType<GameManager>().AdvancedRow();
+            }
+
             StartCoroutine(Leap(destinaiton));
         }
     }
@@ -96,7 +103,7 @@ public class Frogger : MonoBehaviour
         spriteRenderer.sprite = idleSprite;
     }
 
-    private void Death()
+    public void Death()
     {
         StopAllCoroutines();
 
@@ -112,6 +119,7 @@ public class Frogger : MonoBehaviour
 
         transform.rotation = Quaternion.identity;
         transform.position = spawnPosition;
+        farthestRow = spawnPosition.y;
         spriteRenderer.sprite = idleSprite;
         gameObject.SetActive(true);
         enabled = true;
