@@ -111,7 +111,7 @@ public class Frogger : MonoBehaviour
         spriteRenderer.sprite = deadSprite;
         enabled = false;
 
-        Invoke(nameof(Respawn), 1f);
+        FindObjectOfType<GameManager>().Died();
     }
     public void Respawn()
     {
