@@ -6,11 +6,17 @@ public class MushroomField : MonoBehaviour
 
     public Mushroom prefab;
 
-    public int amount = 50;
+    [Header("Amount")]
+    public int minAmount = 30;
+
+    public int maxAmount = 60;
+
+    public int amount;
 
     private void Awake()
     {
         area = GetComponent<BoxCollider2D>();
+        amount = Random.Range(minAmount, maxAmount);
     }
 
     private void Start()
