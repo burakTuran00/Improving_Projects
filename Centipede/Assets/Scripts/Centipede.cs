@@ -13,6 +13,7 @@ public class Centipede : MonoBehaviour
     public Sprite bodySprite;
 
     public int size = 12;
+    public float speed = 20f;
 
     private void Start()
     {
@@ -41,7 +42,7 @@ public class Centipede : MonoBehaviour
         {
             CentipedeSegment segment = segments[i];
             segment.ahead = GetSegmentAt(i-1);
-            segment.begind = GetSegmentAt(i+1);
+            segment.behind = GetSegmentAt(i+1);
         }
     }
 
