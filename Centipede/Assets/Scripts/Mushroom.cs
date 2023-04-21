@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Sprite[] states;
+
+    private SpriteRenderer spriteRenderer;
+
+    private int health;
+
+    private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        health = states.Length;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Damage()
     {
-        
+        health--;
+
+        if (health > 0)
+        {
+            spriteRenderer.sprite = states[states.Length - health];
+        }
+        else
+        {
+            Destroy (gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Dart"))
+        {
+            Damage();
+        }
     }
 }
