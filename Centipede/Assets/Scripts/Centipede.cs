@@ -33,7 +33,27 @@ public class Centipede : MonoBehaviour
             Vector2 position = GridPosition(transform.position) + (Vector2.left * i);
             CentipedeSegment segment = Instantiate(segmentPrefab, position, Quaternion.identity);
             segment.spriteRenderer.sprite = (i == 0) ? headSprite : bodySprite; 
+            segment.centipede = this;
             segments.Add (segment);
+        }
+
+        for (int i = 0; i < segments.Count; i++)
+        {
+            CentipedeSegment segment = segments[i];
+            segment.ahead = GetSegmentAt(i-1);
+            segment.begind = GetSegmentAt(i+1);
+        }
+    }
+
+    private CentipedeSegment GetSegmentAt(int index)
+    {
+        if (index >= 0 && index < segments.Count)
+        {
+            return segments[index];
+        }
+        else
+        {
+            return null;
         }
     }
 
