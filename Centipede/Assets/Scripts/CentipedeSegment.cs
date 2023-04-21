@@ -41,12 +41,29 @@ public class CentipedeSegment : MonoBehaviour
             Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
 
-    private void UpdateHeadSegment()
+    public void UpdateHeadSegment()
     {
         Vector2 gridPosition = GridPosition(transform.position);
 
         targerPosition = gridPosition;
         targerPosition.x += direction.x;
+
+        if (Physics2D.OverlapBox(targerPosition, Vector2.zero, 0f, centipede.collisionMask))
+        {
+            direction.x = - direction.x;
+
+            targerPosition.x = gridPosition.x;
+            targerPosition.y = gridPosition.y + direction.y;
+
+            Bounds homeBounds = centipede.homeArea.bounds;
+
+            if ((direction.y == 1 && targerPosition.y > homeBounds.max.y) || 
+                (direction.y == -1 && targerPosition.y < homeBounds.min.y))
+            {
+                direction.y = -direction.y;
+                targerPosition.y = gridPosition.y + direction.y;
+            }
+        }
 
         if (behind != null)
         {
@@ -70,5 +87,14 @@ public class CentipedeSegment : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
         return position;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+      if(other.gameObject.layer == LayerMask.NameToLayer("Dart") && other.collider.enabled)
+      {
+        other.collider.enabled = false;
+        centipede.Remove(this);
+      }   
     }
 }
