@@ -20,7 +20,7 @@ public class Mushroom : MonoBehaviour
 
         if (health > 0)
         {
-            spriteRenderer.sprite = states[states.Length - health];
+            spriteRenderer.sprite = states[health];
         }
         else
         {
