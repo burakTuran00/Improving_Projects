@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class GameManager : MonoBehaviour
     private int score;
 
     private int lives;
+
+    public Text scoreText;
+
+    public Text livesText;
+
+    public GameObject gameOverMenu;
 
     private void Awake()
     {
@@ -53,23 +60,26 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        score = 0;
-        lives = 3;
+        SetScore(0);
+        SetLives(3);
 
         centipede.Respawn();
         blaster.Respawn();
         mushroomField.ClearField();
         mushroomField.Generate();
+
+        gameOverMenu.SetActive(false);
     }
 
     public void GameOver()
     {
         blaster.gameObject.SetActive(false);
+        gameOverMenu.SetActive(true);
     }
 
     public void ResetRound()
     {
-        lives--;
+        SetLives(lives - 1);
 
         if (lives <= 0)
         {
@@ -86,11 +96,22 @@ public class GameManager : MonoBehaviour
     {
         centipede.speed *= 1.12f;
         centipede.Respawn();
-
     }
 
     public void IncreaseScore(int amount)
     {
-        score += amount;
+        SetScore(score + amount);
+    }
+
+    private void SetScore(int value)
+    {
+        score = value;
+        scoreText.text = score.ToString();
+    }
+
+    private void SetLives(int value)
+    {
+        lives = value;
+        livesText.text = lives.ToString();
     }
 }
