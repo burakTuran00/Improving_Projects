@@ -27,7 +27,7 @@ public class Centipede : MonoBehaviour
         Respawn();
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         foreach (CentipedeSegment segment in segments)
         {
