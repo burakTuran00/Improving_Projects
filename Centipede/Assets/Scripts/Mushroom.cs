@@ -8,6 +8,8 @@ public class Mushroom : MonoBehaviour
 
     private int health;
 
+    public int points = 1;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,6 +27,7 @@ public class Mushroom : MonoBehaviour
         else
         {
             Destroy (gameObject);
+            GameManager.Instance.IncreaseScore (points);
         }
     }
 

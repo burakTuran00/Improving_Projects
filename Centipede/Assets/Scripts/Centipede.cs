@@ -9,7 +9,7 @@ public class Centipede : MonoBehaviour
     
     public Mushroom mushroomPrefab;
 
-    [Header("Sprites")]
+    [Header("Centipede")]
     public Sprite headSprite;
 
     public Sprite bodySprite;
@@ -21,6 +21,10 @@ public class Centipede : MonoBehaviour
     public BoxCollider2D homeArea;
 
     public LayerMask collisionMask;
+
+    public int pointsHead = 50;
+
+    public int pointsBody = 10;
 
     public void Respawn()
     {
@@ -50,6 +54,8 @@ public class Centipede : MonoBehaviour
 
     public void Remove(CentipedeSegment segment)
     {
+        GameManager.Instance.IncreaseScore(segment.isHead ? pointsHead : pointsBody);
+
         Vector3 position = GridPosition(segment.transform.position);
         Instantiate(mushroomPrefab, position, Quaternion.identity);
 

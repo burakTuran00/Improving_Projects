@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
     {
         centipede.speed *= 1.12f;
         centipede.Respawn();
-        
+
+    }
+
+    public void IncreaseScore(int amount)
+    {
+        score += amount;
     }
 }
