@@ -43,7 +43,15 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
-    private void NewGame()
+    private void Update()
+    {
+        if (lives <= 0 && Input.anyKeyDown)
+        {
+            NewGame();
+        }
+    }
+
+    public void NewGame()
     {
         score = 0;
         lives = 3;
@@ -54,15 +62,27 @@ public class GameManager : MonoBehaviour
         mushroomField.Generate();
     }
 
-    private void GameOver()
+    public void GameOver()
     {
+        blaster.gameObject.SetActive(false);
     }
 
-    private void ResetRound()
+    public void ResetRound()
     {
+        lives--;
+
+        if (lives <= 0)
+        {
+            GameOver();
+            return;
+        }
+
+        centipede.Respawn();
+        blaster.Respawn();
+        mushroomField.Heal();
     }
 
-    private void NextLevel()
+    public void NextLevel()
     {
     }
 }

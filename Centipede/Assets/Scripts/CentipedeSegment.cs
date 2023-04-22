@@ -96,5 +96,10 @@ public class CentipedeSegment : MonoBehaviour
         other.collider.enabled = false;
         centipede.Remove(this);
       }   
+      else if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+      {
+        GameManager.Instance.ResetRound();
+        return;
+      }
     }
 }

@@ -28,6 +28,12 @@ public class Mushroom : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        health = states.Length;
+        spriteRenderer.sprite = states[3];
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Dart"))

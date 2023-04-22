@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MushroomField : MonoBehaviour
 {
-    private List<Mushroom> mushrooms;
+  
 
     private BoxCollider2D area;
 
@@ -20,12 +19,7 @@ public class MushroomField : MonoBehaviour
     {
         area = GetComponent<BoxCollider2D>();
         amount = Random.Range(minAmount, maxAmount);
-        mushrooms = new List<Mushroom>();
-    }
-
-    private void Start()
-    {
-        Generate();
+       
     }
 
     public void Generate()
@@ -40,17 +34,28 @@ public class MushroomField : MonoBehaviour
             position.y = Mathf.Round(Random.Range(bounds.min.y, bounds.max.y));
 
            Mushroom mushroom = Instantiate(prefab, position, Quaternion.identity, this.transform);
-           mushrooms.Add(mushroom);
+           
         }
     }
 
     public void ClearField()
     {
+        Mushroom[] mushrooms = FindObjectsOfType<Mushroom>();
+
         foreach (Mushroom mushroom in mushrooms)
         {
             Destroy(mushroom.gameObject);
         }
 
-        mushrooms.Clear();
+    }
+
+    public void Heal()
+    {
+        Mushroom[] mushrooms = FindObjectsOfType<Mushroom>();
+
+        foreach (Mushroom mushroom in mushrooms)
+        {
+            mushroom.Heal();
+        }
     }
 }

@@ -22,11 +22,6 @@ public class Centipede : MonoBehaviour
 
     public LayerMask collisionMask;
 
-    private void Start()
-    {
-        Respawn();
-    }
-
     public void Respawn()
     {
         foreach (CentipedeSegment segment in segments)
