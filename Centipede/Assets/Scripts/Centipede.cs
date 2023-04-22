@@ -66,6 +66,11 @@ public class Centipede : MonoBehaviour
 
         segments.Remove(segment);
         Destroy(segment.gameObject);
+
+        if (segments.Count == 0)
+        {
+            GameManager.Instance.NextLevel();
+        }
     }
 
     private CentipedeSegment GetSegmentAt(int index)
