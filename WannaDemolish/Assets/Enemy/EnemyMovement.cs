@@ -7,6 +7,10 @@ public class EnemyMovement : MonoBehaviour
 
     public Transform target;
 
+    private float followRange = 7f;
+
+    private float distancetarget = Mathf.Infinity;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -14,6 +18,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        agent.SetDestination(target.position);
+        distancetarget = Vector3.Distance(target.position, transform.position);
+
+        if (distancetarget <= followRange)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 }
