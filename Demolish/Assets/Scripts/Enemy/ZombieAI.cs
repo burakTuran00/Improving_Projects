@@ -3,96 +3,65 @@ using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour
 {
-    private NavMeshAgent zombieAgent;
-
     private Animator animator;
 
-    public Transform target;
+    private NavMeshAgent agent;
 
-    private ZombiHealth zombiHealth;
+    public GameObject target;
 
-    bool isProvoked = false;
+    private float rangeWalk = 7f;
 
-    float distanceToTarget = Mathf.Infinity;
+    private float distanceToTarget = Mathf.Infinity;
 
-    public float range = 10f;
-
-    public float lookRotSpeed = 5f;
+    public float lookingSpeed = 3.5f;
 
     private void Awake()
     {
-        zombieAgent = GetComponent<NavMeshAgent>();
-        zombiHealth = GetComponent<ZombiHealth>();
+        agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (zombiHealth.IsDead())
-        {
-            zombieAgent.enabled = false;
-            enabled = false;
-        }
+        ZombieMovement();
+    }
+
+    private void ZombieMovement()
+    {
+        LookToTarget();
 
         distanceToTarget =
-            Vector3.Distance(target.position, transform.position);
+            Vector3.Distance(target.transform.position, transform.position);
 
-        if (isProvoked)
+        if (distanceToTarget <= rangeWalk)
         {
-            EngageTarget();
-        }
-        else if (distanceToTarget <= range)
-        {
-            isProvoked = true;
-        }
-    }
+            if (distanceToTarget >= agent.stoppingDistance)
+            {
+                animator.SetBool("Attack", false);
+                animator.SetTrigger("Move");
+            }
+            if (distanceToTarget <= agent.stoppingDistance)
+            {
+                animator.SetBool("Attack", true);
+            }
 
-    public void OnDamageTaken()
-    {
-        isProvoked = true;
-    }
-
-    private void EngageTarget()
-    {
-        FaceTarget();
-
-        if (distanceToTarget >= zombieAgent.stoppingDistance)
-        {
-            ChaseTarget();
-        }
-        if (distanceToTarget <= zombieAgent.stoppingDistance)
-        {
-            AttackTarget();
+            agent.SetDestination(target.transform.position);
         }
     }
 
-    private void AttackTarget()
+    private void LookToTarget()
     {
-        animator.SetBool("Attack", true);
-    }
-
-    private void ChaseTarget()
-    {
-        animator.SetBool("Attack", false);
-        animator.SetTrigger("Move");
-        zombieAgent.SetDestination(target.position);
-    }
-
-    private void FaceTarget()
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction =
+            (target.transform.position - transform.position).normalized;
         Quaternion lookRotation =
-            Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
+            Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation =
-            Quaternion
-                .Slerp(transform.rotation,
-                lookRotation,
-                Time.deltaTime * lookRotSpeed);
+            Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookingSpeed);
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, rangeWalk);
     }
 }

@@ -2,22 +2,21 @@ using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
 {
-    private PlayerHealth target;
+    public PlayerHealth target;
 
-    public int damage = 10;
+    public int zombieDamage = 15;
 
     private void Awake()
     {
-        target = FindObjectOfType<PlayerHealth>();
     }
 
-    public void AttackHitEvent()
+    public void ZombieAttactEvent()
     {
         if (target == null)
         {
             return;
         }
 
-        target.PlayerTakeDamage(damage);
+        target.TakeDamagePlayer (zombieDamage);
     }
 }

@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int health = 100;
 
-    public void PlayerTakeDamage(int damage)
+    public void TakeDamagePlayer(int damage)
     {
         health -= damage;
 

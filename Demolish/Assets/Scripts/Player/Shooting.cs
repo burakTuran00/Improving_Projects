@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 
     public float range = 50f;
     
-    public int weaponDamage = 25;
+    public int weaponDamage = 30;
 
 
     private void Update()
@@ -22,12 +22,12 @@ public class Shooting : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(FPS_cam.transform.position,FPS_cam.transform.forward,out hit, range))
             {
-                ZombiHealth zombiHealth = hit.transform.GetComponent<ZombiHealth>();
+                ZombieHealth zombiHealth = hit.transform.GetComponent<ZombieHealth>();
                 if (zombiHealth == null)
                 {
                     return;
                 }
-                zombiHealth.TakeDamage(weaponDamage);
+                zombiHealth.TakeDamageZombie(weaponDamage);
             }
             else
             {
