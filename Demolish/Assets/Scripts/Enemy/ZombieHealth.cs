@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieHealth : MonoBehaviour
 {
     public int health = 100;
+
+    private bool isAlive = true;
 
     public void TakeDamageZombie(int damage)
     {
@@ -18,7 +19,14 @@ public class ZombieHealth : MonoBehaviour
 
     private void ZombieDeath()
     {
-        GetComponent<Animator>().SetTrigger("Death"); // Trigger to death animation
-        Destroy(gameObject, 1.5f);
+        isAlive = false;
+        GetComponent<Animator>().SetTrigger("Death");
+        GetComponent<NavMeshAgent>().speed = 0.0f;
+        Destroy(gameObject, 2.5f);
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
     }
 }

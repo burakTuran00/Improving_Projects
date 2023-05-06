@@ -7,9 +7,11 @@ public class ZombieAI : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    private ZombieHealth zombieHealth;
+
     public GameObject target;
 
-    private float rangeWalk = 7f;
+    public float rangeWalk = 14f;
 
     private float distanceToTarget = Mathf.Infinity;
 
@@ -19,6 +21,7 @@ public class ZombieAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        zombieHealth = GetComponent<ZombieHealth>();
     }
 
     private void Update()
@@ -35,17 +38,25 @@ public class ZombieAI : MonoBehaviour
 
         if (distanceToTarget <= rangeWalk)
         {
+            agent.speed = 2.0f;
+
             if (distanceToTarget >= agent.stoppingDistance)
             {
                 animator.SetBool("Attack", false);
-                animator.SetTrigger("Move");
+                animator.SetBool("Move",true);
             }
-            if (distanceToTarget <= agent.stoppingDistance)
+            else if (distanceToTarget <= agent.stoppingDistance)
             {
                 animator.SetBool("Attack", true);
             }
-
+            
             agent.SetDestination(target.transform.position);
+        }
+        else
+        {
+            agent.speed = 0.0f;
+            animator.SetBool("Move",false);
+            return;
         }
     }
 
