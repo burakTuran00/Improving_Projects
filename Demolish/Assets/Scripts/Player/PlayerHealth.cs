@@ -1,15 +1,20 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int health = 100;
 
+    public TextMeshProUGUI healthText;
+
     public void TakeDamagePlayer(int damage)
     {
         health -= damage;
+        healthText.text = health.ToString();
 
         if (health <= 0)
         {
+            healthText.text = health.ToString();
             PlayerDie();
         }
     }
@@ -22,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeHealth(int healthKit)
     {
         health += healthKit;
+        healthText.text = health.ToString();
 
         if (health >= 100)
         {

@@ -19,6 +19,7 @@ public class Shooting : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            GetComponent<Ammo>().DecreaseAmmo();
             RaycastHit hit;
             if (Physics.Raycast(FPS_cam.transform.position,FPS_cam.transform.forward,out hit, range))
             {

@@ -9,7 +9,7 @@ public class ZombieAI : MonoBehaviour
 
     private ZombieHealth zombieHealth;
 
-    public GameObject target;
+    private GameObject target;
 
     public float rangeWalk = 14f;
 
@@ -22,6 +22,7 @@ public class ZombieAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         zombieHealth = GetComponent<ZombieHealth>();
+        target = GameObject.Find("PlayerCapsule");
     }
 
     private void Update()
