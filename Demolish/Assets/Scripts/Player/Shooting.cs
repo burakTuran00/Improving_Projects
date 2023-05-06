@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Shooting : MonoBehaviour
 {
     public Camera FPS_cam;
@@ -8,7 +8,7 @@ public class Shooting : MonoBehaviour
     
     public int weaponDamage = 25;
 
-    
+
     private void Update()
     {
         Shoot();
@@ -19,7 +19,6 @@ public class Shooting : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
-            
             RaycastHit hit;
             if (Physics.Raycast(FPS_cam.transform.position,FPS_cam.transform.forward,out hit, range))
             {
@@ -34,6 +33,8 @@ public class Shooting : MonoBehaviour
             {
                 return;
             }
+
         }
     }
+
 }
