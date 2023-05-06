@@ -14,6 +14,14 @@ public class Ammo : MonoBehaviour
         shooting = GetComponent<Shooting>();
     }
 
+    private void Update()
+    {
+        if (ammoAmount >= 0)
+        {
+            shooting.enabled = true;
+        }
+    }
+
     public void DecreaseAmmo()
     {
         ammoAmount--;
@@ -28,8 +36,11 @@ public class Ammo : MonoBehaviour
         }
     }
 
-    public void IncreaseAmmo()
+    public void IncreaseAmmo(int increaseAmount)
     {
-        
+        ammoAmount += increaseAmount;
+        ammoText.text = ammoAmount.ToString();
+
+        shooting.enabled = true;
     }
 }
