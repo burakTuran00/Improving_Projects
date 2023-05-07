@@ -7,7 +7,12 @@ public class PlayerHealth : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
-    public GameManager gameManager;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void TakeDamagePlayer(int damage)
     {
@@ -29,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        gameManager.RestartGame();
+        gameManager.PlayerDieStage();
     }
 
     public void TakeHealth(int healthKit)

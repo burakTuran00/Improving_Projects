@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,10 +10,6 @@ public class GameManager : MonoBehaviour
     private PlayerHealth playerHealth;
 
     private Ammo ammo;
-
-    private GameObject gameManagerCanvas;
-
-    private GameObject playerCanvas;
 
     private void Awake()
     {
@@ -32,14 +30,19 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        ammo.ammoAmount = 30;
-        playerHealth.health = 100;
-        gameManagerCanvas.SetActive(false);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        SceneManager.LoadScene (nextSceneIndex);
     }
 
-    public void RestartGame()
+    public void ExitGame()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene (currentSceneIndex);
+        Application.Quit();
+    }
+
+    public void PlayerDieStage()
+    {
+        SceneManager.LoadScene(0);
     }
 }
