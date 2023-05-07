@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
+    public GameManager gameManager;
+
     public void TakeDamagePlayer(int damage)
     {
         health -= damage;
@@ -22,7 +24,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerDie()
     {
-        //todo:
+        if (gameManager == null)
+        {
+            return;
+        }
+
+        gameManager.RestartGame();
     }
 
     public void TakeHealth(int healthKit)
