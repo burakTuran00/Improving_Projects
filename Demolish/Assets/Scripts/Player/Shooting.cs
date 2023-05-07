@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
     
     public int weaponDamage = 30;
 
+    public ParticleSystem fireEffect;
+
 
     private void Update()
     {
@@ -19,7 +21,8 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GetComponent<Ammo>().DecreaseAmmo();
-
+            FireFlashEffect();
+            
             RaycastHit hit;
             if (Physics.Raycast(FPS_cam.transform.position,FPS_cam.transform.forward,out hit, range))
             {
@@ -36,6 +39,11 @@ public class Shooting : MonoBehaviour
             }
 
         }
+    }
+
+    private void FireFlashEffect()
+    {
+        fireEffect.Play();
     }
 
 }
