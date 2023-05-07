@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        gameManager.LoadUILevel();
+        gameManager.RestartLevel();
     }
 
     public bool IsPlayerAlive()

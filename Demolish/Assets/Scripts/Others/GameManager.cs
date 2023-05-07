@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     private Ammo ammo;
 
-    private float waitTime = 1f;
+    private float waitTime = 1.0f;
 
     private void Awake()
     {
@@ -30,35 +30,23 @@ public class GameManager : MonoBehaviour
         playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
-    public void NewGame()
+    public void RestartLevel()
     {
-        StartCoroutine(LoadNextLevel());
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene (currentIndex);
     }
 
-    public void ExitGame()
+    public void NextLevel()
     {
-        Application.Quit();
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
+        SceneManager.LoadScene (nextIndex);
     }
 
-    public void LoadUILevel()
-    {
-        StartCoroutine(FirsLevel());
-    }
-
-    public IEnumerator FirsLevel()
+    private IEnumerator SceneLoader(int sceneIndex)
     {
         yield return new WaitForSeconds(waitTime);
 
-        SceneManager.LoadScene(0);
-    }
-
-    private IEnumerator LoadNextLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        yield return new WaitForSeconds(waitTime);
-
-        SceneManager.LoadScene (nextSceneIndex);
+        SceneManager.LoadScene (sceneIndex);
     }
 }

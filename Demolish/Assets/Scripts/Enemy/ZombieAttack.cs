@@ -30,6 +30,10 @@ public class ZombieAttack : MonoBehaviour
             target.TakeDamagePlayer (zombieDamage);
             StartCoroutine(Blood());
         }
+        else
+        {
+            GetComponent<Animator>().SetBool("Attack", false);
+        }
     }
 
     IEnumerator Blood()
