@@ -20,8 +20,9 @@ public class ZombieHealth : MonoBehaviour
     private void ZombieDeath()
     {
         isAlive = false;
-        GetComponent<Animator>().SetTrigger("Death");
         GetComponent<NavMeshAgent>().speed = 0.0f;
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<Animator>().SetTrigger("Death");
         Destroy(gameObject, 2.5f);
     }
 

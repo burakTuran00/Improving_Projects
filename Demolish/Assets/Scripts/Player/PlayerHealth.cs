@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            health = 0;
             healthText.text = health.ToString();
             PlayerDie();
         }
@@ -21,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerDie()
     {
-        Destroy(this.gameObject);
+        //todo:
     }
 
     public void TakeHealth(int healthKit)
