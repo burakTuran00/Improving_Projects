@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     private Ammo ammo;
 
+    private float waitTime = 1f;
+
     private void Awake()
     {
         int numberGameManager = FindObjectsOfType<GameManager>().Length;
@@ -30,10 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        SceneManager.LoadScene (nextSceneIndex);
+        StartCoroutine(LoadNextLevel());
     }
 
     public void ExitGame()
@@ -41,8 +40,25 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayerDieStage()
+    public void LoadUILevel()
     {
+        StartCoroutine(FirsLevel());
+    }
+
+    public IEnumerator FirsLevel()
+    {
+        yield return new WaitForSeconds(waitTime);
+
         SceneManager.LoadScene(0);
+    }
+
+    private IEnumerator LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        yield return new WaitForSeconds(waitTime);
+
+        SceneManager.LoadScene (nextSceneIndex);
     }
 }

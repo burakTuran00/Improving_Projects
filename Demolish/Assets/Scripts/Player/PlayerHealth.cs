@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     private GameManager gameManager;
 
+    private bool playerAlive = true;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -23,6 +25,9 @@ public class PlayerHealth : MonoBehaviour
         {
             health = 0;
             healthText.text = health.ToString();
+
+            playerAlive = false;
+
             PlayerDie();
         }
     }
@@ -34,7 +39,12 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        gameManager.PlayerDieStage();
+        gameManager.LoadUILevel();
+    }
+
+    public bool IsPlayerAlive()
+    {
+        return playerAlive;
     }
 
     public void TakeHealth(int healthKit)

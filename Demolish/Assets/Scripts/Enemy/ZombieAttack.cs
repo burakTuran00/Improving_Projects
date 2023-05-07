@@ -20,13 +20,16 @@ public class ZombieAttack : MonoBehaviour
 
     public void ZombieAttactEvent()
     {
-        if (target == null)
+        if (target.IsPlayerAlive())
         {
-            return;
-        }
+            if (target == null)
+            {
+                return;
+            }
 
-        target.TakeDamagePlayer (zombieDamage);
-        StartCoroutine(Blood());
+            target.TakeDamagePlayer (zombieDamage);
+            StartCoroutine(Blood());
+        }
     }
 
     IEnumerator Blood()
