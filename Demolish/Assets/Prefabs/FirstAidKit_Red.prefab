@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300378040664606009}
   - component: {fileID: 9147309183121209792}
   - component: {fileID: 3286175891816219353}
+  - component: {fileID: 538301899435044025}
   m_Layer: 0
   m_Name: FirstAidKit_Red
   m_TagString: Untagged
@@ -95,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9540792, y: 2.5032947, z: 0.4149846}
   m_Center: {x: 0, y: 1.2310425, z: 0.20749219}
+--- !u!114 &538301899435044025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7407598061037915420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65184fab61f9a3445809fba19b13f4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  amountHealth: 30
