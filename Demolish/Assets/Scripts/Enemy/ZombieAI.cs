@@ -32,13 +32,13 @@ public class ZombieAI : MonoBehaviour
 
     private void ZombieMovement()
     {
-        LookToTarget();
-
+       
         distanceToTarget =
             Vector3.Distance(target.transform.position, transform.position);
 
         if (distanceToTarget <= rangeWalk)
         {
+             LookToTarget();
             agent.speed = 2.0f;
 
             if (distanceToTarget >= agent.stoppingDistance)
@@ -57,7 +57,6 @@ public class ZombieAI : MonoBehaviour
         {
             agent.speed = 0.0f;
             animator.SetBool("Move",false);
-            return;
         }
     }
 
