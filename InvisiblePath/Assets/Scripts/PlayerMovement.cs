@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CircleCollider2D circleCollider2D;
 
-    private Vector2 direction;
+    private Vector3 direction;
 
     public float speed = 1f;
 
@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
 
-        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        //rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        transform.position += direction * speed * Time.deltaTime;
     }
 
     private void DetectCollision()
@@ -37,10 +38,12 @@ public class PlayerMovement : MonoBehaviour
         if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Area")))
         {
             //todo play
+            Debug.Log("In");
         }
         else
         {
             //todo die
+            Debug.Log("Out");
         }
     }
 }
