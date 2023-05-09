@@ -27,4 +27,22 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Area"))
+        {
+            //todo play
+            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Area"))
+        {
+            //todo die
+            
+        }
+    }
 }
