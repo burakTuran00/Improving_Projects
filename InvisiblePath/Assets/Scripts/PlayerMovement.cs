@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    private CircleCollider2D circleCollider2D;
+
     private Vector2 direction;
 
     public float speed = 1f;
@@ -13,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
     private void Update()
     {
         Move();
+        DetectCollision();
     }
 
     private void Move()
@@ -28,21 +32,15 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void DetectCollision()
     {
-        if (other.gameObject.CompareTag("Area"))
+        if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Area")))
         {
             //todo play
-            
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Area"))
+        else
         {
             //todo die
-            
         }
     }
 }
