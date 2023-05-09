@@ -6,6 +6,8 @@ public class Exit : MonoBehaviour
 {
     public float delay = 0.5f;
 
+    public float shortDelay = 0.1f;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,5 +30,14 @@ public class Exit : MonoBehaviour
         }
 
         SceneManager.LoadScene (nextSceneIndex);
+    }
+
+    public IEnumerator LoadCurrentLevel()
+    {
+        yield return new WaitForSecondsRealtime(shortDelay);
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene (currentSceneIndex);
     }
 }

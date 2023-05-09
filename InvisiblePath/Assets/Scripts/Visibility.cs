@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Visibility : MonoBehaviour
 {
@@ -11,9 +12,14 @@ public class Visibility : MonoBehaviour
 
     private bool isActive = true;
 
+    public int limit = 3;
+
+    public Text limitText;
+
     private void Start()
     {
         PathCondition(false);
+        limitText.text = limit.ToString();
     }
 
     private void Update()
@@ -23,9 +29,11 @@ public class Visibility : MonoBehaviour
 
     private IEnumerator Control()
     {
-        if (Input.GetMouseButtonDown(0) && isActive)
+        if (Input.GetKeyDown(KeyCode.Space) && isActive)
         {
             PathCondition(true);
+
+            Limit();
 
             yield return new WaitForSeconds(visibletime);
 
@@ -53,5 +61,16 @@ public class Visibility : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         isActive = true;
+    }
+
+    private void Limit()
+    {
+        limit--;
+        limitText.text = limit.ToString();
+
+        if (limit <= 0)
+        {
+            isActive = false;
+        }
     }
 }

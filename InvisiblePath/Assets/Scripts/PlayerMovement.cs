@@ -1,10 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    private Exit exit;
 
     private CircleCollider2D circleCollider2D;
 
@@ -12,10 +13,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 1f;
 
+    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
+        exit = FindObjectOfType<Exit>();
     }
 
     private void Update()
@@ -37,13 +41,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Area")))
         {
-            //todo play
-            Debug.Log("In");
         }
         else
         {
-            //todo die
-            Debug.Log("Out");
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        StartCoroutine(exit.LoadCurrentLevel());
     }
 }
