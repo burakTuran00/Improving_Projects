@@ -9,6 +9,8 @@ public class Visibility : MonoBehaviour
 
     public float waitTime = 3.0f;
 
+    private bool isActive = true;
+
     private void Start()
     {
         PathCondition(false);
@@ -16,20 +18,23 @@ public class Visibility : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(Control(true));
+        StartCoroutine(Control());
     }
 
-    private IEnumerator Control(bool isActive)
+    private IEnumerator Control()
     {
         if (Input.GetMouseButtonDown(0) && isActive)
         {
             PathCondition(true);
-            isActive = false;
 
             yield return new WaitForSeconds(visibletime);
-            
+
             PathCondition(false);
-            isActive = true;
+            isActive = false;
+        }
+        else if (!isActive)
+        {
+            StartCoroutine(WaitForVisible());
         }
     }
 
@@ -44,8 +49,9 @@ public class Visibility : MonoBehaviour
         }
     }
 
-    private void PlayerWait()
+    private IEnumerator WaitForVisible()
     {
-
+        yield return new WaitForSeconds(waitTime);
+        isActive = true;
     }
 }
