@@ -13,6 +13,18 @@ public class PlayerMovement : MonoBehaviour
     [Range(1, 14)]
     public float moveSpeed = 8.0f;
 
+    public float maxJumpHeight = 5.0f;
+
+    public float maxJumpTime = 1.0f;
+
+    public float jumpForce => (2f  * maxJumpHeight) / (maxJumpTime / 2f);
+
+    public float gravity =>(-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
+
+    public bool grounded {get; private set;}
+    
+    public bool jumping {get; private set;}
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
