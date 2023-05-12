@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        HorizontalMovement();
+
         grounded = rb.Raycast(Vector2.down);
 
         if (grounded)
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             GroundedMovement();
         }
 
-        HorizontalMovement();
+        ApplyGravity();
     }
 
     private void FixedUpdate() 
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GroundedMovement()
     {
+        velocity.y = Mathf.Max(velocity.y, 0f);
         jumping = velocity.y > 0;
 
         if (Input.GetButtonDown("Jump"))
@@ -71,5 +74,14 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = jumpForce;
             jumping = true;
         }
+    }
+
+    private void ApplyGravity()
+    {
+        bool falling = velocity.y < 0 || !Input.GetButtonDown("Jump");
+        float multiplier = falling ? 2.0f : 1.0f;
+
+        velocity.y += gravity * multiplier * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, gravity / 2f);
     }
 }
