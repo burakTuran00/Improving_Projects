@@ -33,6 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        grounded = rb.Raycast(Vector2.down);
+
+        if (grounded)
+        {
+            GroundedMovement();
+        }
+
         HorizontalMovement();
     }
 
@@ -53,5 +60,16 @@ public class PlayerMovement : MonoBehaviour
     {
         inputAxis = Input.GetAxis("Horizontal");
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, Time.deltaTime * moveSpeed);
+    }
+
+    private void GroundedMovement()
+    {
+        jumping = velocity.y > 0;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            velocity.y = jumpForce;
+            jumping = true;
+        }
     }
 }
