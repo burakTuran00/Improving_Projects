@@ -4,6 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    private Camera cam;
+
     private Vector2 velocity;
 
     private float inputAxis;
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        cam = Camera.main;
     }
 
     private void Update()
@@ -25,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 position = rb.position;
         position += velocity * Time.fixedDeltaTime;
+
+        Vector2 leftEdge = cam.ScreenToWorldPoint(Vector3.zero);
+        Vector2 rightEdge = cam.ScreenToWorldPoint(new Vector2(Screen.width , Screen.height));
+
+        position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
         rb.MovePosition(position);    
     }
