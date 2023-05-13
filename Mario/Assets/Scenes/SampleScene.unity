@@ -310,6 +310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8921526941280569483, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -573,6 +577,10 @@ PrefabInstance:
     - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
       propertyPath: m_Name
       value: MysteryBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
@@ -961,6 +969,10 @@ PrefabInstance:
     - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Name
       value: Brick (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
@@ -2184,6 +2196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
 --- !u!4 &835404068 stripped
@@ -2245,6 +2261,10 @@ PrefabInstance:
     - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
       propertyPath: m_Name
       value: MysteryBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
@@ -2315,6 +2335,10 @@ PrefabInstance:
     - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8921526941280569483, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Size.x
@@ -3026,6 +3050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
 --- !u!4 &1057299540 stripped
@@ -3660,6 +3688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
 --- !u!4 &1311930774 stripped
@@ -4040,6 +4072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8921526941280569483, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Size.x
       value: 3
@@ -4348,6 +4384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8921526941280569483, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Size.x
       value: 4
@@ -4487,6 +4527,10 @@ PrefabInstance:
     - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Name
       value: Brick (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
@@ -4674,6 +4718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
 --- !u!4 &1700740926 stripped
@@ -4798,6 +4846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
 --- !u!4 &1712685230 stripped
@@ -4859,6 +4911,10 @@ PrefabInstance:
     - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
       propertyPath: m_Name
       value: MysteryBlock (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
@@ -5466,6 +5522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
 --- !u!4 &1890528864 stripped
@@ -5597,6 +5657,10 @@ PrefabInstance:
     - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8921526941280569483, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Size.x
@@ -5799,6 +5863,10 @@ PrefabInstance:
     - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827964718099121306, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
@@ -6195,6 +6263,10 @@ PrefabInstance:
     - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
       propertyPath: m_Name
       value: MysteryBlock (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317603171586945104, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc093380a4518c64ebae53a3559cbfc1, type: 3}
