@@ -18,4 +18,9 @@ public static class Extensions
         
         return (hit.collider != null && hit.rigidbody != rigidbody2D);    
     }
+
+    public static bool DotTest(this Transform transform, Transform other, Vector2 testDirection)
+    {
+        Vector2 direction = other.position - transform.position;
+    }
 }
