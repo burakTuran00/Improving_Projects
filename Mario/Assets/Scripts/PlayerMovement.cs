@@ -89,7 +89,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
-            
+            if (transform.DotTest(other.transform, Vector2.up))
+            {
+                velocity.y = 0;
+            }
         } 
     }
 }
