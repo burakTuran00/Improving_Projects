@@ -2285,10 +2285,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 27793120809053091, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 18b8c8a2c6917d94a8c122d44d7cdc84, type: 2}
-    - target: {fileID: 27793120809053091, guid: 47dfecb0f3727bf41b4b1211819990f9, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 2
       objectReference: {fileID: 0}
@@ -6286,10 +6282,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 525427286358519537, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 6beb62bf28c4d944d97f1a5a38943adc, type: 2}
     - target: {fileID: 1528680458102521387, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6334,17 +6326,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2926136242648443034, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: maxJumpTime
-      value: 1
+    - target: {fileID: 1699956056198233417, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 2926136242648443034, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: maxJumpHeight
-      value: 8.5
-      objectReference: {fileID: 0}
+    - target: {fileID: 1699956056198233417, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: b168692959f424a458ff7c6d092b32b4, type: 3}
     - target: {fileID: 7051620607533757254, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
+    - target: {fileID: 7619563232704136656, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619563232704136656, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: a1e7d1dc1fad6e7469f398fa9050de48, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
