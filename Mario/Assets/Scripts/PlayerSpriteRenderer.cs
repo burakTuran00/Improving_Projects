@@ -4,9 +4,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
-    private PlayerMovement movement;
-
-    public Sprite[] run;
+    private PlayerMovement movement; 
 
     public Sprite idle;
 
@@ -29,7 +27,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
         else if (movement.sliding)
         {
             spriteRenderer.sprite = slide;
-        }
+        } 
         else if (movement.running)
         {
         }
@@ -37,10 +35,5 @@ public class PlayerSpriteRenderer : MonoBehaviour
         {
             spriteRenderer.sprite = idle;
         }
-    }
-
-    public void Run()
-    {
-        
     }
 }
