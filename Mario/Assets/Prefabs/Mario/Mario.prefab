@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2722288827595465964}
   - component: {fileID: 7301608349491725352}
+  - component: {fileID: 3037390872590890069}
   m_Layer: 3
   m_Name: Small
   m_TagString: Untagged
@@ -82,6 +83,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3037390872590890069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549258919725323493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2908901388968f941a924af743037269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2431756881467962848
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3289688372986857981}
   - component: {fileID: 1645781014469158739}
+  - component: {fileID: 3960109577156185664}
   m_Layer: 3
   m_Name: Big
   m_TagString: Untagged
@@ -164,6 +178,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3960109577156185664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431756881467962848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2908901388968f941a924af743037269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7051620607533757254
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,5 +275,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  maxJumpHeight: 5
+  maxJumpHeight: 8.5
   maxJumpTime: 1

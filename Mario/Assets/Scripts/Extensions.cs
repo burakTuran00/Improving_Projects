@@ -12,7 +12,7 @@ public static class Extensions
         }
 
         float radius = 0.25f;
-        float distance = 1.0f;
+        float distance = 1f;
 
         RaycastHit2D hit = Physics2D.CircleCast(rigidbody2D.position, radius, direction.normalized, distance, layerMask);
         
