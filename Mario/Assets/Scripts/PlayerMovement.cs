@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     
     public bool jumping {get; private set;}
 
+    public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
+
+    public bool running => Mathf.Abs(velocity.x) > Mathf.Epsilon || Mathf.Abs(inputAxis) > Mathf.Epsilon;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

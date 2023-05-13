@@ -95,6 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2908901388968f941a924af743037269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  run:
+  - {fileID: 21300000, guid: 7971903333032f9429384c9c833f7c4c, type: 3}
+  - {fileID: 21300000, guid: a1e7d1dc1fad6e7469f398fa9050de48, type: 3}
+  - {fileID: 21300000, guid: 8e911eb28b619d7499ee70c0c35cde5e, type: 3}
+  idle: {fileID: 21300000, guid: dd3f3a4f71f887a4ebd0709b3fcde1b6, type: 3}
+  jump: {fileID: 21300000, guid: 8764b2a8db704464c8cae7621c27b7d2, type: 3}
+  slide: {fileID: 21300000, guid: 344ae2e8863689b4a827eed4290e9f7f, type: 3}
 --- !u!1 &2431756881467962848
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +197,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2908901388968f941a924af743037269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  run:
+  - {fileID: 21300000, guid: 9b287d1751067fa4f8e0ad8d21580310, type: 3}
+  - {fileID: 21300000, guid: 9b287d1751067fa4f8e0ad8d21580310, type: 3}
+  - {fileID: 21300000, guid: b168692959f424a458ff7c6d092b32b4, type: 3}
+  idle: {fileID: 21300000, guid: a5b977b50c4ed0343a5b6ee3026b8fd3, type: 3}
+  jump: {fileID: 21300000, guid: 950ceaea987a5f741bf14a8191a1bf99, type: 3}
+  slide: {fileID: 21300000, guid: 28d6d87ecaefbfc42b02780d6ec3c2e8, type: 3}
 --- !u!1 &7051620607533757254
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,5 +22,25 @@ public class PlayerSpriteRenderer : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (movement.jumping)
+        {
+            spriteRenderer.sprite = jump;
+        }
+        else if (movement.sliding)
+        {
+            spriteRenderer.sprite = slide;
+        }
+        else if (movement.running)
+        {
+        }
+        else
+        {
+            spriteRenderer.sprite = idle;
+        }
+    }
+
+    public void Run()
+    {
+        
     }
 }
