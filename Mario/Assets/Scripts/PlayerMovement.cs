@@ -67,6 +67,15 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.x = 0;
         }
+
+        if (velocity.x > 0)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+        else if (velocity.x < 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
     }
 
     private void GroundedMovement()
@@ -96,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.DotTest(other.transform, Vector2.up))
             {
-                velocity.y = 0;
+               velocity.y = 0;
             }
         } 
     }
