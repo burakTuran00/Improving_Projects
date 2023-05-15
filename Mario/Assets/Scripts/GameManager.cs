@@ -49,6 +49,25 @@ public class GameManager : MonoBehaviour
         this.world = world;
         this.stage = stage;
 
-        
+        SceneManager.LoadScene($"{world}-{stage}");
+    }
+
+    public void ResetLevel()
+    {
+        lives--;
+
+        if (lives > 0)
+        {
+            LoadLevel (world, stage);
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        NewGame();
     }
 }
