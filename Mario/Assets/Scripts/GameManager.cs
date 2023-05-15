@@ -16,4 +16,22 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad (gameObject);
         }
     }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
+    private void Start()
+    {
+        NewGame();
+    }
+
+    private void NewGame()
+    {
+        
+    }
 }
