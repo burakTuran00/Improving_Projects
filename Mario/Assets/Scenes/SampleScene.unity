@@ -6327,24 +6327,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1699956056198233417, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: sprites.Array.size
-      value: 4
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1699956056198233417, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: sprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: b168692959f424a458ff7c6d092b32b4, type: 3}
+    - target: {fileID: 3960109577156185664, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7051620607533757254, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
-    - target: {fileID: 7619563232704136656, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: sprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7619563232704136656, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
-      propertyPath: sprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: a1e7d1dc1fad6e7469f398fa9050de48, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
