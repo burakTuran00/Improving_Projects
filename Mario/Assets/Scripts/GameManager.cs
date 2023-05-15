@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene($"{world}-{stage}");
     }
 
+    public void ResetLevel(float delay)
+    {
+        Invoke(nameof(ResetLevel), delay);
+    }
+
     public void ResetLevel()
     {
         lives--;
