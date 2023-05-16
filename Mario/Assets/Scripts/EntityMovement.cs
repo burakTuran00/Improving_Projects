@@ -36,4 +36,22 @@ public class EntityMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.Sleep();
     }
+
+    private void FixedUpdate()
+    {
+        velocity.x = direction.x * speed;
+        velocity.y += Physics2D.gravity.y;
+
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+
+        if (rb.Raycast(direction))
+        {
+            direction = -direction;
+        }
+
+        if (rb.Raycast(Vector2.down))
+        {
+            velocity.y = Mathf.Max(velocity.y, 0f);
+        }
+    }
 }
