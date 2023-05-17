@@ -17,17 +17,22 @@ public class PlayerMovement : MonoBehaviour
 
     public float maxJumpTime = 1.0f;
 
-    public float jumpForce => (2f  * maxJumpHeight) / (maxJumpTime / 2f);
+    public float jumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
 
-    public float gravity =>(-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
+    public float gravity =>
+        (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
 
-    public bool grounded {get; private set;}
-    
-    public bool jumping {get; private set;}
+    public bool grounded { get; private set; }
 
-    public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
+    public bool jumping { get; private set; }
 
-    public bool running => Mathf.Abs(velocity.x) > Mathf.Epsilon || Mathf.Abs(inputAxis) > Mathf.Epsilon;
+    public bool sliding =>
+        (inputAxis > 0f && velocity.x < 0f) ||
+        (inputAxis < 0f && velocity.x > 0f);
+
+    public bool running =>
+        Mathf.Abs(velocity.x) > Mathf.Epsilon ||
+        Mathf.Abs(inputAxis) > Mathf.Epsilon;
 
     private void Awake()
     {
@@ -49,23 +54,29 @@ public class PlayerMovement : MonoBehaviour
         ApplyGravity();
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         Vector2 position = rb.position;
         position += velocity * Time.fixedDeltaTime;
 
         Vector2 leftEdge = cam.ScreenToWorldPoint(Vector3.zero);
-        Vector2 rightEdge = cam.ScreenToWorldPoint(new Vector2(Screen.width , Screen.height));
+        Vector2 rightEdge =
+            cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-        position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
+        position.x =
+            Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
 
-        rb.MovePosition(position);    
+        rb.MovePosition (position);
     }
 
     private void HorizontalMovement()
     {
         inputAxis = Input.GetAxis("Horizontal");
-        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, Time.deltaTime * moveSpeed);
+        velocity.x =
+            Mathf
+                .MoveTowards(velocity.x,
+                inputAxis * moveSpeed,
+                Time.deltaTime * moveSpeed);
 
         if (rb.Raycast(Vector2.right * velocity.x))
         {
@@ -103,14 +114,22 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = Mathf.Max(velocity.y, gravity / 2f);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (transform.DotTest(other.transform, Vector2.down))
+            {
+                velocity.y = jumpForce / 2f;
+                jumping = true;
+            }
+        }
+        else if (other.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
             if (transform.DotTest(other.transform, Vector2.up))
             {
-               velocity.y = 0;
+                velocity.y = 0;
             }
-        } 
+        }
     }
 }
