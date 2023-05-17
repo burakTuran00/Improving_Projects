@@ -8,9 +8,15 @@ public class Goomba : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Player player = other.gameObject.GetComponent<Player>();
+
             if (other.transform.DotTest(transform, Vector2.down))
             {
                 Flatten();
+            }
+            else
+            {
+                player.Hit();
             }
         }
     }
@@ -22,6 +28,6 @@ public class Goomba : MonoBehaviour
         GetComponent<AnimatedSprite>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = flatSprite;
 
-        Destroy(gameObject, 0.5f); 
+        Destroy(gameObject, 0.5f);
     }
 }

@@ -38,6 +38,10 @@ public class Player : MonoBehaviour
 
     private void Death()
     {
-        
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = false;
+        deathAnimation.enabled = true;
+
+        GameManager.Instance.ResetLevel(3.0f);
     }
 }
