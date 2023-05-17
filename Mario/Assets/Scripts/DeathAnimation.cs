@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DeathAnimation : MonoBehaviour
@@ -15,7 +16,7 @@ public class DeathAnimation : MonoBehaviour
     {
         UpdateSprite();
         DisablePhysics();
-        Animate();
+        StartCoroutine(Animate());
     }
 
     private void UpdateSprite()
@@ -31,9 +32,37 @@ public class DeathAnimation : MonoBehaviour
 
     private void DisablePhysics()
     {
+        Collider2D[] colliders = GetComponents<Collider2D>();
+
+        foreach (Collider2D collider in colliders)
+        {
+            collider.enabled = false;
+        }
+
+        GetComponent<Rigidbody2D>().isKinematic = true;
+
+        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+        EntityMovement entityMovement = GetComponent<EntityMovement>();
+
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = false;
+        }
+
+        if (entityMovement != null)
+        {
+            entityMovement.enabled = false;
+        }
     }
 
-    private void Animate()
+    private IEnumerator Animate()
     {
+        float elapsed = 0f;
+        float duration = 3f;
+
+        float jumpVelocity = 10f;
+        float gravity = -36f;
+
+        
     }
 }
