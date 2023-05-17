@@ -69,7 +69,9 @@ public class DeathAnimation : MonoBehaviour
         {
             transform.position += velocity * Time.deltaTime;
             velocity.y += gravity * Time.deltaTime;
-            
+
+            elapsed += Time.deltaTime;
+
             yield return null;
         }
     }
