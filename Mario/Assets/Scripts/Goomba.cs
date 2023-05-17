@@ -22,6 +22,6 @@ public class Goomba : MonoBehaviour
         GetComponent<AnimatedSprite>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = flatSprite;
 
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.5f); 
     }
 }

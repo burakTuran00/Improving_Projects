@@ -166,3 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3a4575cad0aa148b215f22e409d809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flatSprite: {fileID: 21300000, guid: d6df0f95065234345a75e131c920c0e4, type: 3}
