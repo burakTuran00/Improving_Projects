@@ -8,7 +8,18 @@ public class Goomba : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            if (other.transform.DotTest(transform, Vector2.down))
+            {
+                Flatten();
+            }
         }
+    }
+
+    private void Flatten()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<EntityMovement>().enabled = false;
+        GetComponent<AnimatedSprite>().enabled = false;
+        GetComponent<SpriteRenderer>().sprite = flatSprite;
     }
 }
