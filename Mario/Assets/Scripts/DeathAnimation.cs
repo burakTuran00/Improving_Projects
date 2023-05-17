@@ -63,6 +63,14 @@ public class DeathAnimation : MonoBehaviour
         float jumpVelocity = 10f;
         float gravity = -36f;
 
-        
+        Vector3 velocity = Vector3.up * jumpVelocity;
+
+        while (elapsed < duration)
+        {
+            transform.position += velocity * Time.deltaTime;
+            velocity.y += gravity * Time.deltaTime;
+            
+            yield return null;
+        }
     }
 }
