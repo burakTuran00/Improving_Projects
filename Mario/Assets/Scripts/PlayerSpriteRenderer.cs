@@ -29,6 +29,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
     private void OnDisable()
     {
         spriteRenderer.enabled = false;
+        runSpirte.enabled = false;
     }
 
     private void LateUpdate()
