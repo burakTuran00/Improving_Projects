@@ -4,9 +4,13 @@ public class Koopa : MonoBehaviour
 {
     public Sprite shellSprite;
 
+    private bool shelled;
+
+    private bool shellMoving;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !shelled)
         {
             Player player = other.gameObject.GetComponent<Player>();
 
@@ -23,7 +27,8 @@ public class Koopa : MonoBehaviour
 
     private void EnterShell()
     {
-        GetComponent<Collider2D>().enabled = false;
+        shelled = true;
+
         GetComponent<EntityMovement>().enabled = false;
         GetComponent<AnimatedSprite>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = shellSprite;
