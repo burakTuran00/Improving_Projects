@@ -78,4 +78,12 @@ public class Koopa : MonoBehaviour
 
         Destroy(gameObject, 3.0f);
     }
+
+    private void OnBecameInvisible() 
+    {
+        if (pushed)
+        {
+            Destroy(gameObject);
+        }    
+    }
 }
