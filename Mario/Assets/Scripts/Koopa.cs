@@ -34,7 +34,7 @@ public class Koopa : MonoBehaviour
             if (!pushed)
             {
                 Vector2 direction =new Vector2(transform.position.x - other.transform.position.x, 0f);
-                PushCell(direction);
+                PushShell(direction);
             }
             else
             {
@@ -53,7 +53,7 @@ public class Koopa : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = shellSprite;
     }
 
-    private void PushCell(Vector2 direction)
+    private void PushShell(Vector2 direction)
     {
         pushed = true;
 
@@ -63,5 +63,7 @@ public class Koopa : MonoBehaviour
         entityMovement.direction = direction.normalized;
         entityMovement.speed = shellSpeed;
         entityMovement.enabled = true;
+
+        gameObject.layer = LayerMask.NameToLayer("Shell");
     }
 }
