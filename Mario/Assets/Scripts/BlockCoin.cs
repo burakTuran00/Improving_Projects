@@ -6,6 +6,8 @@ public class BlockCoin : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.AddCoin();
+
+        StartCoroutine(Animate());
     }
 
     private IEnumerator Animate()
@@ -15,6 +17,8 @@ public class BlockCoin : MonoBehaviour
 
         yield return Move(restingPosition, animatedPosition);
         yield return Move(animatedPosition, restingPosition);
+
+        Destroy (gameObject);
     }
 
     private IEnumerator Move(Vector3 from, Vector3 to)

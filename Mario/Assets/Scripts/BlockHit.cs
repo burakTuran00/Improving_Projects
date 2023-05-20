@@ -13,7 +13,7 @@ public class BlockHit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !animating)
+        if (other.gameObject.CompareTag("Player") && !animating && maxHits != 0)
         {
             if (other.transform.DotTest(transform, Vector2.up))
             {
