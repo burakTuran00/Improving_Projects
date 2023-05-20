@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1843193772135096782}
   - component: {fileID: 201453660270884212}
   - component: {fileID: 6394351150407179254}
+  - component: {fileID: 7858421600954485345}
+  - component: {fileID: 2440727852481366131}
   m_Layer: 6
   m_Name: Starman
   m_TagString: Untagged
@@ -148,3 +150,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7858421600954485345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382199135705540710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7cdbf73f1b45f46bca35eed22ebab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2440727852481366131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382199135705540710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ceea2147f1abe49bc07cb2f8b53de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  direction: {x: 1, y: 0}
