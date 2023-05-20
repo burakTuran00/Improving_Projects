@@ -37,9 +37,10 @@ public class BlockItem : MonoBehaviour
             transform.localPosition = Vector3.Lerp(startPosition, endPosition, t);
 
             elapsed += Time.deltaTime;
-
             yield return null;
         }
+
+        transform.localPosition = endPosition;
 
         rigidbody.isKinematic = false;
         physicsCollider.enabled = true;
