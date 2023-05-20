@@ -4448,6 +4448,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5939069406795658883, guid: b46e220075f333e4b9330d92d591b206, type: 3}
+      propertyPath: direction.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5939069406795658885, guid: b46e220075f333e4b9330d92d591b206, type: 3}
       propertyPath: m_Name
       value: Koopa
