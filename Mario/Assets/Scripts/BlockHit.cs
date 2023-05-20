@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BlockHit : MonoBehaviour
@@ -6,9 +7,11 @@ public class BlockHit : MonoBehaviour
 
     public Sprite emptyBlock;
 
+    private bool animating;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !animating)
         {
             if (other.transform.DotTest(transform, Vector2.up))
             {
@@ -27,5 +30,16 @@ public class BlockHit : MonoBehaviour
         {
             spriteRenderer.sprite = emptyBlock;
         }
+
+        StartCoroutine(Animate());
+    }
+
+    private IEnumerator Animate()
+    {
+        animating = true;
+
+        Vector3 restingPosition = transform.localPosition;
+
+        animating = false;
     }
 }
