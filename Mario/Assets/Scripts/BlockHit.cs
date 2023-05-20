@@ -39,7 +39,16 @@ public class BlockHit : MonoBehaviour
         animating = true;
 
         Vector3 restingPosition = transform.localPosition;
+        Vector3 animatedPosition = restingPosition + Vector3.up * 0.5f;
+
+        yield return Move(restingPosition, animatedPosition);
+        yield return Move(animatedPosition, restingPosition);
 
         animating = false;
+    }
+
+    private IEnumerator Move(Vector3 from, Vector3 to)
+    {
+        
     }
 }
