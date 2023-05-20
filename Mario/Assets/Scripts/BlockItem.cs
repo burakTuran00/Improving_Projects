@@ -19,5 +19,30 @@ public class BlockItem : MonoBehaviour
         physicsCollider.enabled = false;
         triggerCollider.enabled = false;
         spriteRenderer.enabled = false;
+
+        yield return new WaitForSeconds(0.125f);
+
+        spriteRenderer.enabled = true;
+
+        float elapsed = 0f;
+        float duration = 0.5f;
+
+        Vector3 startPosition = transform.localPosition;
+        Vector3 endPosition = transform.localPosition + Vector3.up;
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+
+            transform.position = Vector3.Lerp(startPosition, endPosition, t);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        rigidbody.isKinematic = false;
+        physicsCollider.enabled = true;
+        triggerCollider.enabled = true;
     }
 }
