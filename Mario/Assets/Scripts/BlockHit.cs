@@ -49,6 +49,17 @@ public class BlockHit : MonoBehaviour
 
     private IEnumerator Move(Vector3 from, Vector3 to)
     {
-        
+        float elapsed = 0f;
+        float duration = 0.125f;
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+
+            transform.localPosition = Vector3.Lerp(from, to, t);
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
     }
 }
