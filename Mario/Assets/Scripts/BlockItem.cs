@@ -34,7 +34,7 @@ public class BlockItem : MonoBehaviour
         {
             float t = elapsed / duration;
 
-            transform.position = Vector3.Lerp(startPosition, endPosition, t);
+            transform.localPosition = Vector3.Lerp(startPosition, endPosition, t);
 
             elapsed += Time.deltaTime;
 
