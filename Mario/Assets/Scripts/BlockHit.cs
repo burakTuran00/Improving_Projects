@@ -61,5 +61,7 @@ public class BlockHit : MonoBehaviour
 
             yield return null;
         }
+
+        transform.localPosition = to;
     }
 }
