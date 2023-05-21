@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
 
     private DeathAnimation deathAnimation;
 
+    private CapsuleCollider2D capsuleCollider2D;
+
     public bool big => bigRenderer.enabled;
 
     public bool small => smallRenderer.enabled;
@@ -19,6 +22,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         deathAnimation = GetComponent<DeathAnimation>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
     public void Hit()
@@ -48,10 +52,40 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = true;
 
         activeRenderer = bigRenderer;
+
+        capsuleCollider2D.size = new Vector2(1f, 2f);
+        capsuleCollider2D.offset = new Vector2(0f, 0f);
+
+        StartCoroutine(ScaleAnimation());
     }
 
     private void Shrink()
     {
-        //todo
+        smallRenderer.enabled = true;
+        bigRenderer.enabled = enabled;
+
+        activeRenderer = smallRenderer;
+
+        capsuleCollider2D.size = new Vector2(0.7f, 0.95f);
+        capsuleCollider2D.offset = new Vector2(0f, -0.5f);
+
+        StartCoroutine(ScaleAnimation());
+    }
+
+    private IEnumerator ScaleAnimation()
+    {
+        float elapsed = 0;
+        float duration = 0.5f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            if (Time.frameCount % 4 == 0)
+            {
+                smallRenderer.enabled = !smallRenderer.enabled;
+                bigRenderer.enabled = !bigRenderer.enabled;
+            }
+        }
     }
 }
