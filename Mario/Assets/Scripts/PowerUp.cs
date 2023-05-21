@@ -14,9 +14,30 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ()
+        if (other.CompareTag("Player"))
         {
-            
+            Collect(other.gameObject);
         }
+    }
+
+    private void Collect(GameObject player)
+    {
+        switch (type)
+        {
+            case Type.Coin:
+                //todo
+                break;
+            case Type.ExtraLife:
+                //todo
+                break;
+            case Type.MagicMushroom:
+                //todo
+                break;
+            case Type.Starpower:
+                //todo
+                break;
+        }
+
+        Destroy (gameObject);
     }
 }
