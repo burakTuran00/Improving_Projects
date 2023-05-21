@@ -25,10 +25,10 @@ public class PowerUp : MonoBehaviour
         switch (type)
         {
             case Type.Coin:
-                //todo
+                GameManager.Instance.AddCoin();
                 break;
             case Type.ExtraLife:
-                //todo
+                GameManager.Instance.AddLife();
                 break;
             case Type.MagicMushroom:
                 //todo
