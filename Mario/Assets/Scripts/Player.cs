@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
         activeRenderer = bigRenderer;
 
-        capsuleCollider2D.size = new Vector2(1f, 2f);
+        capsuleCollider2D.size = new Vector2(0.9f, 1.9f);
         capsuleCollider2D.offset = new Vector2(0f, 0f);
 
         StartCoroutine(ScaleAnimation());
@@ -86,6 +86,13 @@ public class Player : MonoBehaviour
                 smallRenderer.enabled = !smallRenderer.enabled;
                 bigRenderer.enabled = !bigRenderer.enabled;
             }
+
+            yield return null;
         }
+
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = false;
+
+        activeRenderer.enabled = true;
     }
 }
