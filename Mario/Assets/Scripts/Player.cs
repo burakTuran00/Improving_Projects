@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     {
         deathAnimation = GetComponent<DeathAnimation>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        activeRenderer = smallRenderer;
     }
 
     public void Hit()
@@ -101,7 +102,22 @@ public class Player : MonoBehaviour
         activeRenderer.enabled = true;
     }
 
-    public void Starpower()
+    public void Starpower(float duration = 10f)
     {
+        StartCoroutine(StarPowerAnimation(duration));
+    }
+
+    private IEnumerator StarPowerAnimation(float duration)
+    {
+        starpower = true;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+        }
+
+        starpower = false;
     }
 }
