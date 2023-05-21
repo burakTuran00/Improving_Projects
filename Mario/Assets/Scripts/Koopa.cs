@@ -15,8 +15,11 @@ public class Koopa : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !shelled)
         {
             Player player = other.gameObject.GetComponent<Player>();
-
-            if (other.transform.DotTest(transform, Vector2.down))
+            if (player.starpower)
+            {
+                Hit();
+            }
+            else if (other.transform.DotTest(transform, Vector2.down))
             {
                 EnterShell();
             }
@@ -39,7 +42,15 @@ public class Koopa : MonoBehaviour
             else
             {
                 Player player = other.GetComponent<Player>();
-                player.Hit();
+
+                if (player.starpower)
+                {
+                     Hit();   
+                }
+                else
+                {
+                    player.Hit(); 
+                }
             }
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Shell") && !shelled)
