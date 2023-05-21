@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 
     public PlayerSpriteRenderer bigRenderer;
 
+    private PlayerSpriteRenderer activeRenderer;
+
     private DeathAnimation deathAnimation;
 
     public bool big => bigRenderer.enabled;
@@ -31,11 +33,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Shrink()
-    {
-        //todo
-    }
-
     private void Death()
     {
         smallRenderer.enabled = false;
@@ -43,5 +40,18 @@ public class Player : MonoBehaviour
         deathAnimation.enabled = true;
 
         GameManager.Instance.ResetLevel(3.0f);
+    }
+
+    public void Grow()
+    {
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = true;
+
+        activeRenderer = bigRenderer;
+    }
+
+    private void Shrink()
+    {
+        //todo
     }
 }
