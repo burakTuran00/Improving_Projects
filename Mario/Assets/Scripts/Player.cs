@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     public bool death => deathAnimation.enabled;
 
+    public bool starpower { get; private set; }
+
     private void Awake()
     {
         deathAnimation = GetComponent<DeathAnimation>();
@@ -27,13 +29,16 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (big)
+        if (!starpower && !death)
         {
-            Shrink();
-        }
-        else
-        {
-            Death();
+            if (big)
+            {
+                Shrink();
+            }
+            else
+            {
+                Death();
+            }
         }
     }
 
@@ -94,5 +99,9 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = false;
 
         activeRenderer.enabled = true;
+    }
+
+    public void Starpower()
+    {
     }
 }
