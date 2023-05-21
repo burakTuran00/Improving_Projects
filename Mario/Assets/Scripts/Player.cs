@@ -116,7 +116,17 @@ public class Player : MonoBehaviour
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
+
+            if (Time.frameCount % 4 == 0)
+            {
+                activeRenderer.spriteRenderer.color =
+                    Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+            }
+
+            yield return null;
         }
+
+        activeRenderer.spriteRenderer.color = Color.white;
 
         starpower = false;
     }
