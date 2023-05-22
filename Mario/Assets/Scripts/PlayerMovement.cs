@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera cam;
 
+    private new Collider2D collider;
+
     private Vector2 velocity;
 
     private float inputAxis;
@@ -38,6 +40,23 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
+        collider = GetComponent<Collider2D>();
+    }
+
+    private void OnEnable()
+    {
+        rb.isKinematic = false;
+        collider.enabled = true;
+        velocity = Vector2.zero;
+        jumping = false;
+    }
+
+    private void OnDisable()
+    {
+        rb.isKinematic = true;
+        collider.enabled = false;
+        velocity = Vector2.zero;
+        jumping = false;
     }
 
     private void Update()
