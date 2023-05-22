@@ -32,6 +32,9 @@ public class Pipe : MonoBehaviour
         yield return Move(player, enteredPosition, enteredScale);
         yield return new WaitForSeconds(1f);
 
+        bool underground = connection.position.y < 0f;
+        Camera.main.GetComponent<SideScrolling>().SetUnderGround(underground);
+
         if (exitDirection != Vector3.zero)
         {
             player.position = connection.position - exitDirection;
