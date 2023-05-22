@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         LoadLevel(1, 1);
     }
 
-    private void LoadLevel(int world, int stage)
+    public void LoadLevel(int world, int stage)
     {
         this.world = world;
         this.stage = stage;

@@ -5189,6 +5189,10 @@ PrefabInstance:
       propertyPath: castle
       value: 
       objectReference: {fileID: 2108496822}
+    - target: {fileID: 6995534196135399136, guid: 21231f5927355374c9e0317f064d28e5, type: 3}
+      propertyPath: nextStage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7006452419639605244, guid: 21231f5927355374c9e0317f064d28e5, type: 3}
       propertyPath: m_RootOrder
       value: 47
