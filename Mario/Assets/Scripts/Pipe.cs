@@ -11,7 +11,7 @@ public class Pipe : MonoBehaviour
 
     public Vector3 exitDirection = Vector3.zero;
 
-    private void OnTriggerStay(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") && connection != null)
         {
