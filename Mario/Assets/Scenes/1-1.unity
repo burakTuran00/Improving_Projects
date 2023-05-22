@@ -1541,7 +1541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 198.3, y: 6.5, z: -10}
+  m_LocalPosition: {x: 204, y: 6.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5182,6 +5182,10 @@ PrefabInstance:
       value: FlagPole
       objectReference: {fileID: 0}
     - target: {fileID: 6995534196135399136, guid: 21231f5927355374c9e0317f064d28e5, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995534196135399136, guid: 21231f5927355374c9e0317f064d28e5, type: 3}
       propertyPath: castle
       value: 
       objectReference: {fileID: 2108496822}
@@ -7184,6 +7188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3206571076642913035, guid: 581a6851583db7f4eb16182c5b9fb560, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5739472624724836508, guid: 581a6851583db7f4eb16182c5b9fb560, type: 3}
       propertyPath: m_Name
       value: Castle
@@ -7274,7 +7282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528680458102521387, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 195
+      value: 193.5
       objectReference: {fileID: 0}
     - target: {fileID: 1528680458102521387, guid: 71eaaeea5e7cad64d923d5209cfe40e9, type: 3}
       propertyPath: m_LocalPosition.y
