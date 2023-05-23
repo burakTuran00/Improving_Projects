@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class Car : MonoBehaviour
 {
     public float speed = 5.0f;
@@ -21,5 +21,9 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("BotCar"))
+        {
+            
+        }
     }
 }
