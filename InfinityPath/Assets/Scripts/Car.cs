@@ -4,33 +4,36 @@ public class Car : MonoBehaviour
 {
     public float speed = 5.0f;
 
-    private Vector3 directionHor;
+    private Vector3 direction;
 
     private void Update()
     {
-        HorizontalMove();
+        Move();
     }
 
-    private void HorizontalMove()
+    private void Move()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            directionHor = Vector3.left;
+            direction = Vector3.left;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            directionHor = Vector3.right;
+            direction = Vector3.right;
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            direction = Vector3.up;
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            direction = Vector3.down;
         }
         else
         {
-            directionHor = Vector3.zero;
+            direction = Vector3.zero;
         }
 
-        transform.position += directionHor * speed * Time.deltaTime;
-    }
-
-    private void VerticalMove()
-    {
-        
+        transform.position += direction * speed * Time.deltaTime;
     }
 }
