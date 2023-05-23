@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class Car : MonoBehaviour
 {
     public float speed = 5.0f;
@@ -23,7 +25,13 @@ public class Car : MonoBehaviour
     {
         if (other.CompareTag("BotCar"))
         {
-            
+            StartCoroutine(Restart());
         }
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(0);
     }
 }
