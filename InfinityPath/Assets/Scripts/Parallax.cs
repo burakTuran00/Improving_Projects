@@ -4,16 +4,27 @@ public class Parallax : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
 
-    private float animationSpeed = .375f;
+    public float waySpeed { get; private set; }
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        waySpeed = 0.375f;
     }
 
     private void Update()
     {
         meshRenderer.material.mainTextureOffset +=
-            new Vector2(0f, animationSpeed * Time.deltaTime);
+            new Vector2(0f, waySpeed * Time.deltaTime);
+    }
+
+    private void LateUpdate()
+    {
+        IncreaseSpeed();
+    }
+
+    private void IncreaseSpeed()
+    {
+        waySpeed += 0.00001f;
     }
 }

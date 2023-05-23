@@ -18,4 +18,8 @@ public class Car : MonoBehaviour
 
         transform.position += direction;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+    }
 }
