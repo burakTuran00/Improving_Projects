@@ -31,7 +31,7 @@ public class Car : MonoBehaviour
 
     IEnumerator Restart()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.25f);
         SceneManager.LoadScene(0);
     }
 }
