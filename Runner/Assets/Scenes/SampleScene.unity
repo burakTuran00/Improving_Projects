@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97baa4f91fe2a4f45b036e43fba038f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 88440050}
+  target: {fileID: 88440050}
   Speed: 10
   dist: {x: 0, y: 3.5, z: -7.6}
   lookTarget: {fileID: 1084222481}
