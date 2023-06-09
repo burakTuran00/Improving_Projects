@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour
 {
-    public Transform cameraTarget;
+    public Transform target;
 
     public float Speed = 1.0f;
 
@@ -12,12 +12,12 @@ public class FollowingCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 dPos = cameraTarget.position + dist;
+        Vector3 distancePosition = target.position + dist;
 
-        Vector3 sPos =
-            Vector3.Lerp(transform.position, dPos, Speed * Time.deltaTime);
+        Vector3 camPosition =
+            Vector3.Lerp(transform.position, distancePosition, Speed * Time.deltaTime);
 
-        transform.position = sPos;
+        transform.position = distancePosition;
         transform.LookAt(lookTarget.position);
     }
 }
