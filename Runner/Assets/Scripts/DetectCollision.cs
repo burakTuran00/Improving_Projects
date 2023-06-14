@@ -9,7 +9,6 @@ public class DetectCollision : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             AddCoin();
-
             Destroy(other.gameObject);
         }
     }
