@@ -10,7 +10,7 @@ public class DetectCollision : MonoBehaviour
         {
             AddCoin();
 
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 
