@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public float runningSpeed;
 
-    public float xSpeed;
+    public float xSpeed = 1.0f;
 
     public float limitx;
 
@@ -30,10 +30,10 @@ public class PlayerController : MonoBehaviour
         newX = transform.position.x + xSpeed * touchXDelta * Time.deltaTime;
         newX = Mathf.Clamp(newX, -limitx, limitx);
 
-        Vector3 newPosition =
-            new Vector3(newX,
-                transform.position.y,
-                transform.position.z + runningSpeed * Time.deltaTime);
+        Vector3 newPosition;
+        newPosition.x = newX;
+        newPosition.y = transform.position.y;
+        newPosition.z = transform.position.z + runningSpeed * Time.deltaTime;
         transform.position = newPosition;
     }
 }
