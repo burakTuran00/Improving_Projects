@@ -15,6 +15,11 @@ public class DetectCollision : MonoBehaviour
         {
             //todo
         }
+        else if (other.gameObject.CompareTag("FinishLine"))
+        {
+            //todo
+            FindObjectOfType<PlayerController>().isRunning = false;
+        }
     }
 
     public void AddCoin()
