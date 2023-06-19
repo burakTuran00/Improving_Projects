@@ -17,7 +17,6 @@ public class DetectCollision : MonoBehaviour
         {
             //todo
             FindObjectOfType<PlayerController>().isRunning = false;
-            GetComponentInChildren<Animator>().SetTrigger("Idle");
         }
     }
 
