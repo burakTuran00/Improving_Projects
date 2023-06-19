@@ -27,7 +27,7 @@ public class BotMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("FinishLine"))
         {
-            agent.speed = 0f;
+            Destroy(this.gameObject);
         }
     }
 }
