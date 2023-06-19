@@ -22,4 +22,12 @@ public class BotMovement : MonoBehaviour
         agent.SetDestination(FinishLine.transform.position);
         this.transform.LookAt(FinishLine.transform);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("FinishLine"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
