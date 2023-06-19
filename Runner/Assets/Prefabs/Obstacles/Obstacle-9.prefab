@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5629247792859730734}
   - component: {fileID: 370754257}
   - component: {fileID: 3647370525697819371}
+  - component: {fileID: -8594329012785044355}
   m_Layer: 0
   m_Name: Obstacle-9
   m_TagString: Untagged
@@ -112,3 +113,19 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 2
   m_Center: {x: -0.000000044703494, y: 0.000000029802322, z: -2.3359223e-16}
+--- !u!208 &-8594329012785044355
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133875732174205691}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.287, y: 0.287, z: 0.785}
+  m_MoveThreshold: 0.22
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
