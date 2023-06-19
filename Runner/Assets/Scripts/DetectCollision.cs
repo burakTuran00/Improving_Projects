@@ -4,6 +4,8 @@ public class DetectCollision : MonoBehaviour
 {
     public int score;
 
+    private Vector3 startPosition = new Vector3(0f, 0.25f, -13f);
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coin"))
@@ -22,7 +24,7 @@ public class DetectCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            //todo
+            transform.position = startPosition;
         }
     }
 

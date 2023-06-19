@@ -5,5 +5,21 @@ public class BotMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
 
-    public Transform FinishLine;
+    public GameObject FinishLine;
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        Movement();
+    }
+
+    private void Movement()
+    {
+        agent.SetDestination(FinishLine.transform.position);
+        this.transform.LookAt(FinishLine.transform);
+    }
 }
