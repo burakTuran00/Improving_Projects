@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7636957365847107556}
   - component: {fileID: 5629247792859730734}
   - component: {fileID: 370754257}
+  - component: {fileID: 3647370525697819371}
   m_Layer: 0
   m_Name: Obstacle-9
   m_TagString: Untagged
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 1
   rotateKind: 2
+--- !u!136 &3647370525697819371
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133875732174205691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 1.6
+  m_Direction: 2
+  m_Center: {x: -0.000000044703494, y: 0.000000029802322, z: -2.3359223e-16}
