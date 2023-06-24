@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float turnSpeed = 1.0f;
 
-    private Vector3 forwardDirection = Vector3.forward;
+    public Vector3 forwardDirection = Vector3.forward;
 
     private Vector3 turnDirection;
 
@@ -28,13 +28,5 @@ public class PlayerMovement : MonoBehaviour
             Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
 
         transform.position += turnDirection;
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("FinishLine"))
-        {
-            forwardDirection = Vector3.zero;
-        }
     }
 }
