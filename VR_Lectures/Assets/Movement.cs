@@ -6,6 +6,11 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        MoveF();
+    }
+
+    private void MoveF()
+    {
         if (Input.GetKeyDown(KeyCode.W))
         {
             direction = Vector3.forward;
