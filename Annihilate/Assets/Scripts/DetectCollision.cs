@@ -5,11 +5,14 @@ public class DetectCollision : MonoBehaviour
 {
     private PlayerMovement playerMovement;
 
+    private GameManager gameManager;
+
     public float delay = 1.0f;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,6 +20,7 @@ public class DetectCollision : MonoBehaviour
         if (other.gameObject.CompareTag("FinishLine"))
         {
             playerMovement.forwardDirection = Vector3.zero;
+            StartCoroutine(gameManager.LevelUp());
         }
         else if (other.gameObject.CompareTag("UnderSpawn"))
         {
