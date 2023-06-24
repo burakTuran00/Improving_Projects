@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI goldText;
 
+    public int playerHealth = 1;
+
     private void Awake()
     {
         goldText.text = "x" + amountGold.ToString();
