@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2221639697502975782}
   - component: {fileID: 8813705776346641894}
   - component: {fileID: 2411382644631440717}
+  - component: {fileID: 1035912172018030014}
   m_Layer: 0
   m_Name: Cylinder.001
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1035912172018030014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850680134435734724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116b01c50c347404b915b4ca798eab58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 1
+  rotateValue: 1
 --- !u!1 &5734904411737774246
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +109,7 @@ GameObject:
   - component: {fileID: 8296731216174284479}
   m_Layer: 0
   m_Name: Obstacle-6
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +156,7 @@ GameObject:
   - component: {fileID: 5791754893571524054}
   m_Layer: 0
   m_Name: Obstacle-6.000
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2842090857155580223}
   - component: {fileID: 4912821716186701590}
   - component: {fileID: 4653424435943374074}
+  - component: {fileID: 3092210914274646536}
   m_Layer: 0
   m_Name: Obstacle-1.006
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3092210914274646536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800186857363436555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116b01c50c347404b915b4ca798eab58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 1
+  rotateValue: 0
 --- !u!1 &913816842650929424
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +109,7 @@ GameObject:
   - component: {fileID: 568956857055056810}
   m_Layer: 0
   m_Name: Obstacle-1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +144,7 @@ GameObject:
   - component: {fileID: 8979232424750633718}
   m_Layer: 0
   m_Name: Collider (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +189,7 @@ GameObject:
   - component: {fileID: 5632466394489218974}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,9 +233,10 @@ GameObject:
   - component: {fileID: 3277962382564239579}
   - component: {fileID: 5799323959129005925}
   - component: {fileID: 3444979445171138129}
+  - component: {fileID: 7684155779337383891}
   m_Layer: 0
   m_Name: Obstacle-1.001
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,6 +306,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7684155779337383891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497850437257903573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116b01c50c347404b915b4ca798eab58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 1
+  rotateValue: 0
 --- !u!1 &6965267386458106906
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +334,7 @@ GameObject:
   - component: {fileID: 6139929453455430433}
   m_Layer: 0
   m_Name: Obstacle-1.000
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,9 +427,10 @@ GameObject:
   - component: {fileID: 1747461974899892958}
   - component: {fileID: 3893590205656385342}
   - component: {fileID: 2667741259052865113}
+  - component: {fileID: 2149578053845223518}
   m_Layer: 0
   m_Name: Obstacle-1.002
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,6 +500,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2149578053845223518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801158698780002731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116b01c50c347404b915b4ca798eab58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 1
+  rotateValue: 0
 --- !u!1 &8430508273872636841
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +526,7 @@ GameObject:
   - component: {fileID: 2484282198357659738}
   m_Layer: 0
   m_Name: Collider (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

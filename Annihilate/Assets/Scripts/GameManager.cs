@@ -11,17 +11,31 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI goldText;
 
-    public int playerHealth = 1;
+    private int playerHealth = 1;
+
+    public TextMeshProUGUI healthText;
 
     private void Awake()
     {
         goldText.text = "x" + amountGold.ToString();
+        healthText.text = "x" + playerHealth.ToString();
     }
 
     public void AddGold()
     {
         amountGold += 1;
         goldText.text = "x" + amountGold.ToString();
+    }
+
+    public void DecreaseHealth()
+    {
+        playerHealth -= 1;
+        healthText.text = "x" + playerHealth.ToString();
+
+        if (playerHealth < 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public IEnumerator LevelUp()
