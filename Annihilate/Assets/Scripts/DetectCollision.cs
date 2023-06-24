@@ -1,8 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
     private PlayerMovement playerMovement;
+
+    public float delay = 1.0f;
 
     private void Awake()
     {
@@ -15,5 +18,16 @@ public class DetectCollision : MonoBehaviour
         {
             playerMovement.forwardDirection = Vector3.zero;
         }
+        else if (other.gameObject.CompareTag("UnderSpawn"))
+        {
+            StartCoroutine(UnderSpawn());
+        }
+    }
+
+    IEnumerator UnderSpawn()
+    {
+        yield return new WaitForSeconds(delay);
+        playerMovement.transform.position = Vector3.zero;
+        playerMovement.forwardDirection = Vector3.forward;
     }
 }

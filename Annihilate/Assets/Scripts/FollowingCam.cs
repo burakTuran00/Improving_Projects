@@ -13,8 +13,7 @@ public class FollowingCam : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 distancePosition = player.position + Dist;
-        Vector3 camPosition = Vector3.Lerp(transform.position,distancePosition,speed*Time.deltaTime);
-        transform.position = camPosition;
+        transform.position = distancePosition;
         transform.LookAt(finishLine.position);
     }
 }
