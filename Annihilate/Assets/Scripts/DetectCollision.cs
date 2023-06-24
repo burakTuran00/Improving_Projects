@@ -26,6 +26,11 @@ public class DetectCollision : MonoBehaviour
         {
             StartCoroutine(UnderSpawn());
         }
+        else if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            gameManager.AddGold();
+        }
     }
 
     IEnumerator UnderSpawn()

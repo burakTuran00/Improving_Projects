@@ -1,10 +1,26 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public float levelupTime = 1.0f;
+
+    private int amountGold = 0;
+
+    public TextMeshProUGUI goldText;
+
+    private void Awake()
+    {
+        goldText.text = "x" + amountGold.ToString();
+    }
+
+    public void AddGold()
+    {
+        amountGold += 1;
+        goldText.text = "x" + amountGold.ToString();
+    }
 
     public IEnumerator LevelUp()
     {
