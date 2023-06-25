@@ -40,6 +40,10 @@ public class DetectCollision : MonoBehaviour
             other.gameObject.SetActive(false);
             gameManager.AddGold();
         }
+        else if (other.gameObject.CompareTag("PoweUp"))
+        {
+            Debug.Log("PowerUp");
+        }
     }
 
     IEnumerator UnderSpawn(float delaytime)
