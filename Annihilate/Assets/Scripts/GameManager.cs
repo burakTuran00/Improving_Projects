@@ -32,12 +32,10 @@ public class GameManager : MonoBehaviour
         playerHealth -= 1;
         healthText.text = "x" + playerHealth.ToString();
 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene (currentSceneIndex);
-
         if (playerHealth < 0)
         {
-            SceneManager.LoadScene(0);
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene (currentSceneIndex);
         }
     }
 

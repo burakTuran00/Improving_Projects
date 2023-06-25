@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7696122211393513685}
   - component: {fileID: 9011575043871224915}
   - component: {fileID: 1385491592623548739}
+  - component: {fileID: 7512921989018258257}
   m_Layer: 0
   m_Name: Obstacle-9
   m_TagString: Obstacle
@@ -112,3 +113,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 1
   rotateValue: 2
+--- !u!208 &7512921989018258257
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200740530518558976}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.287, y: 0.287, z: 0.785}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

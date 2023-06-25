@@ -40,6 +40,11 @@ public class DetectCollision : MonoBehaviour
             other.gameObject.SetActive(false);
             gameManager.AddGold();
         }
+        else if (other.gameObject.CompareTag("Bot"))
+        {
+            Destroy(other.gameObject);
+            gameManager.DecreaseHealth();
+        }
         else if (other.gameObject.CompareTag("PowerUp"))
         {
             PowerUp powerUp = other.gameObject.GetComponent<PowerUp>();
@@ -61,12 +66,13 @@ public class DetectCollision : MonoBehaviour
             {
                 gameManager.playerHealth /= powerUp.value;
             }
-            else if (powerUp.operaiton == '*')
+            else if (powerUp.operaiton == 'x')
             {
                 gameManager.playerHealth *= powerUp.value;
             }
 
-            gameManager.playerHealth = Mathf.FloorToInt(gameManager.playerHealth);
+            gameManager.playerHealth =
+                Mathf.FloorToInt(gameManager.playerHealth);
             gameManager.IncreaseHealth(gameManager.playerHealth);
         }
     }
