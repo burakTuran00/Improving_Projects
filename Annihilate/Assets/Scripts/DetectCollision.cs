@@ -20,7 +20,7 @@ public class DetectCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacle"))
         {
             gameManager.DecreaseHealth();
-            StartCoroutine(UnderSpawn(0.01f));
+            StartCoroutine(UnderSpawn(1.0f));
         }
     }
 
