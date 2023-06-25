@@ -66,7 +66,7 @@ public class DetectCollision : MonoBehaviour
                 gameManager.playerHealth *= powerUp.value;
             }
 
-            gameManager.playerHealth = Mathf.Round(gameManager.playerHealth);
+            gameManager.playerHealth = Mathf.FloorToInt(gameManager.playerHealth);
             gameManager.IncreaseHealth(gameManager.playerHealth);
         }
     }
