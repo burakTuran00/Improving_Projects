@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056d243abb7faba4f8d4432b7fad4b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
-  turnSpeed: 1
+  forwardSpeed: 5
+  turnSpeed: 5
   forwardDirection: {x: 0, y: 0, z: 1}
 --- !u!114 &8143251553633706885
 MonoBehaviour:
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3330e4e7a08f164191692f04adf06ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 1.25
 --- !u!1001 &4367820037114352953
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,13 +22,19 @@ public class BotMovement : MonoBehaviour
 
     private void Update()
     {
-        distanceToTarget = Vector3.Distance(playerMovement.transform.position,transform.position);
-        transform.LookAt(playerMovement.transform);
-
-        if (distanceToTarget <= rangeWalkable)
+        if (playerMovement != null)
         {
-            agent.speed = speed;
-            agent.SetDestination(playerMovement.transform.position);
+            distanceToTarget =
+                Vector3
+                    .Distance(playerMovement.transform.position,
+                    transform.position);
+            transform.LookAt(playerMovement.transform);
+
+            if (distanceToTarget <= rangeWalkable)
+            {
+                agent.speed = speed;
+                agent.SetDestination(playerMovement.transform.position);
+            }
         }
     }
 }
