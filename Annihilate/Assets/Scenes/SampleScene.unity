@@ -370,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelupTime: 1
   goldText: {fileID: 1493074437}
+  playerHealth: 1
   healthText: {fileID: 2016904958}
 --- !u!4 &876832551
 Transform:
@@ -1423,9 +1424,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollisionArea
       objectReference: {fileID: 0}
+    - target: {fileID: 5114133330410427475, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114133330410427475, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: operaiton
+      value: 43
+      objectReference: {fileID: 0}
     - target: {fileID: 7886023831491423586, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
       propertyPath: value
-      value: 7
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886023831491423586, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: operaiton
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672143955769696136, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672143955842974994, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672143956296564446, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
       propertyPath: m_RootOrder
@@ -1474,6 +1495,14 @@ PrefabInstance:
     - target: {fileID: 8672143956296564447, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672143956442812264, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672143956702729446, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a004948beea7d0044ad99aaa86b2feb7, type: 3}

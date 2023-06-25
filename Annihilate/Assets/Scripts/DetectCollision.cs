@@ -40,9 +40,34 @@ public class DetectCollision : MonoBehaviour
             other.gameObject.SetActive(false);
             gameManager.AddGold();
         }
-        else if (other.gameObject.CompareTag("PoweUp"))
+        else if (other.gameObject.CompareTag("PowerUp"))
         {
-            Debug.Log("PowerUp");
+            PowerUp powerUp = other.gameObject.GetComponent<PowerUp>();
+
+            if (gameManager.playerHealth < 0)
+            {
+                gameManager.DecreaseHealth();
+            }
+
+            if (powerUp.operaiton == '+')
+            {
+                gameManager.playerHealth += powerUp.value;
+            }
+            else if (powerUp.operaiton == '-')
+            {
+                gameManager.playerHealth -= powerUp.value;
+            }
+            else if (powerUp.operaiton == '/')
+            {
+                gameManager.playerHealth /= powerUp.value;
+            }
+            else if (powerUp.operaiton == '*')
+            {
+                gameManager.playerHealth *= powerUp.value;
+            }
+
+            gameManager.playerHealth = Mathf.Round(gameManager.playerHealth);
+            gameManager.IncreaseHealth(gameManager.playerHealth);
         }
     }
 

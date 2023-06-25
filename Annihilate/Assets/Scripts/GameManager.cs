@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI goldText;
 
-    private int playerHealth = 1;
+    public float playerHealth = 1;
 
     public TextMeshProUGUI healthText;
 
@@ -33,12 +33,17 @@ public class GameManager : MonoBehaviour
         healthText.text = "x" + playerHealth.ToString();
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        SceneManager.LoadScene (currentSceneIndex);
 
         if (playerHealth < 0)
         {
             SceneManager.LoadScene(0);
         }
+    }
+
+    public void IncreaseHealth(float newHealth)
+    {
+        healthText.text = "x" + newHealth.ToString();
     }
 
     public IEnumerator LevelUp()
