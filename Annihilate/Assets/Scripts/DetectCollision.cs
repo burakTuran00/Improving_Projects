@@ -9,6 +9,8 @@ public class DetectCollision : MonoBehaviour
 
     public float delay = 1.0f;
 
+    public ParticleSystem fireWork;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -28,6 +30,7 @@ public class DetectCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("FinishLine"))
         {
+            fireWork.Play();
             playerMovement.forwardDirection = Vector3.zero;
             StartCoroutine(gameManager.LevelUp());
         }
