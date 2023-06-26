@@ -49,11 +49,6 @@ public class DetectCollision : MonoBehaviour
         {
             PowerUp powerUp = other.gameObject.GetComponent<PowerUp>();
 
-            if (gameManager.playerHealth < 0)
-            {
-                gameManager.DecreaseHealth();
-            }
-
             if (powerUp.operaiton == '+')
             {
                 gameManager.playerHealth += powerUp.value;
@@ -74,6 +69,11 @@ public class DetectCollision : MonoBehaviour
             gameManager.playerHealth =
                 Mathf.FloorToInt(gameManager.playerHealth);
             gameManager.IncreaseHealth(gameManager.playerHealth);
+
+            if (gameManager.playerHealth < 0)
+            {
+                gameManager.DecreaseHealth();
+            }
         }
     }
 
