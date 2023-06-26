@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ObstacleAnimation : MonoBehaviour
@@ -24,7 +25,7 @@ public class ObstacleAnimation : MonoBehaviour
         {
             rotateDirection = Vector3.right;
         }
-        else
+        else if (rotateValue == 2)
         {
             rotateDirection = Vector3.back;
         }
