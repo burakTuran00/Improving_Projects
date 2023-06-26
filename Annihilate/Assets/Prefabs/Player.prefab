@@ -92,7 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3330e4e7a08f164191692f04adf06ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1.25
+  delay: 2.5
+  fireWork: {fileID: 0}
 --- !u!1001 &4367820037114352953
 PrefabInstance:
   m_ObjectHideFlags: 0

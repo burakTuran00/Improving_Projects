@@ -11,6 +11,8 @@ public class DetectCollision : MonoBehaviour
 
     public ParticleSystem fireWork;
 
+    public Animator animator;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -31,6 +33,7 @@ public class DetectCollision : MonoBehaviour
         if (other.gameObject.CompareTag("FinishLine"))
         {
             fireWork.Play();
+            animator.SetBool("Finish", true);   
             playerMovement.forwardDirection = Vector3.zero;
             StartCoroutine(gameManager.LevelUp());
         }

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float playerHealth = 1;
 
     public TextMeshProUGUI healthText;
+    
 
     private void Awake()
     {
