@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 1
   operaiton: 43
-  text: {fileID: 0}
+  text: {fileID: 3319357072520258937}
 --- !u!23 &1180120954080509995
 MeshRenderer:
   m_ObjectHideFlags: 0
