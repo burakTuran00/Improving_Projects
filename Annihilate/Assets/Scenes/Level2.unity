@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 474795431}
   m_IndirectSpecularColor: {r: 2.1230474, g: 0.51953113, b: 0.97363216, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -499,7 +499,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -538,7 +538,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1577,8 +1577,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397515029}
-  m_LocalRotation: {x: -0.05722092, y: 0.10878906, z: -0.006302777, w: -0.9923966}
-  m_LocalPosition: {x: 4.118654, y: 3.855222, z: -5.674731}
+  m_LocalRotation: {x: 0.07835059, y: -0.13890462, z: 0.010970697, w: 0.98714054}
+  m_LocalPosition: {x: 2.9431937, y: 4.0045376, z: -4.2557244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 855017511}
   speed: 1
-  Dist: {x: 0, y: 1.75, z: -3.75}
+  Dist: {x: 0.25, y: 2.25, z: -4.25}
   finishLine: {fileID: 852691569}
 --- !u!1001 &1543762046
 PrefabInstance:

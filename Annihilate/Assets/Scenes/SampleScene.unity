@@ -590,7 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2052824006}
   speed: 2
-  Dist: {x: 0, y: 1.75, z: -3.75}
+  Dist: {x: 0.25, y: 2.25, z: -4.25}
   finishLine: {fileID: 1716207790}
 --- !u!1 &1001348854
 GameObject:
