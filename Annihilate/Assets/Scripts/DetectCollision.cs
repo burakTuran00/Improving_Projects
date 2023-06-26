@@ -33,7 +33,7 @@ public class DetectCollision : MonoBehaviour
         if (other.gameObject.CompareTag("FinishLine"))
         {
             fireWork.Play();
-            animator.SetBool("Finish", true);   
+            animator.SetBool("Finish", true);
             playerMovement.forwardDirection = Vector3.zero;
             StartCoroutine(gameManager.LevelUp());
         }
@@ -55,32 +55,36 @@ public class DetectCollision : MonoBehaviour
         {
             PowerUp powerUp = other.gameObject.GetComponent<PowerUp>();
 
-            if (powerUp.operaiton == '+')
-            {
-                gameManager.playerHealth += powerUp.value;
-            }
-            else if (powerUp.operaiton == '-')
-            {
-                gameManager.playerHealth -= powerUp.value;
-            }
-            else if (powerUp.operaiton == '/')
-            {
-                gameManager.playerHealth /= powerUp.value;
-            }
-            else if (powerUp.operaiton == 'x')
-            {
-                gameManager.playerHealth *= powerUp.value;
-            }
-
-            gameManager.playerHealth =
-                Mathf.FloorToInt(gameManager.playerHealth);
-            gameManager.IncreaseHealth(gameManager.playerHealth);
+            DetectProcess(powerUp, powerUp.operaiton);
 
             if (gameManager.playerHealth < 0)
             {
                 gameManager.DecreaseHealth();
             }
         }
+    }
+
+    private void DetectProcess(PowerUp pw, char process)
+    {
+        if (process == '+')
+        {
+            gameManager.playerHealth += pw.value;
+        }
+        else if (process == '-')
+        {
+            gameManager.playerHealth -= pw.value;
+        }
+        else if (process == '/')
+        {
+            gameManager.playerHealth /= pw.value;
+        }
+        else if (process == 'x')
+        {
+            gameManager.playerHealth *= pw.value;
+        }
+
+        gameManager.playerHealth = Mathf.FloorToInt(gameManager.playerHealth);
+        gameManager.IncreaseHealth(gameManager.playerHealth);
     }
 
     IEnumerator UnderSpawn(float delaytime)
