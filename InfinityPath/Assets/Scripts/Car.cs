@@ -8,6 +8,17 @@ public class Car : MonoBehaviour
 
     private Vector3 direction;
 
+    public float delayTime = 1.0f;
+
+    public ParticleSystem crashAffect;
+
+    public bool drivable = true;
+
+    private void Awake()
+    {
+        drivable = true;
+    }
+
     private void Update()
     {
         Move();
@@ -25,13 +36,14 @@ public class Car : MonoBehaviour
     {
         if (other.CompareTag("BotCar"))
         {
+            crashAffect.Play();
             StartCoroutine(Restart());
         }
     }
 
     IEnumerator Restart()
     {
-        yield return new WaitForSeconds(.25f);
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(delayTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

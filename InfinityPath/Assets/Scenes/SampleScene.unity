@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  delayTime: 3
+  crashAffect: {fileID: 2080382141488807646, guid: 7e94c6f444a69bf4cb9cd48c09f12608, type: 3}
 --- !u!212 &297422319
 SpriteRenderer:
   m_ObjectHideFlags: 0
