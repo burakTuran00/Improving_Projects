@@ -22,15 +22,16 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-         GameObject c =
+        GameObject c =
             Instantiate(SelectCar(), transform.position, Quaternion.identity);
-        c.transform.position += Vector3.right * Random.Range(min, max);
+        float ranPos = Random.Range(min, max);
+
+        c.transform.position += Vector3.right * ranPos;
     }
 
     private GameObject SelectCar()
     {
         int index = Random.Range(0, 3);
-
         return cars[index];
     }
 }
