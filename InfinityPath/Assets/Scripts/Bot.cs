@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class Bot : MonoBehaviour
 {
-    public float carSpeed = 8.0f;
+    public float carSpeed = 1.0f;
+
+    private void Awake()
+    {
+        carSpeed = Random.Range(8f, 12f);
+    }
 
     private void Update()
     {
