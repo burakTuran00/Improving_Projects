@@ -4,6 +4,8 @@ public class Bot : MonoBehaviour
 {
     public float carSpeed = 1.0f;
 
+    public bool doDrive = true;
+
     private void Awake()
     {
         carSpeed = Random.Range(8f, 12f);
@@ -11,7 +13,10 @@ public class Bot : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.down * carSpeed * Time.deltaTime;
+        if (doDrive)
+        {
+            transform.position += Vector3.down * carSpeed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

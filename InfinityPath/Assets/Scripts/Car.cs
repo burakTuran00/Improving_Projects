@@ -16,6 +16,13 @@ public class Car : MonoBehaviour
 
     public Spawner spawner;
 
+    private bool doDrive = true;
+
+    private void Awake()
+    {
+        doDrive = true;
+    }
+
     private void Update()
     {
         Move();
@@ -23,16 +30,24 @@ public class Car : MonoBehaviour
 
     private void Move()
     {
-        direction.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        direction.y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        if (doDrive)
+        {
+            direction.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            direction.y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-        transform.position += direction;
+            transform.position += direction;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("BotCar"))
         {
+            Bot bot = other.gameObject.GetComponent<Bot>();
+            bot.doDrive = false;
+
+            doDrive = false;
+
             foreach (Parallax p in parallaxes)
             {
                 p.waySpeed = 0;
