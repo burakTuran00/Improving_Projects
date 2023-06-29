@@ -6,13 +6,15 @@ public class Spawner : MonoBehaviour
 
     public float spawnRate = 2.0f;
 
+    public float spawthenRate = 0.75f;
+
     public float min = -6.0f;
 
     public float max = 4.5f;
 
     private void OnEnable()
     {
-        InvokeRepeating(nameof(Spawn), spawnRate, spawnRate);
+        InvokeRepeating(nameof(Spawn), spawnRate, spawthenRate);
     }
 
     private void OnDisable()

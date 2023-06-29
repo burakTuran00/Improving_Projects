@@ -8,7 +8,7 @@ public class Bot : MonoBehaviour
 
     private void Awake()
     {
-        carSpeed = Random.Range(8f, 12f);
+        carSpeed = Random.Range(10f, 12f);
     }
 
     private void Update()

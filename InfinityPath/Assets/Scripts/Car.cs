@@ -43,6 +43,8 @@ public class Car : MonoBehaviour
     {
         if (other.CompareTag("BotCar"))
         {
+            spawner.enabled = false;
+
             Bot bot = other.gameObject.GetComponent<Bot>();
             bot.doDrive = false;
 
@@ -52,8 +54,6 @@ public class Car : MonoBehaviour
             {
                 p.waySpeed = 0;
             }
-
-            spawner.enabled = false;
 
             crashAffect.Play();
             StartCoroutine(Restart());
