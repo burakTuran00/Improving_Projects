@@ -40,23 +40,23 @@ public class GearSystem : MonoBehaviour
             }
             else if (gearNumber == 1)
             {
-                autoMovement.moveSpeed = 50;
+                autoMovement.moveSpeed = 2;
             }
             else if (gearNumber == 2)
             {
-                autoMovement.moveSpeed = 100;
+                autoMovement.moveSpeed = 4;
             }
             else if (gearNumber == 3)
             {
-                autoMovement.moveSpeed = 150;
+                autoMovement.moveSpeed = 8;
             }
             else if (gearNumber == 4)
             {
-                autoMovement.moveSpeed = 225;
+                autoMovement.moveSpeed = 16;
             }
             else if (gearNumber == 5)
             {
-                autoMovement.moveSpeed = 275;
+                autoMovement.moveSpeed = 32;
             }
         }
     }

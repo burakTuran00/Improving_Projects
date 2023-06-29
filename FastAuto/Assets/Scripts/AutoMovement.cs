@@ -14,10 +14,10 @@ public class AutoMovement : MonoBehaviour
     private void Movemnet()
     {
         float forwardDirection = Input.GetAxis("Vertical");
-        forwardDirection = forwardDirection * Time.fixedDeltaTime * moveSpeed;
+        forwardDirection = forwardDirection * Time.deltaTime * moveSpeed;
 
-        float sideDirection = Input.GetAxis("Vertical");
-        sideDirection = sideDirection * sideSpeed * Time.deltaTime;
+        float sideDirection = Input.GetAxis("Horizontal");
+        sideDirection = sideDirection * sideSpeed;
 
         transform.Translate(Vector3.up * forwardDirection);
         transform.Rotate(0f, 0f, -sideDirection);
