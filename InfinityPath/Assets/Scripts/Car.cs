@@ -12,12 +12,9 @@ public class Car : MonoBehaviour
 
     public ParticleSystem crashAffect;
 
-    public bool drivable = true;
+    public Parallax[] parallaxes;
 
-    private void Awake()
-    {
-        drivable = true;
-    }
+    public Spawner spawner;
 
     private void Update()
     {
@@ -36,6 +33,13 @@ public class Car : MonoBehaviour
     {
         if (other.CompareTag("BotCar"))
         {
+            foreach (Parallax p in parallaxes)
+            {
+                p.waySpeed = 0;
+            }
+
+            spawner.enabled = false;
+
             crashAffect.Play();
             StartCoroutine(Restart());
         }

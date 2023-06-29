@@ -4,7 +4,7 @@ public class Parallax : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
 
-    public float waySpeed { get; private set; }
+    public float waySpeed;
 
     private void Awake()
     {
