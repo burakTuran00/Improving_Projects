@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private bool moveable => health < 1;
-
     private SpriteRenderer spriteRenderer;
 
     public Sprite[] enemies;
@@ -53,10 +51,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyMovement()
     {
-        if (moveable)
-        {
-            transform.position += Vector3.down * enemySpeed * Time.deltaTime;
-        }
+        transform.position += Vector3.down * enemySpeed * Time.deltaTime;
     }
 
     private void EnemyShoot()
@@ -73,7 +68,7 @@ public class Enemy : MonoBehaviour
             circleCollider2D.enabled = false;
             int crashIndex = Random.Range(0, enemiesCrash.Length);
             spriteRenderer.sprite = enemiesCrash[crashIndex];
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 0.75f);
         }
     }
 
