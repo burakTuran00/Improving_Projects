@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private bool moveable => health < 1;
+
     private SpriteRenderer spriteRenderer;
 
     public Sprite[] enemies;
@@ -51,7 +53,10 @@ public class Enemy : MonoBehaviour
 
     private void EnemyMovement()
     {
-        transform.position += Vector3.down * enemySpeed * Time.deltaTime;
+        if (moveable)
+        {
+            transform.position += Vector3.down * enemySpeed * Time.deltaTime;
+        }
     }
 
     private void EnemyShoot()
