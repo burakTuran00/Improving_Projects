@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,10 +15,20 @@ public class Enemy : MonoBehaviour
 
     public int laserDamage = 5;
 
+    public GameObject laser;
+
+    public Transform fromShoot;
+
+    private PlayerMovement player;
+
+    private void OnEnable()
+    {
+        player = FindObjectOfType<PlayerMovement>();
+    }
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         health = Random.Range(3, 10);
     }
 
@@ -44,7 +55,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyShoot()
     {
-        //todo
+
     }
 
     public void TakeDamage(int damage)

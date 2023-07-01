@@ -7,8 +7,6 @@ public class ProjectTile : MonoBehaviour
 
     public Transform fromShoot;
 
-    
-
     private int ammo = 30;
 
     public TextMeshProUGUI ammoText;
