@@ -116,7 +116,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -134,6 +134,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3c89df60fd0a14aab99280b3e2bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteors: []
+  meteors:
+  - {fileID: 21300000, guid: 98f40e3f33a2fe6408d6d52a3ebfc4c5, type: 3}
+  - {fileID: 21300000, guid: 6430afc6cc158924aa83ebbdab7f1969, type: 3}
+  - {fileID: 21300000, guid: 24866bc9360e53441b1a2a05c70361ee, type: 3}
+  - {fileID: 21300000, guid: 9687a48020ab7944e8a01b5b7fc966ab, type: 3}
+  - {fileID: 21300000, guid: 4dd4825e2f84ea748bb74ddb8263c204, type: 3}
+  - {fileID: 21300000, guid: 24dc052828e26c0499522f3673843f53, type: 3}
+  - {fileID: 21300000, guid: e1767065e9128ff479dd5d2d646c61d1, type: 3}
+  - {fileID: 21300000, guid: 5d10c8c829260d245b485a97ce8c0274, type: 3}
   health: 0
   playerLaserDamage: 3
