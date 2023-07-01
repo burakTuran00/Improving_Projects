@@ -34,7 +34,7 @@ public class ProjectTile : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && shotable)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && shotable)
         {
             GameObject l =
                 Instantiate(laser, fromShoot.position, Quaternion.identity);
