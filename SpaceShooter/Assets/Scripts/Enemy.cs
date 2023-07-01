@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     {
         GetIndexEnemy();
         InvokeRepeating(nameof(EnemyShoot), 0, enemyLaserDelay);
+
         soundEffect.clip = laserEffect;
     }
 
