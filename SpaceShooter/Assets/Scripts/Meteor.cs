@@ -12,6 +12,8 @@ public class Meteor : MonoBehaviour
 
     public int health;
 
+    public int playerLaserDamage = 3;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -47,6 +49,14 @@ public class Meteor : MonoBehaviour
         if (health < 1)
         {
             Destroy (gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Laser"))
+        {
+            TakeDamage (playerLaserDamage);
         }
     }
 }

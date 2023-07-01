@@ -15,11 +15,14 @@ public class DetectCollisionPlayer : MonoBehaviour
 
     public float levelDelay = 1.0f;
 
+    public int meteorDamage = 35;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EnemyLaser"))
         {
             TakeDamage (enemyLaserDamage);
+            Destroy(other.gameObject);
         }
         else if (other.CompareTag("Enemy"))
         {
@@ -27,6 +30,11 @@ public class DetectCollisionPlayer : MonoBehaviour
             e.TakeDamage(e.health);
 
             TakeDamage (enemyDamage);
+        }
+        else if (other.CompareTag("Meteor"))
+        {
+            TakeDamage (meteorDamage);
+            Destroy(other.gameObject, 0.5f);
         }
     }
 
