@@ -16,7 +16,8 @@ public class Spawner : MonoBehaviour
     private void Spawn()
     {
         int randPos = Random.Range(-spawnableAre, spawnableAre);
-        
+        transform.position =
+            new Vector3(randPos, transform.position.y, transform.position.z);
 
         GameObject e =
             Instantiate(enemy, transform.position, Quaternion.identity);
