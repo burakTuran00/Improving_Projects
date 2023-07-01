@@ -7,6 +7,8 @@ public class DetectCollisionPlayer : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
 
+    private ProjectTile projectTile;
+
     private int health = 100;
 
     public int enemyLaserDamage = 4;
@@ -16,6 +18,11 @@ public class DetectCollisionPlayer : MonoBehaviour
     public float levelDelay = 1.0f;
 
     public int meteorDamage = 35;
+
+    private void Awake()
+    {
+        projectTile = GetComponent<ProjectTile>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,6 +42,24 @@ public class DetectCollisionPlayer : MonoBehaviour
         {
             TakeDamage (meteorDamage);
             Destroy(other.gameObject, 0.5f);
+        }
+        else if (other.CompareTag("PowerUpLaser"))
+        {
+            projectTile.PowerUpOfEffect();
+
+            projectTile.ammo += 15;
+            projectTile.ammoText.text = "x" + projectTile.ammo.ToString();
+
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("PowerUpShield"))
+        {
+            projectTile.PowerUpOfEffect();
+
+            health += 15;
+            healthText.text = "x" + health.ToString();
+
+            Destroy(other.gameObject);
         }
     }
 

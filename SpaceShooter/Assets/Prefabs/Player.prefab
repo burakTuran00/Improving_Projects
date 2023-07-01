@@ -153,9 +153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 8814071817216860291, guid: d3d17519ae2dd2841b0e59d7884b046e, type: 3}
   fromShoot: {fileID: 1870825277183614725}
+  ammo: 30
   ammoText: {fileID: 0}
-  ammoEffect: {fileID: 8300000, guid: 1f702f2c03bc747448b77bfb2c5e66e1, type: 3}
+  laserEffect: {fileID: 8300000, guid: 1f702f2c03bc747448b77bfb2c5e66e1, type: 3}
   loseEffect: {fileID: 8300000, guid: 38c0f3f90d4ee6d449388f0d98052f3c, type: 3}
+  powerUpEffect: {fileID: 8300000, guid: 67f62da27b96f7e44a3e14b5958222ae, type: 3}
 --- !u!114 &1870825276098101508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +187,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1f702f2c03bc747448b77bfb2c5e66e1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.644
   m_Pitch: 1.7
   Loop: 0
   Mute: 0

@@ -7,7 +7,7 @@ public class ProjectTile : MonoBehaviour
 
     public Transform fromShoot;
 
-    private int ammo = 30;
+    public int ammo = 30;
 
     public TextMeshProUGUI ammoText;
 
@@ -15,14 +15,16 @@ public class ProjectTile : MonoBehaviour
 
     private AudioSource soundEffect;
 
-    public AudioClip ammoEffect;
+    public AudioClip laserEffect;
 
     public AudioClip loseEffect;
+
+    public AudioClip powerUpEffect;
 
     private void Awake()
     {
         soundEffect = GetComponent<AudioSource>();
-        soundEffect.clip = ammoEffect;
+        soundEffect.clip = laserEffect;
     }
 
     private void Update()
@@ -37,6 +39,7 @@ public class ProjectTile : MonoBehaviour
             GameObject l =
                 Instantiate(laser, fromShoot.position, Quaternion.identity);
 
+            soundEffect.clip = laserEffect;
             soundEffect.Play();
 
             DecreaseAmmo();
@@ -57,6 +60,12 @@ public class ProjectTile : MonoBehaviour
     public void Lose()
     {
         soundEffect.clip = loseEffect;
+        soundEffect.Play();
+    }
+
+    public void PowerUpOfEffect()
+    {
+        soundEffect.clip = powerUpEffect;
         soundEffect.Play();
     }
 }
