@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     private int index;
 
-    public int enemySpeed => Random.Range(5, 15);
+    public int enemySpeed => Random.Range(5, 10);
 
     public int health;
 
