@@ -1,8 +1,9 @@
 using UnityEngine;
 
+
 public class Spawner : MonoBehaviour
 {
-    private float spawnRate;
+    public float spawnRate;
 
     public GameObject spawnableObject;
 
@@ -10,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(Spawn), 1f, 1f);
+        InvokeRepeating(nameof(Spawn), spawnRate, spawnRate);
     }
 
     private void Spawn()
