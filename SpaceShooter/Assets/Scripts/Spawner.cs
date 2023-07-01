@@ -4,7 +4,7 @@ public class Spawner : MonoBehaviour
 {
     private float spawnRate;
 
-    public GameObject enemy;
+    public GameObject spawnableObject;
 
     public int spawnableAre = 9;
 
@@ -20,6 +20,6 @@ public class Spawner : MonoBehaviour
             new Vector3(randPos, transform.position.y, transform.position.z);
 
         GameObject e =
-            Instantiate(enemy, transform.position, Quaternion.identity);
+            Instantiate(spawnableObject, transform.position, Quaternion.identity);
     }
 }

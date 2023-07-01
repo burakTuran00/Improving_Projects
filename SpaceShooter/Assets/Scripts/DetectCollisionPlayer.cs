@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DetectCollisionPlayer : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class DetectCollisionPlayer : MonoBehaviour
 
     public int enemyDamage = 10;
 
+    public float levelDelay = 1.0f;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EnemyLaser"))
@@ -19,6 +23,9 @@ public class DetectCollisionPlayer : MonoBehaviour
         }
         else if (other.CompareTag("Enemy"))
         {
+            Enemy e = other.gameObject.GetComponent<Enemy>();
+            e.TakeDamage(e.health);
+
             TakeDamage (enemyDamage);
         }
     }
@@ -30,7 +37,14 @@ public class DetectCollisionPlayer : MonoBehaviour
 
         if (health < 1)
         {
-            //todo
+            health = 0;
+            StartCoroutine(ReloadLevel());
         }
+    }
+
+    private IEnumerator ReloadLevel()
+    {
+        yield return new WaitForSeconds(levelDelay);
+        SceneManager.LoadScene(0);
     }
 }
