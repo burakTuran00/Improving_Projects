@@ -79,6 +79,6 @@ public class DetectCollisionPlayer : MonoBehaviour
     private IEnumerator ReloadLevel()
     {
         yield return new WaitForSeconds(levelDelay);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
