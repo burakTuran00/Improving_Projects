@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,13 +19,6 @@ public class Enemy : MonoBehaviour
 
     public Transform fromShoot;
 
-    private PlayerMovement player;
-
-    private void OnEnable()
-    {
-        player = FindObjectOfType<PlayerMovement>();
-    }
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,6 +28,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         GetIndexEnemy();
+        InvokeRepeating(nameof(EnemyShoot), 1f, 1f);
     }
 
     private void Update()
@@ -55,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyShoot()
     {
-
+        Instantiate(laser, fromShoot.position, Quaternion.identity);
     }
 
     public void TakeDamage(int damage)
