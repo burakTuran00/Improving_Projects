@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 
     public Sprite[] enemies;
 
+    public Sprite[] enemiesCrash;
+
     private int index;
 
     public int enemySpeed => Random.Range(5, 15);
@@ -19,10 +21,13 @@ public class Enemy : MonoBehaviour
 
     public Transform fromShoot;
 
+    private CircleCollider2D circleCollider2D;
+
     public float enemyLaserDelay => Random.Range(1.5f, 2.25f);
 
     private void Awake()
     {
+        circleCollider2D = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         health = Random.Range(3, 10);
     }
@@ -60,7 +65,10 @@ public class Enemy : MonoBehaviour
 
         if (health < 1)
         {
-            Destroy(this.gameObject);
+            circleCollider2D.enabled = false;
+            int crashIndex = Random.Range(0, enemiesCrash.Length);
+            spriteRenderer.sprite = enemiesCrash[crashIndex];
+            Destroy(this.gameObject, 1f);
         }
     }
 
