@@ -57,6 +57,12 @@ public class DetectCollisionPlayer : MonoBehaviour
             projectTile.PowerUpOfEffect();
 
             health += 15;
+
+            if (health > 100)
+            {
+                health = 100;
+            }
+
             healthText.text = "x" + health.ToString();
 
             Destroy(other.gameObject);
