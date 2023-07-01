@@ -19,16 +19,19 @@ public class Enemy : MonoBehaviour
 
     public Transform fromShoot;
 
+    public float enemyLaserDelay => Random.Range(0.75f, 1.5f);
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         health = Random.Range(3, 10);
+       // transform.position.x = Random.Range(-9, 9);
     }
 
     private void Start()
     {
         GetIndexEnemy();
-        InvokeRepeating(nameof(EnemyShoot), 1f, 1f);
+        InvokeRepeating(nameof(EnemyShoot), enemyLaserDelay, enemyLaserDelay);
     }
 
     private void Update()
@@ -68,6 +71,10 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage (laserDamage);
             Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("DestroyArea"))
+        {
+            Destroy (gameObject);
         }
     }
 }
