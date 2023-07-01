@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public int health;
 
+    public int laserDamage = 5;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -40,6 +42,11 @@ public class Enemy : MonoBehaviour
         transform.position += Vector3.down * enemySpeed * Time.deltaTime;
     }
 
+    private void EnemyShoot()
+    {
+        //todo
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -47,6 +54,15 @@ public class Enemy : MonoBehaviour
         if (health < 1)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Laser"))
+        {
+            TakeDamage (laserDamage);
+            Destroy(other.gameObject);
         }
     }
 }

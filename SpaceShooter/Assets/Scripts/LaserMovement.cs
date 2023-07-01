@@ -4,21 +4,17 @@ public class LaserMovement : MonoBehaviour
 {
     public float laserSpeed = 1.0f;
 
-    public int damage = 5;
+    public Vector3 direction;
+
+    public float laserDelay = 1.0f;
+
+    private void OnEnable()
+    {
+        Destroy(this.gameObject, laserDelay);
+    }
 
     private void Update()
     {
-        transform.position += Vector3.up * laserSpeed * Time.deltaTime;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Enemy e = other.gameObject.GetComponent<Enemy>();
-            e.TakeDamage (damage);
-        }
-
-        Destroy(this.gameObject);
+        transform.position += direction * laserSpeed * Time.deltaTime;
     }
 }

@@ -7,7 +7,7 @@ public class ProjectTile : MonoBehaviour
 
     public Transform fromShoot;
 
-    public float laserDelay = 1.0f;
+    
 
     private int ammo = 30;
 
@@ -26,15 +26,19 @@ public class ProjectTile : MonoBehaviour
         {
             GameObject l =
                 Instantiate(laser, fromShoot.position, Quaternion.identity);
-            Destroy (l, laserDelay);
 
-            ammo--;
-            ammoText.text = "x" + ammo.ToString();
+            DecreaseAmmo();
+        }
+    }
 
-            if (ammo < 1)
-            {
-                ammo = 0;
-            }
+    private void DecreaseAmmo()
+    {
+        ammo--;
+        ammoText.text = "x" + ammo.ToString();
+
+        if (ammo < 1)
+        {
+            ammo = 0;
         }
     }
 }
