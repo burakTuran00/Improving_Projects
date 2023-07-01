@@ -25,17 +25,25 @@ public class Enemy : MonoBehaviour
 
     public float enemyLaserDelay => Random.Range(1.5f, 2.25f);
 
+    private AudioSource soundEffect;
+
+    public AudioClip laserEffect;
+
+    public AudioClip crashEffect;
+
     private void Awake()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         health = Random.Range(3, 10);
+        soundEffect = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         GetIndexEnemy();
         InvokeRepeating(nameof(EnemyShoot), 0, enemyLaserDelay);
+        soundEffect.clip = laserEffect;
     }
 
     private void Update()
@@ -66,9 +74,14 @@ public class Enemy : MonoBehaviour
         if (health < 1)
         {
             circleCollider2D.enabled = false;
+
             int crashIndex = Random.Range(0, enemiesCrash.Length);
             spriteRenderer.sprite = enemiesCrash[crashIndex];
+
             Destroy(this.gameObject, 0.75f);
+
+            soundEffect.clip = crashEffect;
+            soundEffect.Play();
         }
     }
 

@@ -45,6 +45,7 @@ public class DetectCollisionPlayer : MonoBehaviour
 
         if (health < 1)
         {
+            FindObjectOfType<ProjectTile>().Lose();
             health = 0;
             StartCoroutine(ReloadLevel());
         }

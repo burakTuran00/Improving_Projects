@@ -53,4 +53,10 @@ public class ProjectTile : MonoBehaviour
             ammo = 0;
         }
     }
+
+    public void Lose()
+    {
+        soundEffect.clip = loseEffect;
+        soundEffect.Play();
+    }
 }
