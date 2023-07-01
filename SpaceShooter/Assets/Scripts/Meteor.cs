@@ -59,5 +59,9 @@ public class Meteor : MonoBehaviour
             TakeDamage (playerLaserDamage);
             Destroy(other.gameObject);
         }
+        else if (other.CompareTag("DestroyArea"))
+        {
+            Destroy (gameObject);
+        }
     }
 }

@@ -13,6 +13,18 @@ public class ProjectTile : MonoBehaviour
 
     private bool shotable => ammo > 0;
 
+    private AudioSource soundEffect;
+
+    public AudioClip ammoEffect;
+
+    public AudioClip loseEffect;
+
+    private void Awake()
+    {
+        soundEffect = GetComponent<AudioSource>();
+        soundEffect.clip = ammoEffect;
+    }
+
     private void Update()
     {
         Shoot();
@@ -24,6 +36,8 @@ public class ProjectTile : MonoBehaviour
         {
             GameObject l =
                 Instantiate(laser, fromShoot.position, Quaternion.identity);
+
+            soundEffect.Play();
 
             DecreaseAmmo();
         }
