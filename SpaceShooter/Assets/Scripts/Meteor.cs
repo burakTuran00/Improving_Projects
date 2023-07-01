@@ -8,11 +8,14 @@ public class Meteor : MonoBehaviour
 
     public float meteorSpeed => Random.Range(3, 12);
 
-    public int health => Random.Range(1, 5);
+    public float rotationSpeed => Random.Range(1, 2);
+
+    public int health;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        health = Random.Range(1, 4);
     }
 
     private void Start()
@@ -34,6 +37,16 @@ public class Meteor : MonoBehaviour
     private void MeteorMovement()
     {
         transform.position += Vector3.down * meteorSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.forward);
+        transform.Rotate(Vector3.forward * rotationSpeed);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health < 1)
+        {
+            Destroy (gameObject);
+        }
     }
 }
