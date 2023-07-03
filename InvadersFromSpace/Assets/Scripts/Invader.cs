@@ -32,4 +32,12 @@ public class Invader : MonoBehaviour
 
         spriteRenderer.sprite = animationSprites[animationFrame];
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
