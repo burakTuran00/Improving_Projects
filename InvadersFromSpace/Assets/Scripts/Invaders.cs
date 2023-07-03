@@ -27,9 +27,19 @@ public class Invaders : MonoBehaviour
 
     public int columns = 11;
 
+    [Header("Missile")]
+    public GameObject missile;
+
+    public float missileAttackRate = 1.0f;
+
     private void Awake()
     {
         AdjustPositions();
+    }
+
+    private void Start() 
+    {
+        InvokeRepeating(nameof(MissileAttack), missileAttackRate, missileAttackRate);    
     }
 
     private void Update()
@@ -51,6 +61,7 @@ public class Invaders : MonoBehaviour
             for (int j = 0; j < columns; j++)
             {
                 Invader invader = Instantiate(prefabs[i], transform);
+                invader.killed += InvaderKilled;
 
                 Vector3 position = rowPosition;
                 position.x += 2f * j;
@@ -74,12 +85,18 @@ public class Invaders : MonoBehaviour
                 continue;
             }
 
-            if (direction == Vector3.right && invader.position.x >= (rightEdge.x - 1f))
+            if (
+                direction == Vector3.right &&
+                invader.position.x >= (rightEdge.x - 1f)
+            )
             {
                 AdvanceRow();
                 break;
             }
-            else if (direction == Vector3.left && invader.position.x <= (leftEdge.x + 1f))
+            else if (
+                direction == Vector3.left &&
+                invader.position.x <= (leftEdge.x + 1f)
+            )
             {
                 AdvanceRow();
                 break;
@@ -111,6 +128,23 @@ public class Invaders : MonoBehaviour
         if (amountKilled >= totalInvaders)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+      private void MissileAttack()
+    {
+        foreach (Transform invader in this.transform)
+        {
+            if (!invader.gameObject.activeInHierarchy)
+            {
+                continue;
+            }
+
+            if (Random.value < (1.0f / (float) amountAlive))
+            {
+                Instantiate(missile, invader.position, Quaternion.identity);
+                break;
+            }
         }
     }
 }

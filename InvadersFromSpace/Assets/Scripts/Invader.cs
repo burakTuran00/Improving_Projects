@@ -10,6 +10,8 @@ public class Invader : MonoBehaviour
 
     public float animationTime = 1.0f;
 
+    public System.Action killed;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -37,6 +39,7 @@ public class Invader : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
+             this.killed.Invoke();
             gameObject.SetActive(false);
         }
     }
