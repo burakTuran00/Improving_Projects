@@ -16,5 +16,9 @@ public class Bunker : MonoBehaviour
             collider.enabled = false;
             gameObject.SetActive(false);
         }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

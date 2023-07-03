@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class Player : MonoBehaviour
 {
     public float speed = 1.0f;
@@ -19,7 +20,6 @@ public class Player : MonoBehaviour
     private void Movement()
     {
         direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
 
         transform.position += direction * speed * Time.deltaTime;
     }
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            SceneManager.LoadScene(currentSceneIndex);
+            SceneManager.LoadScene (currentSceneIndex);
         }
     }
 }
