@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Invader : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
@@ -41,6 +41,10 @@ public class Invader : MonoBehaviour
         {
              this.killed.Invoke();
             gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

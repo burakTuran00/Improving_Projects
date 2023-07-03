@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Missile : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Missile : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            //todo
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
