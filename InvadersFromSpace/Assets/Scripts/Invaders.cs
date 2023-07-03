@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Invaders : MonoBehaviour
 {
     [Header("Invaders")]
     public Invader[] prefabs;
 
-    public float speed = 1.0f;
+    public AnimationCurve speed;
 
     public Vector3 direction = Vector3.right;
 
@@ -13,13 +14,13 @@ public class Invaders : MonoBehaviour
 
     public System.Action<Invader> killed;
 
-    public int AmountKilled { get; private set; }
+    public int amountKilled { get; private set; }
 
-    public int AmountAlive => TotalAmount - AmountKilled;
+    public int amountAlive => totalInvaders - amountKilled;
 
-    public int TotalAmount => rows * columns;
+    public int totalInvaders => rows * columns;
 
-    public float PercentKilled => (float) AmountKilled / (float) TotalAmount;
+    public float percentKilled => (float) amountKilled / (float) totalInvaders;
 
     [Header("Grid")]
     public int rows = 5;
@@ -60,9 +61,8 @@ public class Invaders : MonoBehaviour
 
     private void Movement()
     {
-       
-
-        transform.position += direction * speed * Time.deltaTime;
+        transform.position +=
+            direction * speed.Evaluate(percentKilled) * Time.deltaTime;
 
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
@@ -74,12 +74,18 @@ public class Invaders : MonoBehaviour
                 continue;
             }
 
-            if (direction == Vector3.right && invader.position.x >= (rightEdge.x - 1f))
+            if (
+                direction == Vector3.right &&
+                invader.position.x >= (rightEdge.x - 1f)
+            )
             {
                 AdvanceRow();
                 break;
             }
-            else  if (direction == Vector3.left && invader.position.x <= (leftEdge.x + 1f))
+            else if (
+                direction == Vector3.left &&
+                invader.position.x <= (leftEdge.x + 1f)
+            )
             {
                 AdvanceRow();
                 break;
@@ -89,10 +95,8 @@ public class Invaders : MonoBehaviour
 
     private void AdvanceRow()
     {
-       
         direction.x *= -1;
 
-        
         Vector3 position = transform.position;
         position.y -= 1f;
 
@@ -102,7 +106,17 @@ public class Invaders : MonoBehaviour
     private void OnInvaderKilled(Invader invader)
     {
         invader.gameObject.SetActive(false);
-        AmountKilled++;
-        killed(invader);
+        amountKilled++;
+        killed (invader);
+    }
+
+    public void InvaderKilled()
+    {
+        amountKilled++;
+
+        if (amountKilled >= totalInvaders)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
