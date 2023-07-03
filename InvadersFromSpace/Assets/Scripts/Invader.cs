@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
-    public Sprite[] animationSprites;
-
-    public float animationTime;
-
     private SpriteRenderer spriteRenderer;
 
+    public Sprite[] animationSprites;
+
     private int animationFrame;
+
+    public int animationTime;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = animationSprites[0];
     }
 
     private void Start()
     {
-        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
+        
     }
 
     private void AnimateSprite()
@@ -30,14 +31,5 @@ public class Invader : MonoBehaviour
         }
 
         spriteRenderer.sprite = animationSprites[animationFrame];
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
-        {
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-        }
     }
 }
