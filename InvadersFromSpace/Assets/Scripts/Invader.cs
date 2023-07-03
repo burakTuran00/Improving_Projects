@@ -8,7 +8,7 @@ public class Invader : MonoBehaviour
 
     private int animationFrame;
 
-    public int animationTime;
+    public float animationTime = 1.0f;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class Invader : MonoBehaviour
 
     private void Start()
     {
-        
+        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
 
     private void AnimateSprite()

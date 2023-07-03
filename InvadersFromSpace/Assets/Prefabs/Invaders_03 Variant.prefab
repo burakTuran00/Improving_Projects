@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 730301326333323514, guid: bfae1617c0bad7a4c923d4a848f357ae, type: 3}
+      propertyPath: animationSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ed95647f593454b43a8c56aea14e9f6d, type: 3}
+    - target: {fileID: 730301326333323514, guid: bfae1617c0bad7a4c923d4a848f357ae, type: 3}
+      propertyPath: animationSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: dc34b00d10bf4fa468e0306af955b28b, type: 3}
     - target: {fileID: 1322467841881179630, guid: bfae1617c0bad7a4c923d4a848f357ae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -25,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5590148060349572030, guid: bfae1617c0bad7a4c923d4a848f357ae, type: 3}
       propertyPath: m_Name
-      value: Invaders_03
+      value: Invaders_03 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6397668331701079863, guid: bfae1617c0bad7a4c923d4a848f357ae, type: 3}
       propertyPath: m_RootOrder

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2567093480215350089, guid: beb200da1c1f9fa4094bb8a47f5eaf0d, type: 3}
       propertyPath: m_Name
-      value: Invaders_01
+      value: Invaders_01 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3962326081268328384, guid: beb200da1c1f9fa4094bb8a47f5eaf0d, type: 3}
       propertyPath: m_RootOrder
@@ -95,6 +95,18 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7212122069487878157, guid: beb200da1c1f9fa4094bb8a47f5eaf0d, type: 3}
+      propertyPath: animationSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212122069487878157, guid: beb200da1c1f9fa4094bb8a47f5eaf0d, type: 3}
+      propertyPath: animationSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: da96c082bcd3015439840ef531b24f73, type: 3}
+    - target: {fileID: 7212122069487878157, guid: beb200da1c1f9fa4094bb8a47f5eaf0d, type: 3}
+      propertyPath: animationSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: e1ec4f43d4b1c6a4aa7b600df2bc3d75, type: 3}
     - target: {fileID: 8966190350896475417, guid: beb200da1c1f9fa4094bb8a47f5eaf0d, type: 3}
       propertyPath: m_Sprite
       value: 

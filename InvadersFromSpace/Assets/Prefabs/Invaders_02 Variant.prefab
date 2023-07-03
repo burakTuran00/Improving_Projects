@@ -19,13 +19,21 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.375
       objectReference: {fileID: 0}
+    - target: {fileID: 2966855430387758766, guid: e3cc35ca7bf57e84b80375661180a06b, type: 3}
+      propertyPath: animationSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: d230362b7475bb942adfe71a413598cc, type: 3}
+    - target: {fileID: 2966855430387758766, guid: e3cc35ca7bf57e84b80375661180a06b, type: 3}
+      propertyPath: animationSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: c352ac396806f0e4fbecee2e44f3d976, type: 3}
     - target: {fileID: 3554667330164218810, guid: e3cc35ca7bf57e84b80375661180a06b, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d230362b7475bb942adfe71a413598cc, type: 3}
     - target: {fileID: 7969924862599953898, guid: e3cc35ca7bf57e84b80375661180a06b, type: 3}
       propertyPath: m_Name
-      value: Invaders_02
+      value: Invaders_02 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8919373664020091235, guid: e3cc35ca7bf57e84b80375661180a06b, type: 3}
       propertyPath: m_RootOrder
