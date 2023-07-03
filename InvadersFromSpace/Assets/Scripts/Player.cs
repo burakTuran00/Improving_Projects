@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     public Transform shootPoint;
 
+    public bool isLaserActive;
+
     private void Update()
     {
         Movement();
@@ -28,8 +30,15 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject l =
-                Instantiate(laser, shootPoint.position, Quaternion.identity);
+
+            if (!isLaserActive)
+            {
+                GameObject l =
+                    Instantiate(laser, shootPoint.position, Quaternion.identity);
+
+                isLaserActive = true;
+            }
+            
         }
     }
 

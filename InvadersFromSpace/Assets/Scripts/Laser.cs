@@ -8,13 +8,24 @@ public class Laser : MonoBehaviour
 
     public float laserDestroyTime = 1.0f;
 
-    private void OnEnable()
+    private Player player;
+
+    private void Awake()
     {
-        Destroy(gameObject, laserDestroyTime);
+        player = FindObjectOfType<Player>();
     }
 
     private void Update()
     {
         transform.position += direciton * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("LaserReloaded") || other.CompareTag("Invader") || other.CompareTag("Bunker"))
+        {
+            player.isLaserActive = false;
+            Destroy(gameObject);
+        }
     }
 }
