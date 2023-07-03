@@ -13,11 +13,11 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Destroy (gameObject);
+
         if (other.CompareTag("Player"))
         {
             //todo
         }
-
-        Destroy (gameObject);
     }
 }
