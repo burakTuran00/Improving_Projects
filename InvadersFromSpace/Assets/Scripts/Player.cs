@@ -6,9 +6,14 @@ public class Player : MonoBehaviour
 
     private Vector3 direction;
 
+    public bool laserActive { get; set; }
+
+    public GameObject laser;
+
     private void Update()
     {
         Movement();
+        Shoot();
     }
 
     private void Movement()
@@ -20,9 +25,14 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            
+            if (!laserActive)
+            {
+                GameObject l =
+                    Instantiate(laser, transform.position, Quaternion.identity);
+                laserActive = true;
+            }
         }
     }
 }
