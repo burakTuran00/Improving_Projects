@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
 
     private void Scaling()
     {
-        this.transform.localScale -= decreaseScale;
+        this.transform.localScale =
+            Vector3.Lerp(transform.localScale, transform.localScale - decreaseScale, decreaseTime);
 
         if (transform.localScale.y < 0.15)
         {
