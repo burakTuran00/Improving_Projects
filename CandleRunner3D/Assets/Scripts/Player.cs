@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Settings")]
     private Rigidbody rb;
 
     public Joystick joystick;
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
 
     public Vector2 minMaxX;
 
+    [Header("Scale Settings")]
     public Vector3 decreaseScale;
 
     public float decreaseTime;
@@ -48,9 +50,10 @@ public class Player : MonoBehaviour
     {
         this.transform.localScale -= decreaseScale;
 
-        if (transform.localScale.y < .25)
+        if (transform.localScale.y < 0.15)
         {
             //todo
+            CancelInvoke(nameof(Scaling));
         }
     }
 }
