@@ -1,9 +1,11 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [Header("Player Settings")]
     private Rigidbody rb;
+
+    private Transform initialPosition;
 
     public Joystick joystick;
 
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Start()
@@ -37,17 +40,26 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    private void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            decreaseScaling();
+        }
+        else if (other.gameObject.CompareTag("FinishLine"))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     private void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             increaseScaling();
         }
-        else if (other.gameObject.CompareTag("Obstacle"))
-        {
-            
-        }
+        
     }
 
     private void Move()
@@ -67,7 +79,7 @@ public class Player : MonoBehaviour
 
         if (transform.localScale.y < 0.15)
         {
-            //todo
+            SceneManager.LoadScene(0);
             CancelInvoke(nameof(Scaling));
         }
     }
