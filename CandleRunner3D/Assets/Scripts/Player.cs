@@ -37,6 +37,18 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    private void OnTriggerEnter(Collider other) 
+    {
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(other.gameObject);
+            increaseScaling();
+        }
+        else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            
+        }
+    }
 
     private void Move()
     {
@@ -60,14 +72,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void increaseScaling()
+    private void increaseScaling()
     {
         this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale + increaseScale, increaseTime);
     }
 
-    public void decreaseScaling()
+    private void decreaseScaling()
     {
-        this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - decreaseScale, decreaseTime);
+        this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - increaseScale, increaseTime);
     } 
 
 
