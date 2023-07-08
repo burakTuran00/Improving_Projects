@@ -93,6 +93,4 @@ public class Player : MonoBehaviour
     {
         this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - increaseScale, increaseTime);
     } 
-
-
 }
