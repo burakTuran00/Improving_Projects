@@ -16,7 +16,11 @@ public class Player : MonoBehaviour
     [Header("Scale Settings")]
     public Vector3 decreaseScale;
 
+    public Vector3 increaseScale;
+
     public float decreaseTime;
+
+    public float increaseTime; 
 
     private void Awake()
     {
@@ -33,17 +37,31 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    private void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            decreaseScaling();
+        } 
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(other.gameObject);
+            increaseScaling();
+        }
+       
+    }
+
     private void Move()
     {
         transform.position =
-            new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y),
-                transform.position.y,
-                transform.position.z);
+            new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y), transform.position.y, transform.position.z);
 
-        rb.velocity =
-            new Vector3(joystick.Horizontal * leftRightSpeed * Time.deltaTime,
-                rb.velocity.y,
-                forwardSpeed * Time.deltaTime);
+        float xMovement = joystick.Horizontal * leftRightSpeed * Time.deltaTime;
+        transform.position += new Vector3(xMovement,0f , forwardSpeed* Time.deltaTime);
     }
 
     private void Scaling()
@@ -51,10 +69,23 @@ public class Player : MonoBehaviour
         this.transform.localScale =
             Vector3.Lerp(transform.localScale, transform.localScale - decreaseScale, decreaseTime);
 
+
         if (transform.localScale.y < 0.15)
         {
             //todo
             CancelInvoke(nameof(Scaling));
         }
     }
+
+    private void increaseScaling()
+    {
+        this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale + increaseScale, increaseTime);
+    }
+
+    private void decreaseScaling()
+    {
+        this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - decreaseScale, decreaseTime);
+    } 
+
+
 }
