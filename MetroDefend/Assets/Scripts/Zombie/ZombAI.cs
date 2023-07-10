@@ -7,7 +7,7 @@ public class ZombAI : MonoBehaviour
 
     private NavMeshAgent agent;
 
-    public GameObject target;
+    private GameObject target;
 
     public float rangeWalk = 20f;
 
@@ -19,6 +19,7 @@ public class ZombAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        target = GameObject.Find("Cylinder");
     }
 
     private void Update()
