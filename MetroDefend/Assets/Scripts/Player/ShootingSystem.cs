@@ -15,6 +15,10 @@ public class ShootingSystem : MonoBehaviour
     [Header("Shoot Effect")]
     public ParticleSystem shootEffect;
 
+    [Header("Sound Effect")]
+
+    public AudioSource audioSource;
+
     private void Awake() 
     {
         ammoSystem = GetComponent<AmmoSystem>();    
@@ -47,5 +51,6 @@ public class ShootingSystem : MonoBehaviour
     private void ShootEffectPlay()
     {
         shootEffect.Play();
+        audioSource.Play();
     }
 }
