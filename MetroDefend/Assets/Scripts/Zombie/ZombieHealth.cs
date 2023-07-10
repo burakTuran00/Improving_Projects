@@ -40,7 +40,12 @@ public class ZombieHealth : MonoBehaviour
         agent.speed = 0.0f;
         collider.enabled = false;
 
-        Destroy(gameObject, 1.75f);
+        Invoke(nameof(IsActive), 1.75f);
+    }
+
+    private void IsActive()
+    {
+        gameObject.SetActive(false);
     }
 
     public bool IsAlive()
