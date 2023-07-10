@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
             PlayerDie();
         }
 
-        healthText.text = health.ToString();
+        healthText.text = "x" + health.ToString();
     }
 
     private void PlayerDie()

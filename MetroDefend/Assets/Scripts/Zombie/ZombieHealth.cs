@@ -15,11 +15,16 @@ public class ZombieHealth : MonoBehaviour
 
     private new CapsuleCollider collider;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         collider = GetComponent<CapsuleCollider>();
+        audioSource = GetComponent<AudioSource>();
+
+        agent.stoppingDistance = 4f;
     }
 
     public void TakeDamage(int damage)
@@ -34,6 +39,8 @@ public class ZombieHealth : MonoBehaviour
 
     private void ZombieDeath()
     {
+        audioSource.Play();
+
         isAlive = false;
         animator.SetTrigger("Die");
 
