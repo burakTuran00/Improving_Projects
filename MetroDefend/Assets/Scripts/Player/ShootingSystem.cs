@@ -10,7 +10,7 @@ public class ShootingSystem : MonoBehaviour
 
     public float range = 50.0f;
 
-    public int weoponDamage = 30;
+    public int weoponDamage = 35;
 
     [Header("Shoot Effect")]
     public ParticleSystem shootEffect;
@@ -39,7 +39,14 @@ public class ShootingSystem : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Cam.transform.position,Cam.transform.forward,out hit,range))
             {
-               //todo
+               ZombieHealth zombiHealth = hit.transform.GetComponent<ZombieHealth>();
+
+                if (zombiHealth == null)
+                {
+                    return;
+                }   
+
+                zombiHealth.TakeDamage(weoponDamage);
             }
             else
             {

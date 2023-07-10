@@ -9,6 +9,8 @@ public class ZombAI : MonoBehaviour
 
     private GameObject target;
 
+    private ZombieHealth zombieHealth;
+
     public float rangeWalk = 20f;
 
     private float distanceToTarget = Mathf.Infinity;
@@ -20,6 +22,7 @@ public class ZombAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         target = GameObject.Find("Cylinder");
+        zombieHealth = GetComponent<ZombieHealth>();
     }
 
     private void Update()
@@ -32,7 +35,7 @@ public class ZombAI : MonoBehaviour
         distanceToTarget =
             Vector3.Distance(target.transform.position, transform.position);
 
-        if (distanceToTarget <= rangeWalk)
+        if ((distanceToTarget <= rangeWalk) && zombieHealth.IsAlive())
         {
             LookToTarget();
             agent.speed = 2.0f;
