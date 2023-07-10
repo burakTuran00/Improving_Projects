@@ -1601,6 +1601,7 @@ GameObject:
   - component: {fileID: 8507612480868828814}
   - component: {fileID: 9117025232655913438}
   - component: {fileID: 200142458168347423}
+  - component: {fileID: 1737343620818220210}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Untagged
@@ -1720,6 +1721,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   isAlive: 1
+--- !u!114 &1737343620818220210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209692738579148192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01648db793721a941895c3726cc221e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  bloodImage: {fileID: 0}
+  bloodImpactTime: 0.35
+  zombieDamage: 15
 --- !u!1 &5347457237635740977
 GameObject:
   m_ObjectHideFlags: 0
