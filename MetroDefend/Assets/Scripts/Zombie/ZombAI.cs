@@ -48,6 +48,7 @@ public class ZombAI : MonoBehaviour
             else if (distanceToTarget <= agent.stoppingDistance)
             {
                 animator.SetBool("Attack", true);
+                agent.speed = 0f;
             }
 
             agent.SetDestination(target.transform.position);
