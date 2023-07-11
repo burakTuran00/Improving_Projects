@@ -5,6 +5,8 @@ public class PlayerHealth : MonoBehaviour
 {
     private GameManager gameManager;
 
+    public AudioSource heartBeat;
+
     public int health = 100;
 
     public TextMeshProUGUI healthText;
@@ -25,6 +27,27 @@ public class PlayerHealth : MonoBehaviour
             health = 0;
             playerAlive = false;
             PlayerDie();
+        }
+        else if (health <= 10)
+        {
+            heartBeat.Play();
+        }
+
+
+        healthText.text = "x" + health.ToString();
+    }
+
+    public void IncreaseHealth(int amount)
+    {
+        health += amount;
+
+        if (health >= 100)
+        {
+            health = 100;
+        }
+        else if (health > 10)
+        {
+            heartBeat.Stop();
         }
 
         healthText.text = "x" + health.ToString();
