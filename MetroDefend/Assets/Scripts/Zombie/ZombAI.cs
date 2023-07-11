@@ -23,6 +23,8 @@ public class ZombAI : MonoBehaviour
         animator = GetComponent<Animator>();
         target = GameObject.Find("Cylinder");
         zombieHealth = GetComponent<ZombieHealth>();
+
+        agent.stoppingDistance = 3.5f;
     }
 
     private void Update()
@@ -40,7 +42,7 @@ public class ZombAI : MonoBehaviour
             LookToTarget();
             agent.speed = 2.0f;
 
-            if (distanceToTarget >= agent.stoppingDistance)
+            if (distanceToTarget > agent.stoppingDistance)
             {
                 animator.SetBool("Attack", false);
                 animator.SetBool("Move", true);
@@ -48,7 +50,6 @@ public class ZombAI : MonoBehaviour
             else if (distanceToTarget <= agent.stoppingDistance)
             {
                 animator.SetBool("Attack", true);
-                agent.speed = 0f;
             }
 
             agent.SetDestination(target.transform.position);

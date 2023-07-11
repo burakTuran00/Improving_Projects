@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ZombieAttack : MonoBehaviour
 {
+    public AudioSource oughtSoundEffect;
+
     public PlayerHealth target;
 
     public Image bloodImage;
@@ -15,6 +17,8 @@ public class ZombieAttack : MonoBehaviour
     private void Start()
     {
         bloodImage.enabled = false;
+
+        target = GameObject.FindObjectOfType<PlayerHealth>();
     }
 
     public void ZombieAttackEvent()
@@ -25,8 +29,10 @@ public class ZombieAttack : MonoBehaviour
             {
                 return;
             }
-
+            
+            oughtSoundEffect.Play();
             target.TakeDamagePlayer (zombieDamage);
+
             StartCoroutine(Blood());
         }
         else

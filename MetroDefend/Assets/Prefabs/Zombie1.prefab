@@ -1681,12 +1681,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 5209692738579148192}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.4
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 4
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1701,11 +1701,11 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5209692738579148192}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: edacc3c0a6a83614d9e95fde3f05dff6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.29
-  m_Height: 1.8
+  m_Radius: 0.3
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &200142458168347423
@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  bloodImage: {fileID: 542326446315314519, guid: e2b46c99dc5d59742b482fa62689206b, type: 3}
+  bloodImage: {fileID: 0}
   bloodImpactTime: 0.35
   zombieDamage: 15
 --- !u!82 &8942380667946665111
