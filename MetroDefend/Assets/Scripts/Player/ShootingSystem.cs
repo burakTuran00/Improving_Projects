@@ -21,7 +21,7 @@ public class ShootingSystem : MonoBehaviour
 
     private void Awake() 
     {
-        ammoSystem = GetComponent<AmmoSystem>();    
+        ammoSystem = GetComponent<AmmoSystem>(); 
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class ShootingSystem : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) &&  ammoSystem.GetAmmo() > 0)
         {
             ShootEffectPlay();
             ammoSystem.AdjustAmmo();
@@ -52,7 +52,7 @@ public class ShootingSystem : MonoBehaviour
             {
                 return;
             }
-        }
+        }        
     }
 
     private void ShootEffectPlay()

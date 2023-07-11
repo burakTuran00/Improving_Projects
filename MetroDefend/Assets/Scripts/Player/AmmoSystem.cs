@@ -27,4 +27,9 @@ public class AmmoSystem : MonoBehaviour
 
         ammoText.text = "x" + ammo.ToString();
     }
+
+    public int GetAmmo()
+    {
+        return ammo;
+    }
 }

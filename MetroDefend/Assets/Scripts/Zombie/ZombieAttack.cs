@@ -32,7 +32,6 @@ public class ZombieAttack : MonoBehaviour
             
             oughtSoundEffect.Play();
             target.TakeDamagePlayer (zombieDamage);
-
             StartCoroutine(Blood());
         }
         else
