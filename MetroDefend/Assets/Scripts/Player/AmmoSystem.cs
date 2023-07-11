@@ -28,6 +28,19 @@ public class AmmoSystem : MonoBehaviour
         ammoText.text = "x" + ammo.ToString();
     }
 
+    public void IncreaseAmmo(int amount)
+    {
+        ammo += amount;
+
+        if (amount >= 100)
+        {
+            amount = 100;
+        }
+        
+        shootingSystem.enabled = true;
+        ammoText.text = "x" + ammo.ToString();
+    }
+
     public int GetAmmo()
     {
         return ammo;
