@@ -3,11 +3,18 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public int health = 100;
 
     public TextMeshProUGUI healthText;
 
     private bool playerAlive = true;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void TakeDamagePlayer(int damage)
     {
@@ -25,7 +32,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerDie()
     {
-        Debug.Log("Died");
+        if (gameManager == null)
+        {
+            return;
+        }
+
+        gameManager.RestartLevel();
     }
 
     public bool IsPlayerAlive()
