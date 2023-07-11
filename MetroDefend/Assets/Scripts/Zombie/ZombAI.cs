@@ -11,7 +11,7 @@ public class ZombAI : MonoBehaviour
 
     private ZombieHealth zombieHealth;
 
-    public float rangeWalk = 20f;
+    private float rangeWalk = 30f;
 
     private float distanceToTarget = Mathf.Infinity;
 

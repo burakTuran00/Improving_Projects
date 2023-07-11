@@ -2577,10 +2577,6 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1078529324}
-    - target: {fileID: 545052457, guid: f721c1afbe8b10f49b0d561eebfe44cf, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1851749449, guid: f721c1afbe8b10f49b0d561eebfe44cf, type: 3}
       propertyPath: ammoText
       value: 

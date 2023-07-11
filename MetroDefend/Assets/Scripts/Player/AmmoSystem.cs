@@ -34,11 +34,11 @@ public class AmmoSystem : MonoBehaviour
 
         if (amount >= 100)
         {
-            amount = 100;
+            ammo = 100;
         }
-        
-        shootingSystem.enabled = true;
+
         ammoText.text = "x" + ammo.ToString();
+        shootingSystem.enabled = true;
     }
 
     public int GetAmmo()
