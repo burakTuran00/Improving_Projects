@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Bullet bulletPrefab;
+
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Shoot()
     {
-        
+        Bullet bullet =
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+        bullet.Project(transform.up);
     }
 }
