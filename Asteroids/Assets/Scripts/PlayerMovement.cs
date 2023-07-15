@@ -6,7 +6,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool thrusting;
 
+    public float thrustSpeed = 1.0f;
+
     private float turnDirection;
+
+    public float turnSpeed = 1.0f;
 
     private void Awake()
     {
@@ -16,6 +20,19 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move();
+    }
+
+    private void FixedUpdate()
+    {
+        if (thrusting)
+        {
+            rb.AddForce(transform.up * thrustSpeed);
+        }
+
+        if (turnDirection != 0)
+        {
+            rb.AddTorque(turnDirection * turnSpeed);
+        }
     }
 
     private void Move()
