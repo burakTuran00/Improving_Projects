@@ -12,9 +12,9 @@ public class Asteroid : MonoBehaviour
 
     public float maxSize = 1.5f;
 
-    public float speed = 50.0f;
+    public float speed = 10.0f;
 
-    public float maxLifeTime = 10.0f;
+    public float maxLifeTime = 30.0f;
 
     private SpriteRenderer spriteRenderer;
 
