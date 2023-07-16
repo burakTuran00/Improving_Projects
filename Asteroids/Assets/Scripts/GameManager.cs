@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public float respanwRate = 1.75f;
 
-    public float collisionWaitingTime = 3.0f;
+    public float collisionWaitingTime = 5.0f;
 
     private void Awake()
     {
