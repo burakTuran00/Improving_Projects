@@ -24,6 +24,19 @@ public class GameManager : MonoBehaviour
     {
         explosion.transform.position = asteroid.transform.position;
         explosion.Play();
+
+        if (asteroid.size < 0.75f)
+        {
+            score += 100;
+        }
+        else if (asteroid.size < 1.25f)
+        {
+            score += 50;
+        }
+        else
+        {
+            score += 25;
+        }
     }
 
     public void PlayerDied()
@@ -59,7 +72,9 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(0);
+        lives = 3;
+        score = 0;
+
+        Invoke(nameof(Respawn), respanwRate);
     }
 }
