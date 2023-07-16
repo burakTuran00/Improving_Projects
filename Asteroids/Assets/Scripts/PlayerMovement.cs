@@ -4,6 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    private GameManager gameManager;
+
     private bool thrusting;
 
     public float thrustSpeed = 1.0f;
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -46,6 +49,19 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             turnDirection = -1.0f;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0.0f;
+
+            gameObject.SetActive(false);
+
+            gameManager.PlayerDied();            
         }
     }
 }
