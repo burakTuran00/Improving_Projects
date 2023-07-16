@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public float collisionWaitingTime = 5.0f;
 
     public int score = 0;
+
+    public TextMeshProUGUI scoreText;
+
+    public TextMeshProUGUI livesText;
 
     private void Awake()
     {
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
         {
             score += 25;
         }
+
+        scoreText.text = score.ToString();
     }
 
     public void PlayerDied()
@@ -45,6 +51,7 @@ public class GameManager : MonoBehaviour
         explosion.Play();
 
         lives--;
+        livesText.text = lives.ToString();
 
         if (lives <= 0)
         {
@@ -74,6 +81,9 @@ public class GameManager : MonoBehaviour
     {
         lives = 3;
         score = 0;
+
+        scoreText.text = score.ToString();
+        livesText.text = lives.ToString();
 
         Invoke(nameof(Respawn), respanwRate);
     }
