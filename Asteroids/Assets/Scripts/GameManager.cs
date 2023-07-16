@@ -46,5 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(0);
     }
 }
