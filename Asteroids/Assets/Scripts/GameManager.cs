@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public float respanwRate = 1.75f;
 
+    public float collisionWaitingTime = 3.0f;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>();
@@ -31,7 +33,15 @@ public class GameManager : MonoBehaviour
     private void Respawn()
     {
         player.transform.position = Vector3.zero;
+        player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollision");
         player.gameObject.SetActive(true);
+
+        Invoke(nameof(TurnOnCollision), collisionWaitingTime);
+    }
+
+    private void TurnOnCollision()
+    {
+        player.gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     private void GameOver()

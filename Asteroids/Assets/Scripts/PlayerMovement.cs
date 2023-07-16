@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
             gameObject.SetActive(false);
 
-            gameManager.PlayerDied();            
+            gameManager.PlayerDied();
         }
     }
 }
