@@ -5,19 +5,32 @@ public class GameManager : MonoBehaviour
 {
     public PlayerMovement player;
 
+    public ParticleSystem explosion;
+
     public int lives = 3;
 
     public float respanwRate = 1.75f;
 
     public float collisionWaitingTime = 5.0f;
 
+    public int score = 0;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>();
     }
 
+    public void AsteroidDestroyed(Asteroid asteroid)
+    {
+        explosion.transform.position = asteroid.transform.position;
+        explosion.Play();
+    }
+
     public void PlayerDied()
     {
+        explosion.transform.position = player.transform.position;
+        explosion.Play();
+
         lives--;
 
         if (lives <= 0)
