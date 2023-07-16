@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             score += 25;
         }
 
-        scoreText.text = score.ToString();
+        scoreText.text = score.ToString("000000");
     }
 
     public void PlayerDied()
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         lives = 3;
         score = 0;
 
-        scoreText.text = score.ToString();
+        scoreText.text = score.ToString("000000");
         livesText.text = lives.ToString();
 
         Invoke(nameof(Respawn), respanwRate);
