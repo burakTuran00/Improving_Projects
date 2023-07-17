@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         move = Vector2.right * x + Vector2.up * y;
 
         bool IsRunning = move.x > Mathf.Epsilon ? true : false || 
-                      move.x < Mathf.Epsilon ? true: false;
+                      move.x < -Mathf.Epsilon ? true: false;
                       
         animator.SetBool("isRuning", IsRunning);
 
