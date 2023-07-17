@@ -43,9 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        isGrounded =
-            Physics
-                .CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -57,9 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
         move = Vector2.right * x + Vector2.up * y;
 
-        bool IsRunning = move.x > Mathf.Epsilon ? true : false || 
-                      move.x < -Mathf.Epsilon ? true: false;
-                      
+        bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
+
         animator.SetBool("isRuning", IsRunning);
 
         controller.Move(move * speed * Time.deltaTime);
@@ -68,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+
+        bool IsJumping = velocity.y > 0.25f ? true : false;
+
+        animator.SetBool("isJumping", IsJumping);
 
         velocity.y += gravity * Time.deltaTime;
 
