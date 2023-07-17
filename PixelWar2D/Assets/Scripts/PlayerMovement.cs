@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Settings")]
     private CharacterController controller;
 
+    private Animator animator;
+
     public float speed = 8.0f;
 
     public float jumpHeight = 5.0f;
@@ -21,22 +23,24 @@ public class PlayerMovement : MonoBehaviour
     [Header("Gravity Settings")]
     public float gravity = -9.81f;
 
-    private Vector3 velocity;
+    public Vector3 velocity;
 
-
-    private void Awake() 
+    private void Awake()
     {
-        controller = GetComponent<CharacterController>();    
+        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
-    private void Update() 
+    private void Update()
     {
         Move();
     }
 
     private void Move()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded =
+            Physics
+                .CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -49,6 +53,15 @@ public class PlayerMovement : MonoBehaviour
         Vector2 move = Vector2.right * x + Vector2.up * y;
 
         controller.Move(move * speed * Time.deltaTime);
+
+        if (move.x > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (move.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
