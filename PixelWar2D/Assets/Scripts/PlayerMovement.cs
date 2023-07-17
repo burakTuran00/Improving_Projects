@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHeight = 5.0f;
 
+    public bool playerHasHorizontalSpeed;
+
+    public Vector2 move;
+
     [Header("Ground Control")]
     public Transform groundCheck;
 
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move();
+        FlipSprite();
     }
 
     private void Move()
@@ -50,18 +55,14 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
-        Vector2 move = Vector2.right * x + Vector2.up * y;
+        move = Vector2.right * x + Vector2.up * y;
+
+        bool canRun = move.x > Mathf.Epsilon ? true : false || 
+                      move.x < Mathf.Epsilon ? true: false;
+                      
+        animator.SetBool("isRuning", canRun);
 
         controller.Move(move * speed * Time.deltaTime);
-
-        if (move.x > 0)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (move.x < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -71,5 +72,15 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void FlipSprite()
+    {
+        playerHasHorizontalSpeed = Mathf.Abs(move.x) > Mathf.Epsilon;
+
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(move.x), 1f);
+        }
     }
 }
