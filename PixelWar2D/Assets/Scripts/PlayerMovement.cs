@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHeight = 5.0f;
 
-    public bool playerHasHorizontalSpeed;
+    public bool rotatable;
 
     public Vector2 move;
 
@@ -43,43 +43,43 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics2D.OverlapArea(groundCheck.position, groundCheck.position);
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = 0f;
         }
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
-        move = Vector2.right * x + Vector2.up * y;
+        move = Vector2.right * x;
 
         bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
 
         animator.SetBool("isRuning", IsRunning);
-
         controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            move = Vector2.up * y;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         bool IsJumping = velocity.y > 0.25f ? true : false;
-
         animator.SetBool("isJumping", IsJumping);
 
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
     }
 
+    
+
     private void FlipSprite()
     {
-        playerHasHorizontalSpeed = Mathf.Abs(move.x) > Mathf.Epsilon;
+        rotatable = Mathf.Abs(move.x) > Mathf.Epsilon;
 
-        if (playerHasHorizontalSpeed)
+        if (rotatable)
         {
             transform.localScale = new Vector3(Mathf.Sign(move.x), 1f);
         }
