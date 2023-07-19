@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 move;
 
+    private Vector2 mousePos;
+
     [Header("Ground Control")]
     public Transform groundCheck;
 
@@ -71,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     
