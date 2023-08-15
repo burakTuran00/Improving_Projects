@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
 
+    private ShootingSystem shootingSystem;
+
     private Vector3 move;
 
     [Range(1, 25)]
@@ -18,10 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsJumping;
 
+    public bool movable;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        shootingSystem = GetComponent<ShootingSystem>();
     }
 
     private void Update()
@@ -34,11 +39,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        move.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        if (movable)
+        {
+            move.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-        bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
-        animator.SetBool("isRunning", IsRunning);
-        transform.position += move;
+             bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
+            animator.SetBool("isRunning", IsRunning);
+            transform.position += move;
+        }
+        
     }
 
     private void Jump()
