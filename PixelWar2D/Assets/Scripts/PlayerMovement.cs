@@ -2,82 +2,52 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Player Settings")]
-    private CharacterController controller;
+    private Rigidbody2D rb;
 
     private Animator animator;
 
+    private Vector3 move;
+
+    [Range(1, 25)]
     public float speed = 8.0f;
 
-    public float jumpHeight = 5.0f;
+    [Range(1, 25)]
+    public float jumpForce = 12.0f;
 
-    public bool rotatable;
+    private bool rotatable;
 
-    public Vector2 move;
-
-    private Vector2 mousePos;
-
-    [Header("Ground Control")]
-    public Transform groundCheck;
-
-    public float groundDistance = 0.4f;
-
-    public LayerMask groundMask;
-
-    public bool isGrounded;
-
-    [Header("Gravity Settings")]
-    public float gravity = -9.81f;
-
-    public Vector3 velocity;
+    public bool IsJumping;
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         Move();
+        Jump();
         FlipSprite();
     }
 
     private void Move()
     {
-        isGrounded = Physics2D.OverlapArea(groundCheck.position, groundCheck.position);
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = 0f;
-        }
-
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-
-        move = Vector2.right * x;
+        move.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
-
-        animator.SetBool("isRuning", IsRunning);
-        controller.Move(move * speed * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            move = Vector2.up * y;
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        bool IsJumping = velocity.y > 0.25f ? true : false;
-        animator.SetBool("isJumping", IsJumping);
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        animator.SetBool("isRunning", IsRunning);
+        transform.position += move;
     }
 
-    
+    private void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && IsJumping)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            animator.SetBool("isJumping", true);
+        }
+    }
 
     private void FlipSprite()
     {
@@ -86,6 +56,22 @@ public class PlayerMovement : MonoBehaviour
         if (rotatable)
         {
             transform.localScale = new Vector3(Mathf.Sign(move.x), 1f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            IsJumping = true;
+            animator.SetBool("isJumping", false);
+        }    
+    }
+    private void OnCollisionExit2D(Collision2D other) 
+    {
+         if (other.gameObject.CompareTag("Ground"))
+        {
+            IsJumping = false;
         }
     }
 }
