@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class ShootingSystem : MonoBehaviour
 {
     public GameObject bulletPrefab;
@@ -10,10 +10,18 @@ public class ShootingSystem : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    private int ammo = 30;
+
+    public TextMeshProUGUI ammoText;
+
+    private bool shootable => ammo > 0;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        ammoText.text = ammo.ToString();
     }
 
     private void Update()
@@ -23,9 +31,19 @@ public class ShootingSystem : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && playerMovement.IsJumping)
+        if (Input.GetMouseButtonDown(0) && playerMovement.IsJumping && shootable)
         {
             Instantiate(bulletPrefab, shootingPosition.position , Quaternion.identity);
+
+            ammo--;
+
+            if (ammo < 1)
+            {
+                ammo = 0;
+            }
+
+            ammoText.text = ammo.ToString();
+
             animator.SetBool("isShoting", true);
             playerMovement.movable = false;
         }
