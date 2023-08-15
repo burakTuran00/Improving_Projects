@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsJumping)
         {
             rb.velocity = Vector2.up * jumpForce;
-            animator.SetBool("isJumping", true);
         }
     }
 
@@ -72,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
          if (other.gameObject.CompareTag("Ground"))
         {
             IsJumping = false;
+            animator.SetBool("isJumping", true);
         }
     }
 }
