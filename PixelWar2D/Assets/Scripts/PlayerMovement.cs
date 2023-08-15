@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [Range(1, 25)]
     public float jumpForce = 12.0f;
 
+    public Transform shootingPosition;
+
     private bool rotatable;
 
     public bool IsJumping;
@@ -62,11 +64,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl) && IsJumping)
         {
+            shootingPosition.localPosition = new Vector3(0.5f , -0.3f , 0f);
             animator.SetBool("isLeaning", true);
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl) && IsJumping)
         {
+             shootingPosition.localPosition = new Vector3(0.5f , 0.1f , 0f);
             animator.SetBool("isLeaning", false);
+            
         }
     }
 
