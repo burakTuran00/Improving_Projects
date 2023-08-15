@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Jump();
+        Lean();
         FlipSprite();
     }
 
@@ -45,6 +46,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsJumping)
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
+    private void Lean()
+    {
+        if (Input.GetKey(KeyCode.LeftControl) && IsJumping)
+        {
+            animator.SetBool("isLeaning", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && IsJumping)
+        {
+            animator.SetBool("isLeaning", false);
         }
     }
 
