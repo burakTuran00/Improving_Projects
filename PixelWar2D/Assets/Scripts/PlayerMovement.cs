@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             move.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-             bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
+            bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
             animator.SetBool("isRunning", IsRunning);
             transform.position += move;
         }

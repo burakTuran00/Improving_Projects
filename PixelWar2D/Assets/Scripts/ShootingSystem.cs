@@ -1,8 +1,11 @@
-using System;
 using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
+    public GameObject bulletPrefab;
+
+    public Transform shootingPosition;
+
     private Animator animator;
 
     private PlayerMovement playerMovement;
@@ -20,8 +23,9 @@ public class ShootingSystem : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerMovement.IsJumping)
         {
+            Instantiate(bulletPrefab, shootingPosition.position , Quaternion.identity);
             animator.SetBool("isShoting", true);
             playerMovement.movable = false;
         }
