@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
             bool IsRunning = move.x > Mathf.Epsilon ? true : false || move.x < -Mathf.Epsilon ? true : false;
             animator.SetBool("isRunning", IsRunning);
             transform.position += move;
+
         }
         
     }
