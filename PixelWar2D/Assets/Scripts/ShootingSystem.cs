@@ -32,7 +32,7 @@ public class ShootingSystem : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && playerMovement.IsJumping)
         {
             animator.SetBool("isShoting", true);
             playerMovement.movable = false;
