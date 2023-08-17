@@ -17,12 +17,14 @@ public class ShootingSystem : MonoBehaviour
 
     private bool shootable => ammo > 0;
 
+    public AudioSource soundOfShoot;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
 
-        ammoText.text = ammo.ToString();
+        ammoText.text = "x" + ammo.ToString();
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class ShootingSystem : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && playerMovement.IsJumping && shootable)
             {
+                soundOfShoot.Play();
                 Instantiate(bulletPrefab,shootingPosition.position,Quaternion.identity);
 
                 ammo--;
@@ -47,7 +50,7 @@ public class ShootingSystem : MonoBehaviour
                 {
                     ammo = 0;
                 }
-                ammoText.text = ammo.ToString();
+                ammoText.text = "x" +ammo.ToString();
             }
 
             
