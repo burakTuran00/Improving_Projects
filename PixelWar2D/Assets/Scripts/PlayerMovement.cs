@@ -65,14 +65,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl) && IsJumping)
         {
-            shootingPosition.localPosition = new Vector3(0.5f , -0.3f , 0f);
             animator.SetBool("isLeaning", true);
+            shootingPosition.localPosition = new Vector3(0.5f , -0.3f , 0f);
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl) && IsJumping)
         {
-             shootingPosition.localPosition = new Vector3(0.5f , 0.1f , 0f);
-            animator.SetBool("isLeaning", false);
-            
+             animator.SetBool("isLeaning", false); 
+             shootingPosition.localPosition = new Vector3(0.5f , 0.1f , 0f);          
         }
     }
 

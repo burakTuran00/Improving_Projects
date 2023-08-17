@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    float bulletForce = 20.0f;
+    float bulletForce = 10.0f;
 
     private Rigidbody2D rb;
 
