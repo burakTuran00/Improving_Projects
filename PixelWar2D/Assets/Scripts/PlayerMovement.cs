@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Enemy"))
         {
             IsJumping = true;
             animator.SetBool("isJumping", false);
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D other) 
     {
-         if (other.gameObject.CompareTag("Ground"))
+         if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Enemy"))
         {
             IsJumping = false;
             animator.SetBool("isJumping", true);

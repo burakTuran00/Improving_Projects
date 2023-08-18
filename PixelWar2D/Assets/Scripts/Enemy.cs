@@ -72,6 +72,9 @@ public class Enemy : MonoBehaviour
 
     public void DamageToPlayer()
     {
-        playerHealth.TakeDamage (damage);
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage (damage);
+        }
     }
 }
