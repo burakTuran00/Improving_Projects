@@ -57,6 +57,11 @@ public class Enemy : MonoBehaviour
                 transform.Translate(-speed * Time.deltaTime, 0f, 0f);
             }
 
+            if (Mathf.Abs(distanceToPlayer) <= attackableDistance)
+            {
+                animator.SetTrigger("isAttack");
+            }
+
             animator.SetBool("isWalk", true);
             transform.localScale = scale;
         }
