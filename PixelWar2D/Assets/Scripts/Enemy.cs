@@ -1,26 +1,62 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
+
+    private Animator animator;
+
+    [Header("Enemy Settings")]
+    public float speed = 2.0f;
+
+    public int Damage = 25;
+
+    public float walkableDistance = 10.0f;
 
     public bool flip;
 
-    public float speed = 1.0f;
+    public bool moveable = true;
+
+    private float distanceToPlayer;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void Update()
     {
-        Vector3 scale = transform.localScale;
+        MoveToPlayer();
+    }
 
-        if (player.transform.position.x > transform.position.x)
+    public void MoveToPlayer()
+    {
+        distanceToPlayer =
+            Vector2.Distance(player.transform.position, transform.position);
+
+        if ((distanceToPlayer <= walkableDistance) && moveable)
         {
-            scale.x = Mathf.Abs(scale.x) * -1f * (flip ? -1f : 1f);
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+            Vector3 scale = transform.localScale;
+
+            if (player.transform.position.x > transform.position.x)
+            {
+                scale.x = Mathf.Abs(scale.x) * -1f * (flip ? -1 : 1);
+                transform.Translate(speed * Time.deltaTime, 0f, 0f);
+            }
+            else
+            {
+                scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+                transform.Translate(-speed * Time.deltaTime, 0f, 0f);
+            }
+
+            animator.SetBool("isWalk", true);
+            transform.localScale = scale;
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x) * (flip ? -1f : 1f);
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
+            animator.SetBool("isWalk", false);
         }
     }
 }

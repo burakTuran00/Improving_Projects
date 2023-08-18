@@ -5,6 +5,8 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float bulletForce = 10.0f;
 
+    public int bulletDamage = 20;
+
     private Rigidbody2D rb;
 
     private PlayerMovement playerMovement;
@@ -30,7 +32,8 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(bulletDamage);
         }
         Destroy (gameObject);
     }
@@ -39,7 +42,8 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+             EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(bulletDamage);
         }
         Destroy (gameObject);
     }

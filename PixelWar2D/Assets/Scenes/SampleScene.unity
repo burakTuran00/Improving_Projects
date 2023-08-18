@@ -907,8 +907,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010216713, y: 0.022136014}
-  m_Size: {x: 0.31405577, y: 0.41427207}
+  m_Offset: {x: -0.012856564, y: 0.036645412}
+  m_Size: {x: 0.26790923, y: 0.38525328}
   m_Direction: 0
 --- !u!50 &963455210
 Rigidbody2D:
@@ -931,6 +931,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &963455211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963455205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0484308a6d6014da472d70fb4ef7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathDelay: 1
+--- !u!114 &963455212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963455205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc2a99b8c4f90041ab0c893747cefdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.25
+  Damage: 25
+  walkableDistance: 5
+  flip: 0
+  moveable: 1
 --- !u!1 &1330703804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4647,7 +4678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724995772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35262728, y: -3.2899885, z: -10}
+  m_LocalPosition: {x: 0.35604715, y: -3.2899885, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
