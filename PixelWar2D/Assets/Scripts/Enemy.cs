@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -7,12 +8,16 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
+    private PlayerHealth playerHealth;
+
     [Header("Enemy Settings")]
     public float speed = 2.0f;
 
-    public int Damage = 25;
+    public int damage = 25;
 
     public float walkableDistance = 10.0f;
+
+    public float attackableDistance = 0.5f;
 
     public bool flip;
 
@@ -24,6 +29,7 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     private void Update()
@@ -45,6 +51,10 @@ public class Enemy : MonoBehaviour
                 scale.x = Mathf.Abs(scale.x) * -1f * (flip ? -1 : 1);
                 transform.Translate(speed * Time.deltaTime, 0f, 0f);
             }
+            else if ((distanceToPlayer <= attackableDistance))
+            {
+                animator.SetTrigger("isAttack");
+            }
             else
             {
                 scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
@@ -58,5 +68,10 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("isWalk", false);
         }
+    }
+
+    public void DamageToPlayer()
+    {
+        playerHealth.TakeDamage (damage);
     }
 }

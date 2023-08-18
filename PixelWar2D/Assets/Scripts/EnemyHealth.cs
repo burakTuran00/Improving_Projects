@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
+  
+
     public void TakeDamage(int amount)
     {
         health -= amount;
