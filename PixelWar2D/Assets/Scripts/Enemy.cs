@@ -17,13 +17,13 @@ public class Enemy : MonoBehaviour
 
     public float walkableDistance = 10.0f;
 
-    public float attackableDistance = 0.5f;
+    public float attackableDistance = 1f;
 
     public bool flip;
 
     public bool moveable = true;
 
-    private float distanceToPlayer;
+    public float distanceToPlayer;
 
     private void Awake()
     {
@@ -51,11 +51,7 @@ public class Enemy : MonoBehaviour
                 scale.x = Mathf.Abs(scale.x) * -1f * (flip ? -1 : 1);
                 transform.Translate(speed * Time.deltaTime, 0f, 0f);
             }
-            else if ((distanceToPlayer <= attackableDistance))
-            {
-                animator.SetTrigger("isAttack");
-            }
-            else
+            else if (player.transform.position.x < transform.position.x)
             {
                 scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
                 transform.Translate(-speed * Time.deltaTime, 0f, 0f);
