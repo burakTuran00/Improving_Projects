@@ -17,12 +17,9 @@ public class EnemyHealth : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
-  
-
     public void TakeDamage(int amount)
     {
         health -= amount;
-        
 
         if (health <= 0)
         {
@@ -36,8 +33,9 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator Die()
     {
-        enemy.moveable = false;
         animator.SetTrigger("isDead");
+        enemy.moveable = false;
+
         yield return new WaitForSeconds(deathDelay);
         gameObject.SetActive(false);
     }
