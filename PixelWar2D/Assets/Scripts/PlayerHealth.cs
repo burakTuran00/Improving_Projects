@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+
 public class PlayerHealth : MonoBehaviour
 {
     private Animator animator;
@@ -8,10 +9,13 @@ public class PlayerHealth : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
+    private GameManager gameManager;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         healthText.text = "x" + health.ToString();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void TakeDamage(int amount)
@@ -20,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy (gameObject);
+            gameManager.RestartLevel();
         }
         else
         {

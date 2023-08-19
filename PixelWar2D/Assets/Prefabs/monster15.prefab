@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 2053559235664165433}
   - component: {fileID: 2053559235664165428}
   - component: {fileID: 2053559235664165435}
-  - component: {fileID: 2211405405877734818}
   m_Layer: 10
   m_Name: monster15
   m_TagString: Enemy
@@ -218,19 +217,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 250
   deathDelay: 2
---- !u!114 &2211405405877734818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954635196260341603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2321122ef2334864b82312f9e8b2f26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyType: {fileID: 8516385249203740131, guid: ac53a05af55790447a6abee86bf1eaa7, type: 3}
-  spawnPosition: {fileID: 6562262551493399149}
-  spawnTime: 25
-  spawnableDistance: 7
