@@ -1,14 +1,17 @@
 using UnityEngine;
-
+using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     private Animator animator;
 
     public int health = 100;
 
+    public TextMeshProUGUI healthText;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        healthText.text = "x" + health.ToString();
     }
 
     public void TakeDamage(int amount)
@@ -23,5 +26,7 @@ public class PlayerHealth : MonoBehaviour
         {
             animator.SetTrigger("isHurting");
         }
+
+        healthText.text = "x" + health.ToString();
     }
 }
