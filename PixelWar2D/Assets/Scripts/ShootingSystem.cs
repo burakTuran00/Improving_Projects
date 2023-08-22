@@ -61,4 +61,10 @@ public class ShootingSystem : MonoBehaviour
             playerMovement.movable = true;
         }
     }
+
+    public void TakeAmmo(int amount)
+    {
+        ammo += amount;
+        ammoText.text = "x" +ammo.ToString();
+    }
 }
