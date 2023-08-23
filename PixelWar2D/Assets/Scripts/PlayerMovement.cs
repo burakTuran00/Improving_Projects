@@ -89,16 +89,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Enemy"))
         {
-            IsJumping = true;
-            animator.SetBool("isJumping", false);
+            CheckGround(true);
         }    
     }
     private void OnCollisionExit2D(Collision2D other) 
     {
          if (other.gameObject.CompareTag("Ground"))
         {
-            IsJumping = false;
-            animator.SetBool("isJumping", true);
+            CheckGround(false);
         }
+    }
+
+    public void CheckGround(bool condition)
+    {
+        IsJumping = condition;
+        animator.SetBool("isJumping", !condition);
     }
 }
