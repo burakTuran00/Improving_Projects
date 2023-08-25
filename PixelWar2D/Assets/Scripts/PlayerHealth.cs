@@ -33,4 +33,10 @@ public class PlayerHealth : MonoBehaviour
 
         healthText.text = "x" + health.ToString();
     }
+
+    public void IncreaseHealth(int amount)
+    {
+        health += amount;
+        healthText.text = "x" + health.ToString();
+    }
 }

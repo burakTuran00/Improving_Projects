@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BulletItem : MonoBehaviour
 {
-
     public int amountAmmo = 10;
 
     private void OnTriggerEnter2D(Collider2D other)

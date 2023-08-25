@@ -1,9 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class ExitLevel : MonoBehaviour
 {
     private GameManager gameManager;
+
+    public TextMeshProUGUI levelUpText;
 
     public float delay = 1.0f;
 
@@ -24,5 +27,10 @@ public class ExitLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         gameManager.NextLevel();
+    }
+
+    private void LevelUpMessage()
+    {
+        
     }
 }
