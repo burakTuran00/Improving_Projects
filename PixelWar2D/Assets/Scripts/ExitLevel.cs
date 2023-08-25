@@ -25,12 +25,8 @@ public class ExitLevel : MonoBehaviour
 
     private IEnumerator LoadNextLevel()
     {
+        levelUpText.fontSize = 150;
         yield return new WaitForSeconds(delay);
         gameManager.NextLevel();
-    }
-
-    private void LevelUpMessage()
-    {
-        
     }
 }
