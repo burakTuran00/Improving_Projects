@@ -12,6 +12,8 @@ public class Fruit : MonoBehaviour
 
     private ParticleSystem juiceParticleEffect;
 
+    public int point = 1;
+
     private void Awake() 
     {
         fruitRigidbody = GetComponent<Rigidbody>();
@@ -21,7 +23,7 @@ public class Fruit : MonoBehaviour
 
     private void Sliced(Vector3 direction, Vector3 position, float force)
     {
-        FindObjectOfType<GameManager>().IncreaseScor();
+        FindObjectOfType<GameManager>().IncreaseScor(point);
 
         whole.SetActive(false);
         sliced.SetActive(true);
