@@ -21,6 +21,8 @@ public class Fruit : MonoBehaviour
 
     private void Sliced(Vector3 direction, Vector3 position, float force)
     {
+        FindObjectOfType<GameManager>().IncreaseScor();
+
         whole.SetActive(false);
         sliced.SetActive(true);
 
