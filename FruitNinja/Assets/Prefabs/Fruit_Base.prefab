@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7819602113102977486}
   - component: {fileID: 6113803000319550577}
   - component: {fileID: 3766658951459392682}
+  - component: {fileID: 8074051297457685078}
   m_Layer: 0
   m_Name: Fruit_Base
   m_TagString: Untagged
@@ -63,6 +64,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8074051297457685078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819602113102977487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24adf3ee9671a8048aa0ed57e21b1c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whole: {fileID: 198624600825869591}
+  sliced: {fileID: 1927925132989865870}
 --- !u!1001 &1009019433947760710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73582ac0ade11f44ab9232af7503b60b, type: 3}
+--- !u!1 &198624600825869591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 73582ac0ade11f44ab9232af7503b60b, type: 3}
+  m_PrefabInstance: {fileID: 1009019433947760710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &687494561400975277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 73582ac0ade11f44ab9232af7503b60b, type: 3}
@@ -190,6 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00d4f09b8f7bd24f88375fc71f830e9, type: 3}
+--- !u!1 &1927925132989865870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d00d4f09b8f7bd24f88375fc71f830e9, type: 3}
+  m_PrefabInstance: {fileID: 1585324656920208095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1263977802128475444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d00d4f09b8f7bd24f88375fc71f830e9, type: 3}

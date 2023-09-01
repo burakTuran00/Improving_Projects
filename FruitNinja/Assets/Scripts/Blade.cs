@@ -10,6 +10,8 @@ public class Blade : MonoBehaviour
 
     public Vector3 direction { get; private set; }
 
+    public float slicedForce = 5.0f;
+
     public float minSliceVelocity = 0.01f;
 
     private TrailRenderer bladeTrail;
@@ -21,13 +23,14 @@ public class Blade : MonoBehaviour
         bladeTrail = GetComponentInChildren<TrailRenderer>();
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
-        StopSlicing();      
+        StopSlicing();
     }
-    private void OnDisable() 
+
+    private void OnDisable()
     {
-        StopSlicing();    
+        StopSlicing();
     }
 
     private void Update()
@@ -48,7 +51,8 @@ public class Blade : MonoBehaviour
 
     private void StartSlicing()
     {
-        Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 newPosition =
+            mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0.0f;
 
         transform.position = newPosition;
@@ -69,7 +73,8 @@ public class Blade : MonoBehaviour
 
     private void ContinueSlicing()
     {
-        Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 newPosition =
+            mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0.0f;
 
         direction = newPosition - transform.position;
