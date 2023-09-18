@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 17034
+  controlID: 18630
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -84,8 +84,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 1
-    m_VSlider: 1
+    m_HSlider: 0
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -98,18 +98,18 @@ MonoBehaviour:
       y: 21
       width: 294.8
       height: 414
-    m_Scale: {x: 1.4490924, y: 1.4490924}
-    m_Translation: {x: 147.39996, y: 204.1138}
+    m_Scale: {x: 1.25, y: 1.25}
+    m_Translation: {x: 147.4, y: 207}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -101.71882
-      y: -140.85631
-      width: 203.43768
-      height: 285.69608
+      x: -117.92
+      y: -165.6
+      width: 235.84
+      height: 331.2
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 368.5, y: 543.75}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 17035
+  controlID: 18631
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 17036
+  controlID: 18632
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8c570000
-      m_LastClickedID: 22412
+      m_SelectedIDs: 000cffff
+      m_LastClickedID: -62464
       m_ExpandedIDs: 36fbffff8c570000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -539,9 +539,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3, y: 0, z: 1}
+    m_Target: {x: -1.6947532, y: -0.53372705, z: 11.060693}
     speed: 2
-    m_Value: {x: 3, y: 0, z: 1}
+    m_Value: {x: -1.6947532, y: -0.53372705, z: 11.060693}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -588,13 +588,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.113824874, y: 0.657453, z: -0.10050683, w: 0.7380406}
+    m_Target: {x: 0.22789693, y: 0.067324206, z: -0.015127785, w: 0.9712412}
     speed: 2
-    m_Value: {x: 0.11382488, y: 0.657453, z: -0.100506835, w: 0.7380406}
+    m_Value: {x: 0.22791848, y: 0.06586701, z: -0.014785864, w: 0.97133726}
   m_Size:
-    m_Target: 0.627414
+    m_Target: 3.7014189
     speed: 2
-    m_Value: 0.627414
+    m_Value: 3.5420277
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -612,7 +612,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.058714207, y: 0.16263531, z: -0.009028684, w: 0.9848995}
+  m_LastSceneViewRotation: {x: 0.065721, y: 0.73526067, z: -0.07105163, w: 0.6708458}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -693,16 +693,16 @@ MonoBehaviour:
     y: 456
     width: 1184
     height: 314.8
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
   - {fileID: 14}
   - {fileID: 15}
-  m_Selected: 3
-  m_LastSelected: 2
+  m_Selected: 0
+  m_LastSelected: 3
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -743,23 +743,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/3D Bakery Object
     m_Globs: []
     m_OriginalText: 
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/3D Bakery Object
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projects\Improving_Projects\TheFlyingCircle
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22580000
-    m_LastClickedID: 22562
-    m_ExpandedIDs: 00000000105800007a58000000ca9a3b
+    m_SelectedIDs: 10580000
+    m_LastClickedID: 22544
+    m_ExpandedIDs: 0000000010580000165800007a58000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -812,9 +812,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f664ffff
-    m_LastClickedInstanceID: -39690
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 000cffff
+    m_LastClickedInstanceID: -62464
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 22412
+  m_LastSelectedObjectID: -62464
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
