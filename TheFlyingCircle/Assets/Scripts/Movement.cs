@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Joystick joystick;
+
     public Vector3 direction;
 
-    [SerializeField]
-    float speed = 1.0f;
+    public float forwardSpeed = 1.0f;
 
-    [SerializeField]
-    float sideSpeed = 1.0f;
+    public float leftRightSpeed = 1.0f;
+
+    public Vector2 minMaxX;
 
     private void Update()
     {
@@ -17,23 +19,13 @@ public class Movement : MonoBehaviour
 
     private void playerMove()
     {
-        direction.x = Mathf.Clamp(direction.x, -3f, 3f);
+        transform.position =
+            new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y),
+                transform.position.y,
+                transform.position.z);
 
-        transform.position += Vector3.forward * speed * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction = Vector3.right;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            direction = Vector3.left;
-        }
-        else
-        {
-            direction = Vector3.zero;
-        }
-
-        transform.position += direction * sideSpeed * Time.deltaTime;
+        float xMovement = joystick.Horizontal * leftRightSpeed * Time.deltaTime;
+        transform.position +=
+            new Vector3(xMovement, 0f, forwardSpeed * Time.deltaTime);
     }
 }
