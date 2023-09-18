@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class EatFood : MonoBehaviour
 {
@@ -15,40 +16,7 @@ public class EatFood : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Food"))
         {
-            float foodRadius = other.GetComponent<SphereCollider>().radius;
-
-            if (other.gameObject != null)
-            {
-                if (playerCollider.radius > foodRadius)
-                {
-                    Eat(other.gameObject);
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    return; // pass the food
-                }
-            }
-            else
-            {
-                return;
-            }
+            transform.localScale *= 1.25f;
         }
-    }
-
-    public void Eat(GameObject food)
-    {
-        Thread.Sleep(200);
-        food.SetActive(false);
-
-        Thread.Sleep(100);
-        Grow (food);
-    }
-
-    public void Grow(GameObject food)
-    {
-        float growthValue = food.GetComponent<SphereCollider>().radius;
-
-        transform.localScale += (Vector3.one * growthValue);
     }
 }
