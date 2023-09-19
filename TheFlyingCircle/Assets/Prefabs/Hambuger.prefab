@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5025670937638045975}
   - component: {fileID: 5025670937637275959}
   - component: {fileID: 5025670937636146167}
+  - component: {fileID: 6650337388177854005}
   - component: {fileID: 5025670937418747733}
-  - component: {fileID: 5025670937418747729}
-  - component: {fileID: 5025670937418747728}
+  - component: {fileID: 3827016265818304006}
   m_Layer: 0
   m_Name: Hambuger
   m_TagString: Food
@@ -86,6 +86,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &6650337388177854005
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025670937638081847}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!135 &5025670937418747733
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -99,28 +115,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: -0.000000007450581, y: 0.2, z: -0.0000000037252903}
---- !u!95 &5025670937418747729
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5025670937638081847}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ddee7f12da39d4449f255e9906ade6a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5025670937418747728
+--- !u!114 &3827016265818304006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

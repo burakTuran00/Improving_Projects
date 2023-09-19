@@ -16,6 +16,7 @@ public class EatFood : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Food"))
         {
+            other.gameObject.GetComponent<Rigidbody>().useGravity = true;
             transform.localScale *= 1.25f;
         }
     }
