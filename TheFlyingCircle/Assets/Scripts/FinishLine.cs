@@ -7,7 +7,7 @@ public class FinishLine : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             FindAnyObjectByType<GameManager>().NextLevel();
-            FindAnyObjectByType<Movement>().movable = false;
+            //FindAnyObjectByType<Movement>().movable = false;
         }
     }
 }

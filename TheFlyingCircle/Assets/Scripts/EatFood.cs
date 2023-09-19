@@ -29,5 +29,9 @@ public class EatFood : MonoBehaviour
 
             FindAnyObjectByType<FollowingCamare>().Dist.z -= food.scalValue;
         }
+        else if(other.gameObject.CompareTag("Obstacle"))
+        {
+            FindObjectOfType<GameManager>().Restart();
+        }
     }
 }
