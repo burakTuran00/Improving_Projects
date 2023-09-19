@@ -2,5 +2,12 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-    //todo
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            FindAnyObjectByType<GameManager>().NextLevel();
+            FindAnyObjectByType<Movement>().movable = false;
+        }
+    }
 }

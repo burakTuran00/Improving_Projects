@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
+    public int value = 0;
+    public float scalValue = 1f;
+
     private AudioSource audioSource;
 
     private void Awake()

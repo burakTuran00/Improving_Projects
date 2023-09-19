@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI scoreText;
+
+    private int score = 0;
+
+    public void IncreaseScore(int value)
     {
-        
+        score += value;
+        scoreText.text = score.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NextLevel()
     {
-        
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextLevelIndex = currentSceneIndex + 1;
+
+        SceneManager.LoadScene (nextLevelIndex);
+    }
+
+    public void Restart()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene (currentSceneIndex);
     }
 }

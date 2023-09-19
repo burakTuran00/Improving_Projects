@@ -12,6 +12,15 @@ public class Movement : MonoBehaviour
 
     public Vector2 minMaxX;
 
+    public bool movable {get;  set;}
+
+    private void Awake() {
+        movable = true;
+    }
+    private void OnEnable() {
+        movable = true;
+    }
+
     private void Update()
     {
         playerMove();
@@ -19,13 +28,12 @@ public class Movement : MonoBehaviour
 
     private void playerMove()
     {
-        transform.position =
-            new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y),
-                transform.position.y,
-                transform.position.z);
+        if (movable)
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y), transform.position.y,transform.position.z);
 
-        float xMovement = joystick.Horizontal * leftRightSpeed * Time.deltaTime;
-        transform.position +=
-            new Vector3(xMovement, 0f, forwardSpeed * Time.deltaTime);
+            float xMovement = joystick.Horizontal * leftRightSpeed * Time.deltaTime;
+            transform.position += new Vector3(xMovement, 0f, forwardSpeed * Time.deltaTime);
+        }
     }
 }
