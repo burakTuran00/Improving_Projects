@@ -14,43 +14,45 @@ public class PlayerFinalStructure : MonoBehaviour
 
     private GameManager gameManager;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
-        gameManager = GetComponent<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
-        if(isMovable)
+        if (isMovable)
         {
-        transform.position = new Vector3(transform.position.x, transform.position.y,transform.position.z);
+            transform.position =
+                new Vector3(transform.position.x,transform.position.y,transform.position.z);
 
-        float xMovement = -joystick.Horizontal * leftRightSpeed * Time.deltaTime;
-        float zMovement = -joystick.Vertical * forwardSpeed * Time.deltaTime;
+            float xMovement = -joystick.Horizontal * leftRightSpeed * Time.deltaTime;
+            float zMovement = -joystick.Vertical * forwardSpeed * Time.deltaTime;
 
-        transform.position += new Vector3(xMovement, 0f, zMovement);
+            transform.position += new Vector3(xMovement, 0f, zMovement);
         }
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Bot"))
+        if (other.gameObject.CompareTag("Bot"))
         {
             other.gameObject.GetComponentInChildren<Animator>().SetTrigger("Destroy");
             other.gameObject.GetComponent<Rigidbody>().useGravity = true;
 
-            if(gameManager != null)
+            if (gameManager != null)
             {
-            gameManager.score--;
-            
-            if(gameManager.score < 0)
-            {
-                // cannot pass level
+                gameManager.score--;
+
+                if (gameManager.score < 0)
+                {
+                    // gameover
+                }
+
+                gameManager.scoreText.text = gameManager.score.ToString();
             }
 
-            gameManager.scoreText.text = gameManager.score.ToString();
-        }
-            
+            Destroy(other.gameObject,2f);
         }
     }
 }
