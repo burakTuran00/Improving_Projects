@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFinalStructure : MonoBehaviour
@@ -37,22 +38,21 @@ public class PlayerFinalStructure : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bot"))
         {
+            if(gameManager != null && gameManager.score > 0)
+            {
+            gameManager.score--;
+            gameManager.scoreText.text = gameManager.score.ToString();
+
+            other.gameObject.GetComponent<AudioSource>().Play();
+
             other.gameObject.GetComponentInChildren<Animator>().SetTrigger("Destroy");
             other.gameObject.GetComponent<Rigidbody>().useGravity = true;
-
-            if (gameManager != null)
-            {
-                gameManager.score--;
-
-                if (gameManager.score < 0)
-                {
-                    // gameover
-                }
-
-                gameManager.scoreText.text = gameManager.score.ToString();
-            }
-
             Destroy(other.gameObject,2f);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
