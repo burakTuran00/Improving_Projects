@@ -5,9 +5,9 @@ public class Food : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("CollisionArea"))
         {
-            Destroy(gameObject, 2f);
+            gameObject.SetActive(false);
         }
     }
 }
