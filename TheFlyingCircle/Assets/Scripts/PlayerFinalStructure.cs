@@ -42,6 +42,8 @@ public class PlayerFinalStructure : MonoBehaviour
                 gameManager.score--;
                 gameManager.scoreText.text = gameManager.score.ToString();
 
+                gameManager.botNumber--;
+
                 if(gameManager.score <= 0 && gameManager.botNumber > 0)
                 {
                     gameManager.Restart();
@@ -56,7 +58,6 @@ public class PlayerFinalStructure : MonoBehaviour
                 other.gameObject.GetComponent<Rigidbody>().useGravity = true;
 
                 Destroy(other.gameObject, 2f);
-                gameManager.botNumber--;
             }
             else
             {
