@@ -24,8 +24,7 @@ public class PlayerFinalStructure : MonoBehaviour
     {
         if (isMovable)
         {
-            transform.position =
-                new Vector3(transform.position.x,transform.position.y,transform.position.z);
+            transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
 
             float xMovement = -joystick.Horizontal * leftRightSpeed * Time.deltaTime;
             float zMovement = -joystick.Vertical * forwardSpeed * Time.deltaTime;
@@ -38,16 +37,26 @@ public class PlayerFinalStructure : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bot"))
         {
-            if(gameManager != null && gameManager.score > 0)
+            if (gameManager != null && gameManager.score > 0 && other.gameObject != null)
             {
-            gameManager.score--;
-            gameManager.scoreText.text = gameManager.score.ToString();
+                gameManager.score--;
+                gameManager.scoreText.text = gameManager.score.ToString();
 
-            other.gameObject.GetComponent<AudioSource>().Play();
+                if(gameManager.score <= 0 && gameManager.botNumber > 0)
+                {
+                    gameManager.Restart();
+                }
+                else if(gameManager.score >= 0 && gameManager.botNumber <= 0)
+                {
+                    gameManager.NextLevel();
+                }
 
-            other.gameObject.GetComponentInChildren<Animator>().SetTrigger("Destroy");
-            other.gameObject.GetComponent<Rigidbody>().useGravity = true;
-            Destroy(other.gameObject,2f);
+                other.gameObject.GetComponent<AudioSource>().Play();
+                other.gameObject.GetComponentInChildren<Animator>().SetTrigger("Destroy");
+                other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+
+                Destroy(other.gameObject, 2f);
+                gameManager.botNumber--;
             }
             else
             {
@@ -55,4 +64,6 @@ public class PlayerFinalStructure : MonoBehaviour
             }
         }
     }
+
+  
 }
