@@ -33,5 +33,33 @@ public class EatFood : MonoBehaviour
         {
             FindObjectOfType<GameManager>().Restart();
         }
+         if (other.gameObject.CompareTag("Bot"))
+        {
+            if (gameManager != null && gameManager.score > 0 && other.gameObject != null)
+            {
+                gameManager.DecreaseScor(1);
+
+                gameManager.botNumber--;
+
+                if(gameManager.score <= 0 && gameManager.botNumber > 0)
+                {
+                    gameManager.Restart();
+                }
+                else if(gameManager.score > 0 && gameManager.botNumber <= 0)
+                {
+                    gameManager.NextLevel();
+                }
+
+                other.gameObject.GetComponent<AudioSource>().Play();
+                other.gameObject.GetComponentInChildren<Animator>().SetTrigger("Destroy");
+                other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+
+                Destroy(other.gameObject, 2f);
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

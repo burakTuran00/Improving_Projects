@@ -8,11 +8,9 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<Movement>().enabled = false;
+            FindObjectOfType<Movement>().atFinal = true;
 
-            PlayerFinalStructure pfs = FindObjectOfType<PlayerFinalStructure>();
-            pfs.enabled = true;
-            pfs.isMovable = true;
+        
 
             Camera.main.GetComponent<FollowingCamare>().enabled = false;
 

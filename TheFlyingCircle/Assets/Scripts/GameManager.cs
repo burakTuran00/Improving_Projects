@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void DecreaseScor(int value)
+    {
+        score -= value;
+        scoreText.text = score.ToString();
+    }
+
     public void NextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
