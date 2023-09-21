@@ -10,8 +10,6 @@ public class FinishLine : MonoBehaviour
         {
             FindObjectOfType<Movement>().atFinal = true;
 
-        
-
             Camera.main.GetComponent<FollowingCamare>().enabled = false;
 
             Camera.main.transform.position = finalCam.transform.position;

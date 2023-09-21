@@ -33,7 +33,7 @@ public class EatFood : MonoBehaviour
         {
             FindObjectOfType<GameManager>().Restart();
         }
-         if (other.gameObject.CompareTag("Bot"))
+        else if (other.gameObject.CompareTag("Bot"))
         {
             if (gameManager != null && gameManager.score > 0 && other.gameObject != null)
             {
