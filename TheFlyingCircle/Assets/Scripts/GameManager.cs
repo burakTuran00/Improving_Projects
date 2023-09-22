@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void DecreaseBotNumber()
+    {
+        botNumber--;
+    }
+
     public void NextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
