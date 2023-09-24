@@ -28,6 +28,7 @@ public class EatFood : MonoBehaviour
             transform.localScale *= (1 + food.scalValue);
 
             FindAnyObjectByType<FollowingCamare>().Dist.z -= food.scalValue;
+
         }
         else if(other.gameObject.CompareTag("Obstacle"))
         {
@@ -41,11 +42,11 @@ public class EatFood : MonoBehaviour
 
                 gameManager.DecreaseBotNumber();
 
-                if(gameManager.score <= 0 && gameManager.botNumber > 0)
+                if(gameManager.score < 0 && gameManager.botNumber > 0)
                 {
                     gameManager.Restart();
                 }
-                else if(gameManager.score > 0 && gameManager.botNumber <= 0)
+                else if(gameManager.score >= 0 && gameManager.botNumber <= 0)
                 {
                     gameManager.NextLevel();
                 }

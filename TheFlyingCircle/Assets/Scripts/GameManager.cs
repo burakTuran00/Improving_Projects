@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public void DecreaseBotNumber()
     {
         botNumber--;
+
+        //todo
     }
 
     public void NextLevel()
