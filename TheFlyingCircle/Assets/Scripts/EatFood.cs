@@ -39,7 +39,6 @@ public class EatFood : MonoBehaviour
             if (gameManager != null && gameManager.score > 0 && other.gameObject != null)
             {
                 gameManager.DecreaseScor(1);
-
                 gameManager.DecreaseBotNumber();
 
                 if(gameManager.score < 0 && gameManager.botNumber > 0)
