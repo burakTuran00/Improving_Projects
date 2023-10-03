@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
 
             if(Random.value < bombChance)
             {
-                prefab =bombPrefab;
+                prefab = bombPrefab;
             }
 
             Vector3 position = new Vector3();

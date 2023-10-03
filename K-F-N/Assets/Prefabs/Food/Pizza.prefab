@@ -5277,7 +5277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whole: {fileID: 4548965499627753252}
   sliced: {fileID: 3738064470621168310}
-  point: 25
+  point: 1
 --- !u!1 &3738064470621168310
 GameObject:
   m_ObjectHideFlags: 0
