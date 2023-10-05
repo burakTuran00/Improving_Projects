@@ -268,8 +268,8 @@ GameObject:
   m_Component:
   - component: {fileID: 117184002}
   - component: {fileID: 117184001}
-  - component: {fileID: 117184003}
   - component: {fileID: 117184004}
+  - component: {fileID: 117184005}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -306,26 +306,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &117184003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117184000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86244a7c2064134a869f8967d4ea86e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempInfoText: {fileID: 670636903}
-  levelUpText: {fileID: 1485976286}
-  taskAppleCount: 4
-  taskWatermelonCount: 0
-  taskAvacadoCount: 0
-  taskCoconutCount: 0
-  taskLemonCount: 4
-  taskPearCount: 0
 --- !u!114 &117184004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,10 +318,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a583915c151304fb9571eccbc7fe8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskMinute: 1
-  taskSecond: 7
+  taskMinute: 0
+  taskSecond: 15
   minuteText: {fileID: 116298477}
   secondText: {fileID: 206840089}
+--- !u!114 &117184005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117184000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827db239d74fede439c0232466c8775b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempInfoText: {fileID: 670636903}
+  levelUpText: {fileID: 1485976286}
+  isLevelCompleted: 0
+  taskAppleCount: 2
+  taskWatermelonCount: 0
+  taskAvacadoCount: 0
+  taskCoconutCount: 0
+  taskLemonCount: 3
+  taskPearCount: 0
 --- !u!1 &206840087
 GameObject:
   m_ObjectHideFlags: 0

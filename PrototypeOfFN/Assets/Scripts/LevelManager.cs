@@ -58,9 +58,6 @@ public class LevelManager : MonoBehaviour
         {
             return;
         }
-
-        
-        IsLevelEnd();
     }
 
     private void Adjust(int taskValue, string typeName)
@@ -100,6 +97,7 @@ public class LevelManager : MonoBehaviour
            taskLemonCount <= 0 && taskPearCount <= 0 && taskWatermelonCount <= 0)
            {
                 isLevelCompleted = true;
+                levelUpText.enabled = true;
            }
 
         return isLevelCompleted;
