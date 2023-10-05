@@ -2,7 +2,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-
 public class Timer : MonoBehaviour
 {
     private LevelManager levelManager;
@@ -51,11 +50,12 @@ public class Timer : MonoBehaviour
                     if(levelManager.IsLevelCompleted())
                     {
                         Debug.Log("Level Up");
+                        //todo : next level at Gamemanager or Menu System, I'll think about it
                     }
                     else
                     {
                         Debug.Log("Again");
-                        //todo
+                        //todo: player will be play again. Little Menu System
                     }
 
                     spawner.StopSpawner();
