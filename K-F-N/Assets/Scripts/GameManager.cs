@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     private int score = 0;
 
+    public Text comboText;
+
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();

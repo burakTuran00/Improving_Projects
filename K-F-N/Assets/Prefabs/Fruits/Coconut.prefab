@@ -51,9 +51,13 @@ GameObject:
   - component: {fileID: -8400776530451567466}
   - component: {fileID: -2740070644527037230}
   - component: {fileID: 6622647417033518013}
+  - component: {fileID: 8606072186709998651}
+  - component: {fileID: 765244862538923409}
+  - component: {fileID: -4017820780564867707}
+  - component: {fileID: -433098656061031686}
   m_Layer: 0
   m_Name: Coconut
-  m_TagString: Combo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,6 +581,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6622647417033518013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179918243555150708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3726304383ec8945afb3d37ee904832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8606072186709998651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179918243555150708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3726304383ec8945afb3d37ee904832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &765244862538923409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179918243555150708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3726304383ec8945afb3d37ee904832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4017820780564867707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179918243555150708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3726304383ec8945afb3d37ee904832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-433098656061031686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

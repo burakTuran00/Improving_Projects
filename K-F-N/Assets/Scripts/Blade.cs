@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Blade : MonoBehaviour
 {
     private Camera mainCamera;
 
     private Collider bladeCollider;
+
+    private GameManager gameManager;
 
     private bool slicing;
 
@@ -17,11 +20,14 @@ public class Blade : MonoBehaviour
 
     private TrailRenderer bladeTrail;
 
+    public Text comboText;
+
     private void Awake()
     {
         bladeCollider = GetComponent<Collider>();
         mainCamera = Camera.main;
         bladeTrail = GetComponentInChildren<TrailRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnEnable()
