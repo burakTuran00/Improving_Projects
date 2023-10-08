@@ -32,11 +32,34 @@ public class Timer : MonoBehaviour
         StartCoroutine(AdjustTime());
     }
 
+    public IEnumerator NegativeEffectToTimer()
+    {
+        taskSecond -= 5;
+        secondText.text = taskSecond.ToString("00");
+
+        secondText.color = Color.red;
+        minuteText.color = Color.red;
+
+        yield return new WaitForSeconds(.25f);
+
+        secondText.color = Color.white;
+        minuteText.color = Color.white;
+        
+        StopCoroutine(NegativeEffectToTimer());
+
+        //todo: icon will be show in here. Show and Hide it.
+    }
+
+    public void StopTimer()
+    {
+        StopCoroutine(AdjustTime());
+    }
+
     IEnumerator AdjustTime()
     {
         while (true)
         {
-            if (taskSecond != 0)
+            if (taskSecond != 0 && !(taskSecond < 0))
             {
                 taskSecond--;
                 secondText.text = taskSecond.ToString("00");
