@@ -338,11 +338,11 @@ MonoBehaviour:
   levelUpText: {fileID: 1485976286}
   isLevelCompleted: 0
   taskAppleCount: 2
-  taskWatermelonCount: 0
+  taskWatermelonCount: 3
   taskAvacadoCount: 0
   taskCoconutCount: 0
   taskLemonCount: 3
-  taskPearCount: 2
+  taskPearCount: 5
   iconImage: {fileID: 1267774062}
   invisibleIconColor: {r: 0.21568629, g: 0.23137257, b: 0.24705884, a: 0}
   iconSprites:
@@ -891,7 +891,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -951,8 +951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: 75, y: 0}
+  m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &705507993
 GameObject:
@@ -1724,7 +1724,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 45.3125, y: 45.3125}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267774062
 MonoBehaviour:
@@ -1928,7 +1928,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9, y: 1, z: 2}
+  m_Size: {x: 10, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1807918854
 MonoBehaviour:
@@ -1946,12 +1946,13 @@ MonoBehaviour:
   - {fileID: 8368807364743164539, guid: e9337d04193c4254cbdab3b507931a4b, type: 3}
   - {fileID: 4046482910448175923, guid: a3c9b6cd013163446927b88b21884528, type: 3}
   - {fileID: 773684967989506676, guid: 06bcb6c4b1d58ab42b8a7276cdbe45cf, type: 3}
+  - {fileID: 942497717166442258, guid: b33d276c5ce15a24c8f8b052ac2c5043, type: 3}
   bombPrefab: {fileID: 7028664350248982868, guid: 8247e076b4ef3c445aa767b0484723a8, type: 3}
   bombChance: 0.05
-  minSpawnDelay: 0.5
-  maxSpawnDelay: 2
-  minAngle: -15
-  maxAngle: 15
+  minSpawnDelay: 0.25
+  maxSpawnDelay: 1.25
+  minAngle: -12
+  maxAngle: 12
   minForce: 18
   maxForce: 22
   maxLifeTime: 5

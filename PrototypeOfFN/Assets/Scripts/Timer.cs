@@ -53,6 +53,14 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         StopCoroutine(AdjustTime());
+
+        if(taskSecond < 0)
+        {
+            minuteText.color = Color.white;
+            secondText.color = Color.white;
+            taskSecond = 0;
+            secondText.text = taskSecond.ToString("00");
+        }
     }
 
     IEnumerator AdjustTime()
