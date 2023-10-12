@@ -13,12 +13,34 @@ public class GameManager : MonoBehaviour
 
     private Spawner spawner;
 
+    private ShowItemToCut showItemToCut;
+
+    private Timer timer;
+
     private int score = 0;
+
+    [Header("Start Button")]
+
+    public Button startButton;
+
+    public TextMeshProUGUI startButtonText;
+
+    public GameObject startButtonObject;
+
+    public void StartButton()
+    {
+        spawner.StartSpawner();
+        showItemToCut.TaskPanel.SetActive(false);
+        timer.StartTimer();
+        startButtonObject.SetActive(false);
+    }
 
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
+        showItemToCut = FindAnyObjectByType<ShowItemToCut>();
+        timer = GetComponent<Timer>();
     }
 
     private void Start()
@@ -71,7 +93,8 @@ public class GameManager : MonoBehaviour
     public void Explode()
     {
         blade.enabled = false;
-        spawner.enabled = false;
+        //spawner.enabled = false;
+        spawner.StopSpawner();
 
         StartCoroutine(ExplodeSequence());
     }
@@ -107,5 +130,7 @@ public class GameManager : MonoBehaviour
 
             yield return null;
         }
+
+        spawner.StartSpawner();
     }
 }

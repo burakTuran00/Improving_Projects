@@ -26,13 +26,13 @@ public class Timer : MonoBehaviour
         levelManager = GetComponent<LevelManager>();
         showItemToCut = FindAnyObjectByType<ShowItemToCut>();
 
-        minuteText.text = taskMinute.ToString("00");
-        secondText.text = taskSecond.ToString("00");
+        TimerReset();
     }
 
-    private void Start()
+    public void TimerReset()
     {
-        StartCoroutine(AdjustTime());
+        minuteText.text = taskMinute.ToString("00");
+        secondText.text = taskSecond.ToString("00");
     }
 
     public IEnumerator NegativeEffectToTimer()
@@ -47,15 +47,20 @@ public class Timer : MonoBehaviour
 
         secondText.color = Color.white;
         minuteText.color = Color.white;
-        
+
         StopCoroutine(NegativeEffectToTimer());
+    }
+
+    public void StartTimer()
+    {
+        StartCoroutine(AdjustTime());
     }
 
     public void StopTimer()
     {
         StopAllCoroutines();
 
-        if(taskSecond > 0)
+        if (taskSecond > 0)
         {
             secondText.color = Color.green;
             minuteText.color = Color.green;
@@ -77,7 +82,7 @@ public class Timer : MonoBehaviour
                     taskMinute = 0;
                     taskSecond = 0;
 
-                    if(levelManager.IsLevelCompleted())
+                    if (levelManager.IsLevelCompleted())
                     {
                         Debug.Log("Level Up");
                         //todo : next level at Gamemanager or Menu System, I'll think about it
@@ -85,7 +90,6 @@ public class Timer : MonoBehaviour
                     else
                     {
                         Debug.Log("Again");
-                        FindAnyObjectByType<Blade>().StopSlicing();
                         //todo: player will be play again. Little Menu System
                     }
 

@@ -30,11 +30,6 @@ public class Spawner : MonoBehaviour
         spawnArea = GetComponent<Collider>();
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine(Spawn());
-    }
-
     private void OnDisable()
     {
         StopAllCoroutines();
@@ -45,9 +40,13 @@ public class Spawner : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public void StartSpawner()
+    {
+        StartCoroutine(Spawn());
+    }
     public IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         while(enabled)
         {
