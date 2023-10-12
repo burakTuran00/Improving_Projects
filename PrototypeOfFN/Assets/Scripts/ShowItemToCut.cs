@@ -51,6 +51,11 @@ public class ShowItemToCut : MonoBehaviour
 
     private void ShowInfoBeforeStartTaskCount(TextMeshProUGUI text, int value)
     {
+        if(value < 0)
+        {
+            value = 0;
+        }
+
         text.text = "X" + value.ToString() + " ORDERED";
     }
 

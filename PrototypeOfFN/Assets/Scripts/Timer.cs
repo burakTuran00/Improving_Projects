@@ -71,7 +71,7 @@ public class Timer : MonoBehaviour
     {
         while (true)
         {
-            if (taskSecond != 0 && !(taskSecond < 0))
+            if (!(taskSecond <= 0))
             {
                 taskSecond--;
                 secondText.text = taskSecond.ToString("00");
@@ -95,6 +95,7 @@ public class Timer : MonoBehaviour
 
                     spawner.StopSpawner();
                     secondText.text = "00";
+                    minuteText.text  = "00";
 
                     showItemToCut.ShowGameEndValues();
 
