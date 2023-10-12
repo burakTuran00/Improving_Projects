@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
 
     private Spawner spawner;
 
+    private ShowItemToCut showItemToCut;
+
     [Range(0, 10)]
     public int taskMinute;
 
@@ -22,6 +24,7 @@ public class Timer : MonoBehaviour
     {
         spawner = FindAnyObjectByType<Spawner>();
         levelManager = GetComponent<LevelManager>();
+        showItemToCut = FindAnyObjectByType<ShowItemToCut>();
 
         minuteText.text = taskMinute.ToString("00");
         secondText.text = taskSecond.ToString("00");
@@ -46,20 +49,16 @@ public class Timer : MonoBehaviour
         minuteText.color = Color.white;
         
         StopCoroutine(NegativeEffectToTimer());
-
-        //todo: icon will be show in here. Show and Hide it.
     }
 
     public void StopTimer()
     {
-        StopCoroutine(AdjustTime());
+        StopAllCoroutines();
 
-        if(taskSecond < 0)
+        if(taskSecond > 0)
         {
-            minuteText.color = Color.white;
-            secondText.color = Color.white;
-            taskSecond = 0;
-            secondText.text = taskSecond.ToString("00");
+            secondText.color = Color.green;
+            minuteText.color = Color.green;
         }
     }
 
@@ -86,11 +85,14 @@ public class Timer : MonoBehaviour
                     else
                     {
                         Debug.Log("Again");
+                        FindAnyObjectByType<Blade>().StopSlicing();
                         //todo: player will be play again. Little Menu System
                     }
 
                     spawner.StopSpawner();
-                    Debug.Log("Spawner stop");
+                    secondText.text = "00";
+
+                    showItemToCut.ShowGameEndValues();
 
                     break;
                 }

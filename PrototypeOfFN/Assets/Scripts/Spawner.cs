@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
 
     public IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         while(enabled)
         {

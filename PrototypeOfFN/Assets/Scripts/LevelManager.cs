@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour
 
     public int taskPearCount;
 
+    public int taskOnionCount;
+
     [Header("Icons")]
     public Image iconImage;
     public Color invisibleIconColor;
@@ -69,6 +71,11 @@ public class LevelManager : MonoBehaviour
         {
             taskPearCount--;
             Adjust (taskPearCount, typeName,iconSprites[5]);
+        }
+        else if(typeName == "Onion")
+        {
+            taskOnionCount--;
+            Adjust(taskOnionCount,typeName,iconSprites[6]);
         }
         else
         {
@@ -116,13 +123,15 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Finish");
             FindAnyObjectByType<Spawner>().StopSpawner();
             FindObjectOfType<Timer>().StopTimer();
+            FindAnyObjectByType<ShowItemToCut>().ShowGameEndValues();
         }
     }
 
     public bool IsLevelCompleted()
     {
         if(taskAppleCount <= 0 && taskAvacadoCount <= 0 && taskCoconutCount <= 0 &&
-           taskLemonCount <= 0 && taskPearCount <= 0 && taskWatermelonCount <= 0)
+           taskLemonCount <= 0 && taskPearCount <= 0 && taskWatermelonCount <= 0 && 
+           taskOnionCount <= 0)
            {
                 isLevelCompleted = true;
                 levelUpText.enabled = true;

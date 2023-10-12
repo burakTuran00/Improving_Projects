@@ -67,7 +67,7 @@ public class Blade : MonoBehaviour
         bladeTrail.Clear();
     }
 
-    private void StopSlicing()
+    public void StopSlicing()
     {
         slicing = false;
         bladeCollider.enabled = false;
