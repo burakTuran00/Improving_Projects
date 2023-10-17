@@ -11,9 +11,9 @@ public class LevelManager : MonoBehaviour
 
     public bool isLevelCompleted = false;
 
-    
-
     private Timer timer;
+
+    private GameManager gameManager;
 
     [Header("Level Tasks")]
     public int taskAppleCount;
@@ -37,7 +37,8 @@ public class LevelManager : MonoBehaviour
     
     private void Awake()
     {
-        timer = GetComponent<Timer>();   
+        timer = GetComponent<Timer>();  
+        gameManager = GetComponent<GameManager>(); 
     }
 
     public void DecreaseItemCount(string typeName)
@@ -91,7 +92,6 @@ public class LevelManager : MonoBehaviour
         if (taskValue >= 0)
         {
             StartCoroutine(ShowTempInfo(taskValue,typeName,icon));
-            
         }
         else
         {
@@ -119,11 +119,17 @@ public class LevelManager : MonoBehaviour
     public void IsLevelEnd()
     {
         if(IsLevelCompleted())
-        {
-            Debug.Log("Finish");
+        {            
             FindAnyObjectByType<Spawner>().StopSpawner();
-            FindObjectOfType<Timer>().StopTimer();
+            timer.StopTimer();
             FindAnyObjectByType<ShowItemToCut>().ShowGameEndValues();
+
+            gameManager.restartButtonObject.SetActive(false);
+            gameManager.startButtonObject.SetActive(false);
+            gameManager.nextButtonObject.SetActive(true);
+            gameManager.levelExitButton.SetActive(true);
+
+            AdjustItemEndOfTheGame();
         }
     }
 
@@ -138,6 +144,26 @@ public class LevelManager : MonoBehaviour
            }
 
         return isLevelCompleted;
+    }
+
+    public void AdjustItemEndOfTheGame()
+    {
+        // when player ends the game, if there's a fruit or bomb in the scene
+        // player cannot cut that object.
+
+        Fruit[] fruits = FindObjectsOfType<Fruit>();
+
+        foreach (Fruit fruit in fruits)
+        {
+            Destroy(fruit.GetComponent<Fruit>());
+        }
+
+        Bomb[] bombs = FindObjectsOfType<Bomb>();
+
+        foreach (Bomb bomb in bombs)
+        {
+            Destroy(bomb.GetComponent<Bomb>());
+        }
     }
 }
 // if player cuts more item than mission task, then time will be reduce like -5 seconds.

@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &721524636187234938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721524636187234936}
+  - component: {fileID: 721524636187234939}
+  - component: {fileID: 721524636187234942}
+  - component: {fileID: 721524636187234943}
+  - component: {fileID: 721524636187234940}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721524636187234936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721524636187234938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721524636187234939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721524636187234938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d424ed0824070f4d99fa85dde4f0e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 0}
+  scoreText: {fileID: 0}
+  startButton: {fileID: 0}
+  startButtonText: {fileID: 0}
+  startButtonObject: {fileID: 0}
+  restartButtonObject: {fileID: 0}
+  nextButtonObject: {fileID: 0}
+  levelExitButton: {fileID: 0}
+--- !u!114 &721524636187234942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721524636187234938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a583915c151304fb9571eccbc7fe8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSecond: 15
+  levelMinute: 0
+  taskMinute: 0
+  taskSecond: 48
+  minuteText: {fileID: 0}
+  secondText: {fileID: 0}
+--- !u!114 &721524636187234943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721524636187234938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827db239d74fede439c0232466c8775b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempInfoText: {fileID: 0}
+  levelUpText: {fileID: 0}
+  isLevelCompleted: 0
+  taskAppleCount: 2
+  taskWatermelonCount: 1
+  taskAvacadoCount: 0
+  taskCoconutCount: 0
+  taskLemonCount: 0
+  taskPearCount: 0
+  taskOnionCount: 0
+  iconImage: {fileID: 0}
+  invisibleIconColor: {r: 0.21568629, g: 0.23137257, b: 0.24705884, a: 0}
+  iconSprites:
+  - {fileID: 21300000, guid: 4b6f3517ef3994343bc80090bf9d9596, type: 3}
+  - {fileID: 21300000, guid: 583b0c05fffb38b429787fad8d14c200, type: 3}
+  - {fileID: 21300000, guid: 3b261de1dbc0d54468e96f38a3761e16, type: 3}
+  - {fileID: 21300000, guid: 029c5a697fa010f428f11b7994f643ff, type: 3}
+  - {fileID: 21300000, guid: 8e09446a096976a469538c4d90838fb1, type: 3}
+  - {fileID: 21300000, guid: 2ea255110d4718747ba62c8d45d41733, type: 3}
+  - {fileID: 21300000, guid: 02d76338ed19ba244bbc6386f4f1f2b8, type: 3}
+--- !u!114 &721524636187234940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721524636187234938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3200cd544453b6e4b84f6459dc343581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskPanel: {fileID: 0}
+  startButtonObject: {fileID: 0}
+  texts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  icons:
+  - {fileID: 21300000, guid: 4b6f3517ef3994343bc80090bf9d9596, type: 3}
+  - {fileID: 21300000, guid: 583b0c05fffb38b429787fad8d14c200, type: 3}
+  - {fileID: 21300000, guid: 8e09446a096976a469538c4d90838fb1, type: 3}
+  - {fileID: 21300000, guid: 2ea255110d4718747ba62c8d45d41733, type: 3}
+  - {fileID: 21300000, guid: 02d76338ed19ba244bbc6386f4f1f2b8, type: 3}

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    public int levelSecond;
+
+    public int levelMinute;
+
     private LevelManager levelManager;
+
+    private GameManager gameManager;
 
     private Spawner spawner;
 
@@ -25,12 +31,16 @@ public class Timer : MonoBehaviour
         spawner = FindAnyObjectByType<Spawner>();
         levelManager = GetComponent<LevelManager>();
         showItemToCut = FindAnyObjectByType<ShowItemToCut>();
+        gameManager = GetComponent<GameManager>();
 
         TimerReset();
     }
 
     public void TimerReset()
     {
+        taskMinute = levelMinute;
+        taskSecond = levelSecond;
+
         minuteText.text = taskMinute.ToString("00");
         secondText.text = taskSecond.ToString("00");
     }
@@ -71,7 +81,7 @@ public class Timer : MonoBehaviour
     {
         while (true)
         {
-            if (!(taskSecond <= 0))
+            if (!(taskSecond < 0))
             {
                 taskSecond--;
                 secondText.text = taskSecond.ToString("00");
@@ -84,20 +94,27 @@ public class Timer : MonoBehaviour
 
                     if (levelManager.IsLevelCompleted())
                     {
-                        Debug.Log("Level Up");
+                        gameManager.restartButtonObject.SetActive(false);
+                        gameManager.startButtonObject.SetActive(false);
+                        gameManager.nextButtonObject.SetActive(true);
+                        gameManager.levelExitButton.SetActive(true);
                         //todo : next level at Gamemanager or Menu System, I'll think about it
                     }
                     else
                     {
-                        Debug.Log("Again");
+                        gameManager.restartButtonObject.SetActive(true);
+                        gameManager.startButtonObject.SetActive(false);
+                        gameManager.nextButtonObject.SetActive(false);
+                        gameManager.levelExitButton.SetActive(true);
                         //todo: player will be play again. Little Menu System
                     }
 
                     spawner.StopSpawner();
                     secondText.text = "00";
-                    minuteText.text  = "00";
+                    minuteText.text = "00";
 
                     showItemToCut.ShowGameEndValues();
+                    levelManager.AdjustItemEndOfTheGame();
 
                     break;
                 }

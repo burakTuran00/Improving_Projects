@@ -42,44 +42,32 @@ public class ShowItemToCut : MonoBehaviour
             images[i].sprite = icons[i];
         }
 
-        ShowInfoBeforeStartTaskCount(texts[0], levelManager.taskAppleCount);
-        ShowInfoBeforeStartTaskCount(texts[1], levelManager.taskWatermelonCount);
-        ShowInfoBeforeStartTaskCount(texts[2],levelManager.taskLemonCount);
-        ShowInfoBeforeStartTaskCount(texts[3], levelManager.taskPearCount);
-        ShowInfoBeforeStartTaskCount(texts[4],levelManager.taskOnionCount);
+        ShowInfoCountValue(texts[0], levelManager.taskAppleCount,"ORDERED");
+        ShowInfoCountValue(texts[1], levelManager.taskWatermelonCount,"ORDERED");
+        ShowInfoCountValue(texts[2],levelManager.taskLemonCount,"ORDERED");
+        ShowInfoCountValue(texts[3], levelManager.taskPearCount,"ORDERED");
+        ShowInfoCountValue(texts[4],levelManager.taskOnionCount,"ORDERED");
     }
+    public void ShowGameEndValues()
+    {
+  
+        ShowInfoCountValue(texts[0], levelManager.taskAppleCount,"REMAİNED");
+        ShowInfoCountValue(texts[1], levelManager.taskWatermelonCount,"REMAİNED");      
+        ShowInfoCountValue(texts[2], levelManager.taskLemonCount,"REMAİNED");
+        ShowInfoCountValue(texts[3], levelManager.taskPearCount,"REMAİNED");
+        ShowInfoCountValue(texts[4], levelManager.taskOnionCount,"REMAİNED");
 
-    private void ShowInfoBeforeStartTaskCount(TextMeshProUGUI text, int value)
+        TaskPanel.SetActive(true);
+        startButtonObject.SetActive(true);
+    }
+    
+    private void ShowInfoCountValue(TextMeshProUGUI text, int value, string sentence)
     {
         if(value < 0)
         {
             value = 0;
         }
 
-        text.text = "X" + value.ToString() + " ORDERED";
+        text.text = "X" + value + " " + sentence;
     }
-
-    public void ShowGameEndValues()
-    {
-  
-        ShowGameEndValue(texts[0], levelManager.taskAppleCount);
-        ShowGameEndValue(texts[1], levelManager.taskWatermelonCount);      
-        ShowGameEndValue(texts[2], levelManager.taskLemonCount);
-        ShowGameEndValue(texts[3], levelManager.taskPearCount);
-        ShowGameEndValue(texts[4], levelManager.taskOnionCount);
-
-        TaskPanel.SetActive(true);
-        startButtonObject.SetActive(true);
-    }
-
-    private void ShowGameEndValue(TextMeshProUGUI text, int value)
-    {
-        if (value < 0)
-        {
-            value = 0;
-        }
-
-        text.text = "X" + value + " REMAİNED";
-    }
-
 }

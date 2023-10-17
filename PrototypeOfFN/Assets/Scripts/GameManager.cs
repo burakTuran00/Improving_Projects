@@ -1,8 +1,9 @@
 using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     public Image fadeImage;
@@ -17,37 +18,64 @@ public class GameManager : MonoBehaviour
 
     private Timer timer;
 
+    private LevelManager levelManager;
+
+    private Health health;
+
     private int score = 0;
 
-    [Header("Start Button")]
-
+    [Header("ButtonS")]
     public Button startButton;
 
     public TextMeshProUGUI startButtonText;
 
     public GameObject startButtonObject;
 
-    public void StartButton()
-    {
-        spawner.StartSpawner();
-        showItemToCut.TaskPanel.SetActive(false);
-        timer.StartTimer();
-        startButtonObject.SetActive(false);
-    }
+    public GameObject restartButtonObject;
 
+    public GameObject nextButtonObject;
+
+    public GameObject levelExitButton;
+    
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
         showItemToCut = FindAnyObjectByType<ShowItemToCut>();
         timer = GetComponent<Timer>();
+        levelManager = GetComponent<LevelManager>();
+        health = FindAnyObjectByType<Health>();
     }
 
     private void Start()
     {
         NewGame();
     }
+    
+     public void StartButton()
+    {
+        spawner.StartSpawner();
+        timer.StartTimer();
 
+        showItemToCut.TaskPanel.SetActive(false);
+        startButtonObject.SetActive(false);
+        levelExitButton.SetActive(false);
+    }
+
+    public void RestartButton()
+    {
+        RestartLevel();
+    }
+
+    public void NextButton()
+    {
+        NextLevel();
+    }
+
+    public void ReturnMenuButton()
+    {
+        SceneManager.LoadScene(0); // return to the menu.
+    }
     public void IncreaseScor(int point)
     {
         score += point;
@@ -87,12 +115,28 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            currentSceneIndex = 0;
+            nextSceneIndex = 0;
+        }
+
+        SceneManager.LoadScene (nextSceneIndex);
+        //todo
+    }
+
+    public void RestartLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene (currentSceneIndex);
     }
 
     public void Explode()
     {
         blade.enabled = false;
+
         //spawner.enabled = false;
         spawner.StopSpawner();
 
@@ -103,6 +147,8 @@ public class GameManager : MonoBehaviour
     {
         float elapsed = 0f;
         float duration = 0.5f;
+
+        health.TakeHealth();
 
         while (elapsed < duration)
         {
@@ -131,6 +177,9 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        spawner.StartSpawner();
+        if (!levelManager.IsLevelCompleted())
+        {
+            spawner.StartSpawner();
+        }
     }
 }

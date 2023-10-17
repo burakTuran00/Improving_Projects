@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2928794658130257840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2928794658130257843}
+  - component: {fileID: 2928794658130257842}
+  - component: {fileID: 2928794658130257841}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2928794658130257843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928794658130257840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2928794658130257842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928794658130257840}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ad0f94960c0b543aac74df905cdc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPrefabs:
+  - {fileID: 8368807364743164539, guid: e9337d04193c4254cbdab3b507931a4b, type: 3}
+  - {fileID: 4046482910448175923, guid: a3c9b6cd013163446927b88b21884528, type: 3}
+  - {fileID: 773684967989506676, guid: 06bcb6c4b1d58ab42b8a7276cdbe45cf, type: 3}
+  - {fileID: 942497717166442258, guid: b33d276c5ce15a24c8f8b052ac2c5043, type: 3}
+  - {fileID: 2764924158393327745, guid: 316807a62f76d5444b128192eed0c5d3, type: 3}
+  bombPrefab: {fileID: 7028664350248982868, guid: 8247e076b4ef3c445aa767b0484723a8, type: 3}
+  bombChance: 0.05
+  minSpawnDelay: 0.25
+  maxSpawnDelay: 1.25
+  minAngle: -12
+  maxAngle: 12
+  minForce: 18
+  maxForce: 22
+  maxLifeTime: 5
+--- !u!65 &2928794658130257841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928794658130257840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
