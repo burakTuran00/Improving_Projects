@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject nextButtonObject;
 
-    public GameObject levelExitButton;
+    public GameObject MenuButton;
     
     private void Awake()
     {
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         showItemToCut.TaskPanel.SetActive(false);
         startButtonObject.SetActive(false);
-        levelExitButton.SetActive(false);
+        MenuButton.SetActive(false);
     }
 
     public void RestartButton()
@@ -89,8 +89,8 @@ public class GameManager : MonoBehaviour
         blade.enabled = true;
         spawner.enabled = true;
 
-        score = 0;
-        scoreText.text = score.ToString("00000");
+        //score = 0;
+        //scoreText.text = score.ToString("00000");
 
         ClearScene();
     }
@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
         float duration = 0.5f;
 
         health.TakeHealth();
+        StartCoroutine(timer.NegativeEffectToTimer());
 
         while (elapsed < duration)
         {
@@ -177,7 +178,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        if (!levelManager.IsLevelCompleted())
+        if (!levelManager.IsLevelCompleted() && health.health > 0)
         {
             spawner.StartSpawner();
         }

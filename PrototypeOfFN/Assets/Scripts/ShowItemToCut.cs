@@ -14,6 +14,8 @@ public class ShowItemToCut : MonoBehaviour
 
     public GameObject startButtonObject;
 
+    public GameObject menuButtonObject;
+
     private Spawner spawner;
 
     private GameManager gameManager;
@@ -58,7 +60,6 @@ public class ShowItemToCut : MonoBehaviour
         ShowInfoCountValue(texts[4], levelManager.taskOnionCount,"REMAİNED");
 
         TaskPanel.SetActive(true);
-        startButtonObject.SetActive(true);
     }
     
     private void ShowInfoCountValue(TextMeshProUGUI text, int value, string sentence)

@@ -1087,6 +1087,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 795165579}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: MenuButton
+      value: 
+      objectReference: {fileID: 774139388}
+    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: nextButton
       value: 
       objectReference: {fileID: 108053611}
@@ -1130,6 +1134,10 @@ PrefabInstance:
       propertyPath: TaskPanel
       value: 
       objectReference: {fileID: 108053618}
+    - target: {fileID: 721524636187234940, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: menuButtonObject
+      value: 
+      objectReference: {fileID: 774139388}
     - target: {fileID: 721524636187234940, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: startButtonObject
       value: 

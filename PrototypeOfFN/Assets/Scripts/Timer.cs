@@ -15,6 +15,8 @@ public class Timer : MonoBehaviour
     private Spawner spawner;
 
     private ShowItemToCut showItemToCut;
+    
+    private Health playerHealth;
 
     [Range(0, 10)]
     public int taskMinute;
@@ -32,6 +34,7 @@ public class Timer : MonoBehaviour
         levelManager = GetComponent<LevelManager>();
         showItemToCut = FindAnyObjectByType<ShowItemToCut>();
         gameManager = GetComponent<GameManager>();
+        playerHealth = FindAnyObjectByType<Health>();
 
         TimerReset();
     }
@@ -70,10 +73,15 @@ public class Timer : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (taskSecond > 0)
+        if (taskSecond > 0 && playerHealth.health > 0)
         {
             secondText.color = Color.green;
             minuteText.color = Color.green;
+        }
+        else
+        {
+            secondText.color = Color.red;
+            minuteText.color = Color.red;
         }
     }
 
@@ -97,7 +105,7 @@ public class Timer : MonoBehaviour
                         gameManager.restartButtonObject.SetActive(false);
                         gameManager.startButtonObject.SetActive(false);
                         gameManager.nextButtonObject.SetActive(true);
-                        gameManager.levelExitButton.SetActive(true);
+                        gameManager.MenuButton.SetActive(true);
                         //todo : next level at Gamemanager or Menu System, I'll think about it
                     }
                     else
@@ -105,7 +113,7 @@ public class Timer : MonoBehaviour
                         gameManager.restartButtonObject.SetActive(true);
                         gameManager.startButtonObject.SetActive(false);
                         gameManager.nextButtonObject.SetActive(false);
-                        gameManager.levelExitButton.SetActive(true);
+                        gameManager.MenuButton.SetActive(true);
                         //todo: player will be play again. Little Menu System
                     }
 

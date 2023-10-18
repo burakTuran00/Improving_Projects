@@ -465,6 +465,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1057375617}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: MenuButton
+      value: 
+      objectReference: {fileID: 8405335970687320537}
+    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: startButton
       value: 
       objectReference: {fileID: 33215238}
@@ -492,6 +496,10 @@ PrefabInstance:
       propertyPath: TaskPanel
       value: 
       objectReference: {fileID: 686308031}
+    - target: {fileID: 721524636187234940, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: menuButtonObject
+      value: 
+      objectReference: {fileID: 8405335970687320537}
     - target: {fileID: 721524636187234940, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: startButtonObject
       value: 
@@ -1158,6 +1166,10 @@ PrefabInstance:
     - target: {fileID: 8405335971757391545, guid: d629b3886e25edc41a96015a6a9f0d2d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405335971760732655, guid: d629b3886e25edc41a96015a6a9f0d2d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d629b3886e25edc41a96015a6a9f0d2d, type: 3}

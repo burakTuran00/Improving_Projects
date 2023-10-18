@@ -104,6 +104,16 @@ public class LevelManager : MonoBehaviour
     {
         tempInfoText.enabled = true;
         tempInfoText.text = "+" + taskValue + " " + typeName.ToString() +" remain!";
+
+        if(taskValue <= 0)
+        {
+            tempInfoText.text = typeName.ToString() + " completed!";
+            //tempInfoText.color = Color.red;
+
+            //todo: if player cuts the exact number of that object, show it different such as 
+            // color may be red or like that 
+        }
+
         iconImage.color = Color.white;
         iconImage.sprite = icon;
 
@@ -127,7 +137,7 @@ public class LevelManager : MonoBehaviour
             gameManager.restartButtonObject.SetActive(false);
             gameManager.startButtonObject.SetActive(false);
             gameManager.nextButtonObject.SetActive(true);
-            gameManager.levelExitButton.SetActive(true);
+            gameManager.MenuButton.SetActive(true);
 
             AdjustItemEndOfTheGame();
         }
