@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     private Spawner spawner;
 
     private ShowItemToCut showItemToCut;
-    
+
     private Health playerHealth;
 
     [Range(0, 10)]
@@ -73,7 +73,7 @@ public class Timer : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (taskSecond > 0 && playerHealth.health > 0)
+        if (taskSecond >= 0 && playerHealth.health >= 0)
         {
             secondText.color = Color.green;
             minuteText.color = Color.green;
@@ -114,6 +114,9 @@ public class Timer : MonoBehaviour
                         gameManager.startButtonObject.SetActive(false);
                         gameManager.nextButtonObject.SetActive(false);
                         gameManager.MenuButton.SetActive(true);
+
+                        levelManager.levelUpText.enabled = true;
+                        levelManager.levelUpText.text = "TRY AGAIN!";
                         //todo: player will be play again. Little Menu System
                     }
 

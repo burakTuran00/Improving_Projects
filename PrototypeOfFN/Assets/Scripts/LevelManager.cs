@@ -1,7 +1,7 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -32,13 +32,15 @@ public class LevelManager : MonoBehaviour
 
     [Header("Icons")]
     public Image iconImage;
+
     public Color invisibleIconColor;
+
     public Sprite[] iconSprites;
-    
+
     private void Awake()
     {
-        timer = GetComponent<Timer>();  
-        gameManager = GetComponent<GameManager>(); 
+        timer = GetComponent<Timer>();
+        gameManager = GetComponent<GameManager>();
     }
 
     public void DecreaseItemCount(string typeName)
@@ -46,44 +48,44 @@ public class LevelManager : MonoBehaviour
         if (typeName == "Apple")
         {
             taskAppleCount--;
-            Adjust (taskAppleCount, typeName, iconSprites[0]);
+            Adjust(taskAppleCount, typeName, iconSprites[0]);
         }
         else if (typeName == "Watermelon")
         {
             taskWatermelonCount--;
-            Adjust (taskWatermelonCount, typeName,iconSprites[1]);
+            Adjust(taskWatermelonCount, typeName, iconSprites[1]);
         }
         else if (typeName == "Avacado")
         {
             taskAvacadoCount--;
-            Adjust (taskAvacadoCount, typeName,iconSprites[2]);
+            Adjust(taskAvacadoCount, typeName, iconSprites[2]);
         }
         else if (typeName == "Coconut")
         {
             taskCoconutCount--;
-            Adjust (taskCoconutCount, typeName,iconSprites[3]);
+            Adjust(taskCoconutCount, typeName, iconSprites[3]);
         }
         else if (typeName == "Lemon")
         {
             taskLemonCount--;
-            Adjust (taskLemonCount, typeName,iconSprites[4]);
+            Adjust(taskLemonCount, typeName, iconSprites[4]);
         }
         else if (typeName == "Pear")
         {
             taskPearCount--;
-            Adjust (taskPearCount, typeName,iconSprites[5]);
+            Adjust(taskPearCount, typeName, iconSprites[5]);
         }
-        else if(typeName == "Onion")
+        else if (typeName == "Onion")
         {
             taskOnionCount--;
-            Adjust(taskOnionCount,typeName,iconSprites[6]);
+            Adjust(taskOnionCount, typeName, iconSprites[6]);
         }
         else
         {
             return;
         }
 
-        IsLevelEnd();  
+        IsLevelEnd();
         //todo: show player icon such as apple, pear, etc.
     }
 
@@ -91,7 +93,7 @@ public class LevelManager : MonoBehaviour
     {
         if (taskValue >= 0)
         {
-            StartCoroutine(ShowTempInfo(taskValue,typeName,icon));
+            StartCoroutine(ShowTempInfo(taskValue, typeName, icon));
         }
         else
         {
@@ -100,18 +102,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    IEnumerator ShowTempInfo(int taskValue, string typeName,Sprite icon)
+    IEnumerator ShowTempInfo(int taskValue, string typeName, Sprite icon)
     {
         tempInfoText.enabled = true;
-        tempInfoText.text = "+" + taskValue + " " + typeName.ToString() +" remain!";
+        tempInfoText.text =
+            "+" + taskValue + " " + typeName.ToString() + " remain!";
 
-        if(taskValue <= 0)
+        if (taskValue <= 0)
         {
             tempInfoText.text = typeName.ToString() + " completed!";
             //tempInfoText.color = Color.red;
 
-            //todo: if player cuts the exact number of that object, show it different such as 
-            // color may be red or like that 
+            //todo: if player cuts the exact number of that object, show it different such as
+            // color may be red or like that
         }
 
         iconImage.color = Color.white;
@@ -122,14 +125,14 @@ public class LevelManager : MonoBehaviour
         tempInfoText.enabled = false;
         iconImage.sprite = null;
         iconImage.color = invisibleIconColor;
-        
+
         StopAllCoroutines();
     }
 
     public void IsLevelEnd()
     {
-        if(IsLevelCompleted())
-        {            
+        if (IsLevelCompleted())
+        {
             FindAnyObjectByType<Spawner>().StopSpawner();
             timer.StopTimer();
             FindAnyObjectByType<ShowItemToCut>().ShowGameEndValues();
@@ -145,13 +148,20 @@ public class LevelManager : MonoBehaviour
 
     public bool IsLevelCompleted()
     {
-        if(taskAppleCount <= 0 && taskAvacadoCount <= 0 && taskCoconutCount <= 0 &&
-           taskLemonCount <= 0 && taskPearCount <= 0 && taskWatermelonCount <= 0 && 
-           taskOnionCount <= 0)
-           {
-                isLevelCompleted = true;
-                levelUpText.enabled = true;
-           }
+        if (
+            taskAppleCount <= 0 &&
+            taskAvacadoCount <= 0 &&
+            taskCoconutCount <= 0 &&
+            taskLemonCount <= 0 &&
+            taskPearCount <= 0 &&
+            taskWatermelonCount <= 0 &&
+            taskOnionCount <= 0
+        )
+        {
+            isLevelCompleted = true;
+            levelUpText.enabled = true;
+            levelUpText.text = "Level UP!";
+        }
 
         return isLevelCompleted;
     }
@@ -160,7 +170,6 @@ public class LevelManager : MonoBehaviour
     {
         // when player ends the game, if there's a fruit or bomb in the scene
         // player cannot cut that object.
-
         Fruit[] fruits = FindObjectsOfType<Fruit>();
 
         foreach (Fruit fruit in fruits)

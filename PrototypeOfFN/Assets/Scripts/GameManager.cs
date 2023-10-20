@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public GameObject nextButtonObject;
 
     public GameObject MenuButton;
-    
+
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
     {
         NewGame();
     }
-    
-     public void StartButton()
+
+    public void StartButton()
     {
         spawner.StartSpawner();
         timer.StartTimer();
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0); // return to the menu.
     }
+
     public void IncreaseScor(int point)
     {
         score += point;
@@ -91,7 +92,6 @@ public class GameManager : MonoBehaviour
 
         //score = 0;
         //scoreText.text = score.ToString("00000");
-
         ClearScene();
     }
 

@@ -43,6 +43,9 @@ public class Health : MonoBehaviour
             gameManager.startButtonObject.SetActive(false);
             gameManager.nextButtonObject.SetActive(false);
             gameManager.MenuButton.SetActive(true);
+
+            levelManager.levelUpText.enabled = true;
+            levelManager.levelUpText.text = "TRY AGAIN!";
         }
     }
 }
