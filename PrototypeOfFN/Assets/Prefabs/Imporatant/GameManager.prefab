@@ -54,7 +54,7 @@ MonoBehaviour:
   startButtonObject: {fileID: 0}
   restartButtonObject: {fileID: 0}
   nextButtonObject: {fileID: 0}
-  levelExitButton: {fileID: 0}
+  MenuButtonObject: {fileID: 0}
 --- !u!114 &721524636187234942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TaskPanel: {fileID: 0}
   startButtonObject: {fileID: 0}
+  menuButtonObject: {fileID: 0}
   texts:
   - {fileID: 0}
   - {fileID: 0}

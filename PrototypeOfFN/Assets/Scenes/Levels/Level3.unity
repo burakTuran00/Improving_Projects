@@ -1082,6 +1082,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 108053615}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: MenuButtonObject
+      value: 
+      objectReference: {fileID: 774139388}
+    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: nextButtonObject
       value: 
       objectReference: {fileID: 108053610}
@@ -1163,7 +1167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721524636187234942, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: levelSecond
-      value: 45
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 721524636187234943, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: iconImage

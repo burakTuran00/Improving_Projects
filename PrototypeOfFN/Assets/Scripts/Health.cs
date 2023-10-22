@@ -37,12 +37,12 @@ public class Health : MonoBehaviour
             timer.StopTimer();
             spawner.StopSpawner();
 
-            levelManager.AdjustItemEndOfTheGame();
+            levelManager.AdjustItemNoCuttable();
 
             gameManager.restartButtonObject.SetActive(true);
             gameManager.startButtonObject.SetActive(false);
             gameManager.nextButtonObject.SetActive(false);
-            gameManager.MenuButton.SetActive(true);
+            gameManager.MenuButtonObject.SetActive(true);
 
             levelManager.levelUpText.enabled = true;
             levelManager.levelUpText.text = "TRY AGAIN!";

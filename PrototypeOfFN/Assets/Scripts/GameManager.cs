@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject nextButtonObject;
 
-    public GameObject MenuButton;
+    public GameObject MenuButtonObject;
 
     private void Awake()
     {
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         showItemToCut.TaskPanel.SetActive(false);
         startButtonObject.SetActive(false);
-        MenuButton.SetActive(false);
+        MenuButtonObject.SetActive(false);
     }
 
     public void RestartButton()

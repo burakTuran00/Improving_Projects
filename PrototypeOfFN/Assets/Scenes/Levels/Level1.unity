@@ -430,15 +430,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721524636187234936, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 721524636187234936, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 721524636187234936, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 721524636187234936, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -465,21 +465,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1057375617}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
-      propertyPath: MenuButton
-      value: 
-      objectReference: {fileID: 8405335970687320537}
-    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: startButton
       value: 
       objectReference: {fileID: 33215238}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
-      propertyPath: levelExitButton
-      value: 
-      objectReference: {fileID: 8405335970687320537}
-    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: startButtonText
       value: 
       objectReference: {fileID: 1077803065}
+    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: MenuButtonObject
+      value: 
+      objectReference: {fileID: 8405335970687320537}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: nextButtonObject
       value: 

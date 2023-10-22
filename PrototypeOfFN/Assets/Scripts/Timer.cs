@@ -105,7 +105,7 @@ public class Timer : MonoBehaviour
                         gameManager.restartButtonObject.SetActive(false);
                         gameManager.startButtonObject.SetActive(false);
                         gameManager.nextButtonObject.SetActive(true);
-                        gameManager.MenuButton.SetActive(true);
+                        gameManager.MenuButtonObject.SetActive(true);
                         //todo : next level at Gamemanager or Menu System, I'll think about it
                     }
                     else
@@ -113,7 +113,7 @@ public class Timer : MonoBehaviour
                         gameManager.restartButtonObject.SetActive(true);
                         gameManager.startButtonObject.SetActive(false);
                         gameManager.nextButtonObject.SetActive(false);
-                        gameManager.MenuButton.SetActive(true);
+                        gameManager.MenuButtonObject.SetActive(true);
 
                         levelManager.levelUpText.enabled = true;
                         levelManager.levelUpText.text = "TRY AGAIN!";
@@ -125,7 +125,7 @@ public class Timer : MonoBehaviour
                     minuteText.text = "00";
 
                     showItemToCut.ShowGameEndValues();
-                    levelManager.AdjustItemEndOfTheGame();
+                    levelManager.AdjustItemNoCuttable();
 
                     break;
                 }

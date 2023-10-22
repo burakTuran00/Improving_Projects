@@ -140,9 +140,9 @@ public class LevelManager : MonoBehaviour
             gameManager.restartButtonObject.SetActive(false);
             gameManager.startButtonObject.SetActive(false);
             gameManager.nextButtonObject.SetActive(true);
-            gameManager.MenuButton.SetActive(true);
+            gameManager.MenuButtonObject.SetActive(true);
 
-            AdjustItemEndOfTheGame();
+            AdjustItemNoCuttable();
         }
     }
 
@@ -166,10 +166,11 @@ public class LevelManager : MonoBehaviour
         return isLevelCompleted;
     }
 
-    public void AdjustItemEndOfTheGame()
+    public void AdjustItemNoCuttable()
     {
         // when player ends the game, if there's a fruit or bomb in the scene
         // player cannot cut that object.
+        
         Fruit[] fruits = FindObjectsOfType<Fruit>();
 
         foreach (Fruit fruit in fruits)

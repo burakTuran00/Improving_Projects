@@ -1115,6 +1115,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 108053615}
     - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
+      propertyPath: MenuButtonObject
+      value: 
+      objectReference: {fileID: 774139388}
+    - target: {fileID: 721524636187234939, guid: ace0eee2fbf647e4287e17ae20d73b95, type: 3}
       propertyPath: nextButtonObject
       value: 
       objectReference: {fileID: 108053610}
