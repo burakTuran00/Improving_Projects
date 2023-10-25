@@ -11,9 +11,11 @@ public class Can : MonoBehaviour
 
     public Vector3 spawnPosition;
 
+    public Collider spawnableArea;
+
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(Crushed());
+        if (other.gameObject.CompareTag("Crasher")) StartCoroutine(Crushed());
     }
 
     private void Update()
@@ -26,7 +28,7 @@ public class Can : MonoBehaviour
         piece.SetActive(false);
         crushed.SetActive(true);
 
-        speed = .5f;
+        speed = .25f;
 
         yield return new WaitForSeconds(2f);
 
@@ -42,5 +44,9 @@ public class Can : MonoBehaviour
         crushed.SetActive(false);
 
         speed = 1;
+    }
+
+    private void AdjustRandomArea()
+    {
     }
 }
