@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
     {
         if (horMovable && verMovable)
         {
-            /*if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 direction = Vector3.left;
             }
@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour
             else
             {
                 direction = Vector3.zero;
-            }*/
+            }
 
             
             transform.position =
