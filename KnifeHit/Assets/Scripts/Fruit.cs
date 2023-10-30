@@ -15,7 +15,7 @@ public class Fruit : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer.sprite = sprites[GetRandomIndex()];
+        spriteRenderer.sprite = sprites[GetRandomIndex()]; 
     }
 
     private int GetRandomIndex()

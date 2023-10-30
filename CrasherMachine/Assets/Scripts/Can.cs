@@ -13,9 +13,19 @@ public class Can : MonoBehaviour
 
     public Collider spawnableArea;
 
+    private Movement movement;
+
+    private void Awake()
+    {
+        movement = FindAnyObjectByType<Movement>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Crasher")) StartCoroutine(Crushed());
+        if (other.gameObject.CompareTag("Crasher") && movement.crushable)
+        {
+            StartCoroutine(Crushed());
+        }
     }
 
     private void Update()

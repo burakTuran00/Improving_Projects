@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Movement : MonoBehaviour
 {
     private Rigidbody rb;
 
     public Button pressButton;
+
     public float speed = 5.0f;
 
     public float force = 100f;
@@ -24,7 +26,10 @@ public class Movement : MonoBehaviour
 
     public bool verMovable = true;
 
-    private void Awake() {
+    public bool crushable = true;
+
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
@@ -55,9 +60,7 @@ public class Movement : MonoBehaviour
                 direction = Vector3.zero;
             }
 
-            
-            transform.position =
-                new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y),
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minMaxX.x, minMaxX.y),
                     transform.position.y,
                     transform.position.z);
 
@@ -71,7 +74,7 @@ public class Movement : MonoBehaviour
 
     public void RightButton()
     {
-        if(horMovable && verMovable)
+        if (horMovable && verMovable)
         {
             direction = Vector3.right;
             //doesn't work
@@ -84,7 +87,7 @@ public class Movement : MonoBehaviour
 
     public void LeftButton()
     {
-        if(horMovable && verMovable)
+        if (horMovable && verMovable)
         {
             direction = Vector3.left;
             //doesn't work
@@ -115,15 +118,16 @@ public class Movement : MonoBehaviour
 
     private void MoveDown()
     {
-            pressButton.interactable = false;
-            currentPosition = transform.position;
+        //crushable = true;
+        // doens't work
 
-            /*transform.position = Vector3.Lerp(currentPosition, downPosition.position,timeSpeed * Time.deltaTime);
+        pressButton.interactable = false;
+        currentPosition = transform.position;
+
+        /*transform.position = Vector3.Lerp(currentPosition, downPosition.position,timeSpeed * Time.deltaTime);
              transform.position = downPosition.position;*/
-
-            rb.AddForceAtPosition(Vector3.down * force, transform.position, ForceMode.Impulse);
-
-            StartCoroutine(VerticalMovement());
+        rb.AddForceAtPosition(Vector3.down * force,transform.position,ForceMode.Impulse);
+        StartCoroutine(VerticalMovement());
     }
 
     IEnumerator VerticalMovement()
@@ -133,11 +137,11 @@ public class Movement : MonoBehaviour
         /*transform.position = Vector3.Lerp(downPosition.position, currentPosition, timeSpeed * Time.deltaTime);
         transform.position = currentPosition;*/
         //rb.AddForceAtPosition(currentPosition / 2, transform.position, ForceMode.Impulse);
-
-        rb.AddForceAtPosition(Vector3.up * force, transform.position, ForceMode.Impulse);
+        rb.AddForceAtPosition(Vector3.up * force,transform.position, ForceMode.Impulse);
         horMovable = true;
         verMovable = true;
         pressButton.interactable = true;
+        crushable = true;
 
         StopAllCoroutines();
     }
