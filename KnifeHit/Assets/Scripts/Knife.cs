@@ -3,11 +3,14 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class Knife : MonoBehaviour
 {
-    public float force;
+    [SerializeField]
+    private float force;
 
     private bool movable = true;
 
-    
+    [SerializeField]
+    private Gamemanager gamemanager;
+
     private void Update()
     {
         if (movable)
@@ -27,7 +30,7 @@ public class Knife : MonoBehaviour
         {
             //todo
             other.gameObject.SetActive(false);
-
+            gamemanager.DecreaseFruit();
             // set up parent the knifes to the wood.
         }
     }

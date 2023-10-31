@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Spawner1 : MonoBehaviour
+public class Thrower : MonoBehaviour
 {
     [SerializeField]
     private Button spawnButton;
@@ -14,6 +14,9 @@ public class Spawner1 : MonoBehaviour
 
     private int index;
 
+    [SerializeField]
+    private Wood wood;
+
     private void Start()
     {
         index = knifes.Length;
@@ -21,7 +24,7 @@ public class Spawner1 : MonoBehaviour
 
     public void Throw()
     {
-        if(index <= 0)
+        if (index <= 0)
         {
             spawnButton.interactable = false;
             return;
@@ -32,5 +35,12 @@ public class Spawner1 : MonoBehaviour
         index--;
         knifes[index].SetActive(true);
         knifeImages[index].enabled = false;
+
+        wood.IncreaseSpeed();
+    }
+
+    public int GetIndex()
+    {
+        return index;
     }
 }
