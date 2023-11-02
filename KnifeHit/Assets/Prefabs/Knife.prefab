@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
+  gamemanager: {fileID: 0}
 --- !u!61 &8535224205737717327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +125,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4375, y: 2.1015625}
+  m_Size: {x: 0.275, y: 2.1}
   m_EdgeRadius: 0
 --- !u!50 &8535224205737717326
 Rigidbody2D:

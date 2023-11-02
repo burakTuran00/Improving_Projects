@@ -17,6 +17,9 @@ public class Thrower : MonoBehaviour
     [SerializeField]
     private Wood wood;
 
+    [SerializeField]
+    private Gamemanager gamemanager;
+
     private void Start()
     {
         index = knifes.Length;
@@ -37,6 +40,7 @@ public class Thrower : MonoBehaviour
         knifeImages[index].enabled = false;
 
         wood.IncreaseSpeed();
+        gamemanager.IsLevelEnd();
     }
 
     public int GetIndex()
