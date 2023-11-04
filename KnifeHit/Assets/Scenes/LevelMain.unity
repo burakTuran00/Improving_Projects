@@ -1522,6 +1522,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8766487046050640905, guid: bf19a4978ca928f4781cb3f6489ff2af, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 8766487047863708479}
     - target: {fileID: 8766487046050640909, guid: bf19a4978ca928f4781cb3f6489ff2af, type: 3}
       propertyPath: m_Name
       value: Wood
@@ -1575,5 +1579,10 @@ PrefabInstance:
 --- !u!4 &8766487047863708478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8766487046050640911, guid: bf19a4978ca928f4781cb3f6489ff2af, type: 3}
+  m_PrefabInstance: {fileID: 8766487047863708477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8766487047863708479 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3813675984183834765, guid: bf19a4978ca928f4781cb3f6489ff2af, type: 3}
   m_PrefabInstance: {fileID: 8766487047863708477}
   m_PrefabAsset: {fileID: 0}

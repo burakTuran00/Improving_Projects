@@ -11,6 +11,13 @@ public class Knife : MonoBehaviour
     [SerializeField]
     private Gamemanager gamemanager;
 
+    private Wood wood;
+
+    private void Awake()
+    {
+        wood = FindAnyObjectByType<Wood>();
+    }
+
     private void Update()
     {
         if (movable)
@@ -23,12 +30,14 @@ public class Knife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wood"))
         {
+            wood.CallHitVoice();
             movable = false;
             this.transform.SetParent(other.transform);
         }
         else if (other.gameObject.CompareTag("Fruit"))
         {
             //todo
+            other.gameObject.GetComponent<Fruit>().CallParticleSystem();
             other.gameObject.SetActive(false);
             gamemanager.DecreaseFruit();
             // set up parent the knifes to the wood.

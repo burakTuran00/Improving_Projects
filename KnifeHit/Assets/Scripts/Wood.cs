@@ -1,5 +1,5 @@
-using Unity.Mathematics;
 using UnityEngine;
+using Unity.Mathematics;
 
 public class Wood : MonoBehaviour
 {
@@ -8,6 +8,9 @@ public class Wood : MonoBehaviour
 
     [SerializeField]
     private float increaseForce;
+
+    [SerializeField]
+    private AudioSource audioSource;
 
     private void Update()
     {
@@ -18,5 +21,10 @@ public class Wood : MonoBehaviour
     {
         rotateSpeed *= increaseForce;
         rotateSpeed = Mathf.CeilToInt(rotateSpeed);
+    }
+
+    public void CallHitVoice()
+    {
+        audioSource.Play();
     }
 }
