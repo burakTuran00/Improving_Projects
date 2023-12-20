@@ -10,9 +10,11 @@ public class Blade : MonoBehaviour
 
     public Vector3 direction { get; private set; }
 
-    public float slicedForce = 5.0f;
+    [SerializeField]
+    private float slicedForce = 5.0f;
 
-    public float minSliceVelocity = 0.01f;
+    [SerializeField]
+    private float minSliceVelocity = 0.01f;
 
     private TrailRenderer bladeTrail;
 
@@ -91,5 +93,10 @@ public class Blade : MonoBehaviour
     public void PlayCuttingSound()
     {
         bladeCutSound.Play();
+    }
+
+    public float GetSlicedForce()
+    {
+        return slicedForce;
     }
 }

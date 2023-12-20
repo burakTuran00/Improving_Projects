@@ -12,16 +12,18 @@ public class Fruit : MonoBehaviour
 
     private ParticleSystem juiceParticleEffect;
 
-    public int point = 1;
+    [SerializeField]
+    private int point = 1;
 
-    public string typeName;
+    [SerializeField]
+    private string typeName;
 
     private LevelManager levelManager;
 
-    private void Awake() 
+    private void Awake()
     {
         fruitRigidbody = GetComponent<Rigidbody>();
-        fruitCollider = GetComponent<Collider>();    
+        fruitCollider = GetComponent<Collider>();
         juiceParticleEffect = GetComponentInChildren<ParticleSystem>();
         levelManager = FindObjectOfType<LevelManager>();
     }
@@ -36,15 +38,18 @@ public class Fruit : MonoBehaviour
         fruitCollider.enabled = false;
         juiceParticleEffect.Play();
 
-        float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         Rigidbody[] slices = sliced.GetComponentsInChildren<Rigidbody>();
 
-        foreach(Rigidbody slice in slices)
+        foreach (Rigidbody slice in slices)
         {
             slice.velocity = fruitRigidbody.velocity;
-            slice.AddForceAtPosition(direction * force, position, ForceMode.Impulse);
+            slice
+                .AddForceAtPosition(direction * force,
+                position,
+                ForceMode.Impulse);
         }
     }
 
@@ -53,12 +58,12 @@ public class Fruit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Blade blade = other.GetComponent<Blade>();
-            Sliced(blade.direction, blade.transform.position, blade.slicedForce);
+            Sliced(blade.direction,
+            blade.transform.position,
+            blade.GetSlicedForce());
             blade.PlayCuttingSound();
 
-            levelManager.DecreaseItemCount(typeName);
+            levelManager.DecreaseItemCount (typeName);
         }
     }
-
-    
 }
