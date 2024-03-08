@@ -88,6 +88,13 @@ public class Blade : MonoBehaviour
             direction = newPosition - transform.position;
             transform.position = newPosition;
 
+            /*Letter letter = hit.transform.GetComponent<Letter>();
+
+            if (letter != null)
+            {
+                gameManager.AddSentence(letter.getLetterChar());
+            }*/
+
             // Perform slicing action here if needed
             //Letter letter = hit.transform.GetComponent<Letter>();
             //gameManager.AddSentence(letter.getLetterChar());

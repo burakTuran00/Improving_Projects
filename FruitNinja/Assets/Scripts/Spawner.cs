@@ -12,7 +12,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float maxAngle = 15f;
     [SerializeField] private float minForce = 18f;
     [SerializeField] private float maxForce = 22f;
-    [SerializeField] private float maxLifeTime = 5f;
+    [SerializeField] private float maxLifeTime = 8f;
+    private bool condition = true;
     #endregion
 
     private void OnEnable()
@@ -27,9 +28,9 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        while(enabled)
+        while(condition)
         {
             GameObject prefab = letterPrefabs[Random.Range(0, letterPrefabs.Length)];
 
@@ -58,5 +59,11 @@ public class Spawner : MonoBehaviour
     public int getLettersCount()
     {
         return letterPrefabs.Length;
+    }
+
+    public void StopSpawner()
+    {
+        condition = false;
+        StopCoroutine(Spawn());
     }
 }

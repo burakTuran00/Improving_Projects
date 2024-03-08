@@ -8,36 +8,36 @@ using UnityEngine.UI;
 public  class GameManager : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private Image fadeImage;
     [SerializeField] private Text scoreText;
     [SerializeField] private Blade blade;
     [SerializeField] private Spawner spawner;
+    [SerializeField] private Timer timer;
+    [SerializeField] private WordListLoader wordListLoader;
     private int score = 0;
     public string sentence{ get; set;}
     public event Action<char> OnCutLetter;
-    [SerializeField] private List<string> tasks;
-    private int taskIndex = 0;
+    private int currentSentenceScore;
+    private List<string> subList;
+    private int totalAmountOfTimeToAdd;
     #endregion
     private void Start()
     {
         StartGame();
     }
-    
-    public void IncreaseScor(int point)
+    private void Update() 
     {
-        score += point;
-        scoreText.text = score.ToString("00000");
+        GameOver();   
     }
-
     public void StartGame()
     {
+        subList = new List<string>();
+
         Time.timeScale = 1f;
 
         blade.enabled = true;
         spawner.enabled = true;
 
         score = 0;
-        scoreText.text = tasks[taskIndex].ToUpper().ToString();
 
         ClearScene();
     }
@@ -67,11 +67,26 @@ public  class GameManager : MonoBehaviour
     {
         sentence += value;
 
-        if(sentence == tasks[taskIndex].ToUpper())
+        if(wordListLoader.BinarySearch(sentence))
         {
-            taskIndex++;
+            subList.Clear();
+            subList = wordListLoader.GetAllSubstrings(sentence);
+
+            foreach(string subword in subList)
+            {
+                if (wordListLoader.BinarySearch(subword))
+                {
+                    totalAmountOfTimeToAdd += subword.Length;
+                }
+            }
+            timer.getMoreTime(totalAmountOfTimeToAdd);
             sentence = "";
-            Debug.Log("Correct");
+        }
+        
+
+        if(sentence.Length > 10)
+        {
+            sentence = "";
         }
 
         scoreText.text = sentence.ToString();
@@ -85,5 +100,15 @@ public  class GameManager : MonoBehaviour
             scoreText.text = sentence.ToUpper().ToString();
         }
         
+    }
+
+    public void GameOver()
+    {
+        if(timer.getRemainingTime() > 0)
+        {
+            return;
+        }
+
+        spawner.StopSpawner();
     }
 }
