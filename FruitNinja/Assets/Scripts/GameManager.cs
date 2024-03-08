@@ -1,37 +1,35 @@
-using System.Collections;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public  class GameManager : MonoBehaviour
 {
-    public Image fadeImage;
-
-    public Text scoreText;
-
-    private Blade blade;
-
-    private Spawner spawner;
-
+    #region Variables
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Blade blade;
+    [SerializeField] private Spawner spawner;
     private int score = 0;
-
-    private void Awake()
-    {
-        blade = FindObjectOfType<Blade>();
-        spawner = FindObjectOfType<Spawner>();
-    }
-
+    public string sentence{ get; set;}
+    public event Action<char> OnCutLetter;
+    [SerializeField] private List<string> tasks;
+    private int taskIndex = 0;
+    #endregion
     private void Start()
     {
-        NewGame();
+        StartGame();
     }
-
+    
     public void IncreaseScor(int point)
     {
         score += point;
         scoreText.text = score.ToString("00000");
     }
 
-    public void NewGame()
+    public void StartGame()
     {
         Time.timeScale = 1f;
 
@@ -39,66 +37,53 @@ public class GameManager : MonoBehaviour
         spawner.enabled = true;
 
         score = 0;
-        scoreText.text = score.ToString("00000");
+        scoreText.text = tasks[taskIndex].ToUpper().ToString();
 
         ClearScene();
     }
 
     private void ClearScene()
     {
-        Fruit[] fruits = FindObjectsOfType<Fruit>();
+        // it cannot be nessecary if pool will be build.
+        Letter[] letters = FindObjectsOfType<Letter>();
 
-        foreach (Fruit fruit in fruits)
+        foreach (Letter letter in letters)
         {
-            Destroy(fruit.gameObject);
-        }
-
-        Bomb[] bombs = FindObjectsOfType<Bomb>();
-
-        foreach (Bomb bomb in bombs)
-        {
-            Destroy(bomb.gameObject);
+            Destroy(letter.gameObject);
         }
     }
 
-    public void Explode()
+    public void DecreaseCerainTaskCount(char letterChar, int letterIndex)
     {
-        blade.enabled = false;
-        spawner.enabled = false;
+        if(letterChar < 0 || letterIndex > spawner.getLettersCount())
+        {
+            return;
+        }
 
-        StartCoroutine(ExplodeSequence());
+            // todo
     }
 
-    IEnumerator ExplodeSequence()
+    public void AddSentence(char value)
     {
-        float elapsed = 0f;
-        float duration = 0.5f;
+        sentence += value;
 
-        while (elapsed < duration)
+        if(sentence == tasks[taskIndex].ToUpper())
         {
-            float t = Mathf.Clamp01(elapsed / duration);
-            fadeImage.color = Color.Lerp(Color.clear, Color.white, t);
-
-            Time.timeScale = 1f - t;
-            elapsed += Time.unscaledDeltaTime;
-
-            yield return null;
+            taskIndex++;
+            sentence = "";
+            Debug.Log("Correct");
         }
 
-        yield return new WaitForSecondsRealtime(1f);
+        scoreText.text = sentence.ToString();
+    }
 
-        NewGame();
-
-        elapsed = 0;
-
-        while (elapsed < duration)
+    public void GetRidOfSentence()
+    {
+        if(sentence != "")
         {
-            float t = Mathf.Clamp01(elapsed / duration);
-            fadeImage.color = Color.Lerp(Color.white, Color.clear, t);
-
-            elapsed += Time.unscaledDeltaTime;
-
-            yield return null;
+            sentence = "";
+            scoreText.text = sentence.ToUpper().ToString();
         }
+        
     }
 }

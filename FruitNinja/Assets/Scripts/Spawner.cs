@@ -3,32 +3,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private Collider spawnArea;
-
-    public GameObject[] fruitPrefabs;
-
-    public GameObject bombPrefab;
-    [Range(0f,1f)]
-    public float bombChance = 0.05f;
-
-    public float minSpawnDelay = 0.25f;
-
-    public float maxSpawnDelay = 1f;
-
-    public float minAngle = -15f;
-
-    public float maxAngle = 15f;
-
-    public float minForce = 18f;
-
-    public float maxForce = 22f;
-
-    public float maxLifeTime = 5f;
-
-    private void Awake()
-    {
-        spawnArea = GetComponent<Collider>();
-    }
+    #region Variables
+    [SerializeField] private Collider spawnArea;
+    [SerializeField] private GameObject[] letterPrefabs;
+    [SerializeField] private float minSpawnDelay = 0.25f;
+    [SerializeField] private float maxSpawnDelay = 1f;
+    [SerializeField] private float minAngle = -15f;
+    [SerializeField] private float maxAngle = 15f;
+    [SerializeField] private float minForce = 18f;
+    [SerializeField] private float maxForce = 22f;
+    [SerializeField] private float maxLifeTime = 5f;
+    #endregion
 
     private void OnEnable()
     {
@@ -46,12 +31,7 @@ public class Spawner : MonoBehaviour
 
         while(enabled)
         {
-            GameObject prefab = fruitPrefabs[Random.Range(0, fruitPrefabs.Length)];
-
-            if(Random.value < bombChance)
-            {
-                prefab =bombPrefab;
-            }
+            GameObject prefab = letterPrefabs[Random.Range(0, letterPrefabs.Length)];
 
             Vector3 position = new Vector3();
             position.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
@@ -60,15 +40,23 @@ public class Spawner : MonoBehaviour
 
             Quaternion rotation = Quaternion.Euler(0f,0f, Random.Range(minAngle,maxAngle));
 
-            GameObject fruit = Instantiate(prefab, position, rotation); 
-            Destroy(fruit,maxLifeTime);
+            GameObject letter = Instantiate(prefab, position, Quaternion.identity); 
+            letter.transform.SetParent(transform);
+            letter.transform.RotateAround(letter.transform.position, Vector3.left , 90f);            
+
+            Destroy(letter, maxLifeTime);
 
             float force = Random.Range(minForce,maxForce);  
             
-            Rigidbody fruitRb = fruit.GetComponent<Rigidbody>();
-            fruitRb.AddForce(fruit.transform.up * force, ForceMode.Impulse);
+            Rigidbody fruitRb = letter.GetComponent<Rigidbody>();
+            fruitRb.AddForce(letter.transform.forward * force, ForceMode.Impulse);
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay,maxSpawnDelay));
         }
+    }
+
+    public int getLettersCount()
+    {
+        return letterPrefabs.Length;
     }
 }
