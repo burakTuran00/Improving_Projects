@@ -98,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d769938b0b9714e9ee7494aed66123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 2641279073983371216, guid: bc0eaaf51ce3f3648bf0eced1d3787f7, type: 3}
-  effect: {fileID: 0}
+  rb: {fileID: -3183721779332373191}
   letterChar: 88
   letterIndex: 23
 --- !u!54 &-3183721779332373191
@@ -110,9 +109,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920316195025238169}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.75
   m_Drag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

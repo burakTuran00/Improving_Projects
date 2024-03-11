@@ -7,9 +7,10 @@ public class WordListLoader : MonoBehaviour
 {
     public List<string> words;
     public List<string> subWords;
+    [SerializeField] private string path;
     void Start()
     {
-        string path = "D:\\Projects\\Improving_Projects\\FruitNinja\\Assets\\Resource\\wordList.txt";
+        path = "D:\\Projects\\Improving_Projects\\FruitNinja\\Assets\\Resource\\wordList.txt";
         string filePath = Path.Combine(Application.streamingAssetsPath, path);
 
         if (File.Exists(filePath))
@@ -100,6 +101,7 @@ public class WordListLoader : MonoBehaviour
 
     public List<string> GetAllSubstrings(string str)
     {
+        // aynı kelimeyi denerse başarısız olsun.
         subWords.Clear();
 
         for (int i = 0; i < str.Length; i++)

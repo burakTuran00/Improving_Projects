@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Threading;
 public class Timer : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
@@ -10,13 +9,14 @@ public class Timer : MonoBehaviour, IPointerClickHandler
         Pause = !Pause;
     }
 
-    [SerializeField] private Text uiText;
+    #region Variables
+    [SerializeField] private Text uiTimerText;
     [SerializeField] private Image uiImage;
     [SerializeField] private Text uiExtraText;
     [SerializeField] private int Duration;
     private int remainingDuration;
     private bool Pause;
-
+    #endregion
     private void Start()
     {
         Being (Duration);
@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour, IPointerClickHandler
         {
             if(!Pause)
             {
-                uiText.text = $"{remainingDuration/ 60:00}:{remainingDuration % 60:00}";
+                uiTimerText.text = $"{remainingDuration/ 60:00}:{remainingDuration % 60:00}";
                 uiImage.fillAmount = Mathf.InverseLerp(0, Duration, remainingDuration);
                 remainingDuration--;
                 yield return new WaitForSeconds(1f);
