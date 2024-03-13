@@ -18,6 +18,7 @@ public  class GameManager : MonoBehaviour
     private int currentSentenceScore;
     private List<string> subList;
     private int totalAmountOfTimeToAdd;
+    private string findenWordText;
     #endregion
 
     #region  Singleton
@@ -31,10 +32,6 @@ public  class GameManager : MonoBehaviour
     private void Start()
     {
         StartGame();
-    }
-    private void Update() 
-    {
-        GameOver();   
     }
     
     public void StartGame()
@@ -53,26 +50,33 @@ public  class GameManager : MonoBehaviour
     {   
         sentence += value;
 
-        if(wordListLoader.BinarySearch(sentence))
+        if(wordListLoader.BinarySearch(wordListLoader.words, sentence))
         {
             subList.Clear();
             subList = wordListLoader.GetAllSubstrings(sentence);
 
             foreach(string subword in subList)
             {
-                if (wordListLoader.BinarySearch(subword))
+                if (wordListLoader.BinarySearch(wordListLoader.words, subword) || wordListLoader.BinarySearch(wordListLoader.findedWords, subword))
                 {
-                    totalAmountOfTimeToAdd += subword.Length;
+                    totalAmountOfTimeToAdd += Mathf.FloorToInt(subword.Length); // todo: find a proper scor calculation.
                 }
             }
-            timer.getMoreTime(totalAmountOfTimeToAdd + 3);
+
+            wordListLoader.RemoveAtSentence(sentence);
+            wordListLoader.AddFindedWord(sentence);
+
+            timer.getMoreTime(totalAmountOfTimeToAdd);
+
+            totalAmountOfTimeToAdd = 0;
             sentence = "";
         }
-        
 
+        uIManager.SetWordTextColor((wordListLoader.BinarySearch(wordListLoader.findedWords, sentence)) ? Color.yellow : Color.white);
+        
         if(sentence.Length > 10)
         {
-            sentence = "";
+            GetRidOfSentence();
         }
 
         uIManager.SetWordText(sentence);
@@ -87,7 +91,6 @@ public  class GameManager : MonoBehaviour
         }
         uIManager.SetWordText(sentence);
     }
-
     public void GameOver()
     {
         if(timer.getRemainingTime() > 0)
@@ -96,5 +99,13 @@ public  class GameManager : MonoBehaviour
         }
 
         Pooler.StopPooler();
+
+        foreach(string sentence in wordListLoader.findedWords)
+        {
+            findenWordText = sentence + "\n";
+        }
+        
+        uIManager.SetFindedText(findenWordText);
+        Time.timeScale = 0f;
     }
 }

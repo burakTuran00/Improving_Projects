@@ -7,6 +7,7 @@ public class WordListLoader : MonoBehaviour
 {
     public List<string> words;
     public List<string> subWords;
+    public List<string> findedWords;
     [SerializeField] private string path;
     void Start()
     {
@@ -36,51 +37,51 @@ public class WordListLoader : MonoBehaviour
         Quicksort(words, 0, words.Count- 1);
     }
 
-    private void Quicksort(List<string> words, int start, int end)
+    private void Quicksort(List<string> list, int start, int end)
     {
         if (start < end)
         {
             // Partition the list and get the pivot index
-            int pivotIndex = Partition(words, start, end);
+            int pivotIndex = Partition(list, start, end);
 
             // Sort the divided lists based on the pivot index
-            Quicksort(words, start, pivotIndex - 1);
-            Quicksort(words, pivotIndex + 1, end);
+            Quicksort(list, start, pivotIndex - 1);
+            Quicksort(list, pivotIndex + 1, end);
         }
     }
 
-     private int Partition(List<string> words, int start, int end)
+     private int Partition(List<string> list, int start, int end)
     {
-        string pivot = words[end];
+        string pivot = list[end];
         int i = start - 1;
 
         for (int j = start; j < end; j++)
         {
-            if (String.Compare(words[j], pivot) < 0)
+            if (String.Compare(list[j], pivot) < 0)
             {
                 i++;
-                string temp = words[i];
-                words[i] = words[j];
-                words[j] = temp;
+                string temp = list[i];
+                list[i] = list[j];
+                list[j] = temp;
             }
         }
 
-        string temp1 = words[i + 1];
-        words[i + 1] = words[end];
-        words[end] = temp1;
+        string temp1 = list[i + 1];
+        list[i + 1] = list[end];
+        list[end] = temp1;
 
         return i + 1;
     }
 
-    public bool BinarySearch(string target)
+    public bool BinarySearch(List<string> list, string target)
     {
         int left = 0;
-        int right = words.Count - 1;
+        int right = list.Count - 1;
 
         while (left <= right)
         {
             int mid = left + (right - left) / 2;
-            int comparison = string.Compare(words[mid], target);
+            int comparison = string.Compare(list[mid], target);
 
             if (comparison < 0)
             {
@@ -99,6 +100,34 @@ public class WordListLoader : MonoBehaviour
         return false;
     }
 
+    public int GetPositionOfSentence(string target)
+    {
+         int left = 0;
+        int right = words.Count - 1;
+
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+            int comparison = string.Compare(words[mid], target);
+
+            if (comparison < 0)
+            {
+                left = mid + 1;
+            }
+            else if (comparison > 0)
+            {
+                right = mid - 1;
+            }
+            else
+            {
+                return mid;
+            }
+        }
+
+        return -1;
+        
+    }
+
     public List<string> GetAllSubstrings(string str)
     {
         // aynı kelimeyi denerse başarısız olsun.
@@ -113,5 +142,16 @@ public class WordListLoader : MonoBehaviour
         }
 
         return subWords;
+    }
+
+    public void AddFindedWord(string sentence)
+    {
+        findedWords.Add(sentence);
+        Quicksort(findedWords,0, findedWords.Count - 1);
+    }
+
+    public void RemoveAtSentence(string sentence)
+    {
+        words.RemoveAt(GetPositionOfSentence(sentence));
     }
 }

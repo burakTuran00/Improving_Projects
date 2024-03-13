@@ -25,7 +25,6 @@ public class Letter : MonoBehaviour
         
     }
 
-    
     private void OnTriggerEnter(Collider other) 
     {
         if(other.CompareTag("Player"))
@@ -51,8 +50,5 @@ public class Letter : MonoBehaviour
 
         transform.position = new Vector3(randomXPosition, randomYPosition, 0f);
         transform.rotation = Quaternion.Euler(xRotateAngle, 0f, 0f);
-
-        /*useableForce = Random.Range(force, force + 5);
-        rb.AddForce(transform.forward * force, ForceMode.Impulse);*/
     }
 }

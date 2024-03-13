@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour, IPointerClickHandler
 
     private void OnEnd()
     {
-        print("End");
+        GameManager.Instance.GameOver();
     }
 
    public int getRemainingTime()
