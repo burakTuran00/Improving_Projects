@@ -79,7 +79,8 @@ public  class GameManager : MonoBehaviour
             GetRidOfSentence();
         }
 
-        uIManager.SetWordText(sentence);
+        //uIManager.SetWordText(sentence);
+        uIManager.WordText.text = sentence.ToUpper().ToString();
         totalAmountOfTimeToAdd = 0;
     }
     public void GetRidOfSentence()

@@ -7,6 +7,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI findedWordsText;
     [SerializeField] private Image findenWordImage;
 
+    public Text WordText
+    {
+        get{return wordText;}
+        set{wordText = value;}
+    }
+
     public void SetWordText(string sentence)
     {
         wordText.text = sentence.ToUpper().ToString();

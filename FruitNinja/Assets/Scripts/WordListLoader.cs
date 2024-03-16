@@ -102,7 +102,7 @@ public class WordListLoader : MonoBehaviour
 
     public int GetPositionOfSentence(string target)
     {
-         int left = 0;
+        int left = 0;
         int right = words.Count - 1;
 
         while (left <= right)
