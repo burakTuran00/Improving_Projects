@@ -1,24 +1,26 @@
 using System.Collections;
+using UnityEditor.MPE;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public  class Spawner : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private Collider spawnArea;
-    [SerializeField] private GameObject[] letterPrefabs;
     [SerializeField] private float minSpawnDelay = 0.25f;
     [SerializeField] private float maxSpawnDelay = 1f;
-    [SerializeField] private float minAngle = -15f;
-    [SerializeField] private float maxAngle = 15f;
-    [SerializeField] private float minForce = 18f;
-    [SerializeField] private float maxForce = 22f;
-    [SerializeField] private float maxLifeTime = 8f;
-    private bool condition = true;
+    private float delay;
+    private int randomValueToSpawnCount;
+    private int randomValue;
     #endregion
 
-    private void OnEnable()
+    private Vector3 lastPosition;
+
+    private void Start()
     {
-        StartCoroutine(Spawn());
+        //delay = Random.Range(minSpawnDelay,maxSpawnDelay);
+        delay = (minSpawnDelay+maxSpawnDelay)/2;
+        Vector3 lastPosition = GameManager.Instance.SetRandomPosition().position;
+
+        StartCoroutine(ToSpawn());
     }
 
     private void OnDisable()
@@ -26,45 +28,80 @@ public class Spawner : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private IEnumerator Spawn()
+    private void Spawn()
     {
-        yield return new WaitForSeconds(1f);
-
-        while(condition)
+        /*randomValueToSpawnCount = Random.Range(1, 4);
+       
+        for(int i= 0; i < randomValueToSpawnCount; i++)
         {
-            GameObject prefab = letterPrefabs[Random.Range(0, letterPrefabs.Length)];
+            randomValue = Random.Range(0, Pooler.freeList.Count);   
 
-            Vector3 position = new Vector3();
-            position.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
-            position.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
-            position.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
+            if(Pooler.freeList.Contains(Pooler.freeList[randomValue]) && Pooler.freeList.Count > 0)
+            {
+                Pooler.freeList[randomValue].SetActive(true);  
+                Pooler.freeList[randomValue].transform.position = GameManager.Instance.SetRandomPosition().position; 
+                
 
-            Quaternion rotation = Quaternion.Euler(0f,0f, Random.Range(minAngle,maxAngle));
+                if(lastPosition.x == Pooler.freeList[randomValue].transform.position.x)
+                {
+                    if(Pooler.freeList[randomValue].transform.position.x > 7f)
+                    {
+                        Pooler.freeList[randomValue].transform.position -= new Vector3(2f, 0f, 0f);
+                    }
+                    else 
+                    {
+                        Pooler.freeList[randomValue].transform.position += new Vector3(2f, 0f, 0f);
+                    }
+                }
 
-            GameObject letter = Instantiate(prefab, position, Quaternion.identity); 
-            letter.transform.SetParent(transform);
-            letter.transform.RotateAround(letter.transform.position, Vector3.left , 90f);            
+                lastPosition = Pooler.freeList[randomValue].transform.position;
+                Pooler.usedList.Add(Pooler.freeList[randomValue]);
+                Pooler.freeList.RemoveAt(randomValue);           
+            }   
+        } */  
 
-            Destroy(letter, maxLifeTime);
+            randomValue = Random.Range(0, Pooler.freeList.Count);   
 
-            float force = Random.Range(minForce,maxForce);  
-            
-            Rigidbody fruitRb = letter.GetComponent<Rigidbody>();
-            fruitRb.AddForce(letter.transform.forward * force, ForceMode.Impulse);
+            if(Pooler.freeList.Contains(Pooler.freeList[randomValue]) && Pooler.freeList.Count > 0)
+            {
+                Pooler.freeList[randomValue].SetActive(true);  
+                Pooler.freeList[randomValue].transform.position = GameManager.Instance.SetRandomPosition().position; 
+                
 
-            yield return new WaitForSeconds(Random.Range(minSpawnDelay,maxSpawnDelay));
-        }
+                if(lastPosition.x == Pooler.freeList[randomValue].transform.position.x)
+                {
+                    if(Pooler.freeList[randomValue].transform.position.x > 7f)
+                    {
+                        Pooler.freeList[randomValue].transform.position -= new Vector3(2f, 0f, 0f);
+                    }
+                    else 
+                    {
+                        Pooler.freeList[randomValue].transform.position += new Vector3(2f, 0f, 0f);
+                    }
+                }
+
+                lastPosition = Pooler.freeList[randomValue].transform.position;
+                Pooler.usedList.Add(Pooler.freeList[randomValue]);
+                Pooler.freeList.RemoveAt(randomValue);           
+            }   
+
+            delay = Random.Range(minSpawnDelay, maxSpawnDelay);
     }
 
-    public int getLettersCount()
+    IEnumerator ToSpawn()
     {
-        return letterPrefabs.Length;
+        while (GameManager.Instance.GetRemainingTime() > 0)
+        {
+            Spawn();
+            yield return new WaitForSeconds(delay);
+        }
     }
 
     public void StopSpawner()
     {
-        condition = false;
         this.enabled = false;
-        StopCoroutine(Spawn());
+        //StopCoroutine(Spawn());
     }
+
+    
 }

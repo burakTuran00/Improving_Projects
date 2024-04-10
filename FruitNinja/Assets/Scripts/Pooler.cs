@@ -1,18 +1,16 @@
 using System.Collections.Generic;
+using UnityEditor.Media;
 using UnityEngine;
-
 public class Pooler : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabs;
     [SerializeField] private int poolSize;
     [SerializeField] private bool expandable;
-    private int randValue;
-    private static List<GameObject> freeList;
-    private static List<GameObject> usedList; 
+    public static List<GameObject> freeList;
+    public static  List<GameObject> usedList;
     public static int counter = 0;  
-
     private const int LETTER_COUNT = 26;
-    private void Start() 
+    private void OnEnable() 
     {
         freeList = new List<GameObject>();
         usedList = new List<GameObject>();
@@ -52,11 +50,20 @@ public class Pooler : MonoBehaviour
     {
         for(int i = 0; i < prefabs.Length; i++)
         {
-            GameObject g = Instantiate(prefabs[i]);
-            g.transform.parent = transform;
-            g.SetActive(true);
-            freeList.Add(g);
+                GameObject g = Instantiate(prefabs[i]);
+                g.SetActive(false);
+
+                if(g != null)
+                {
+                    g.transform.parent = transform;
+                    freeList.Add(g);
+                }      
         }
+    }
+
+    public  int GetAllObjectCount()
+    {
+        return prefabs.Length * poolSize;
     }
 
     public static void ReUse(GameObject gameObject)
@@ -68,16 +75,15 @@ public class Pooler : MonoBehaviour
         {
             for(int i = 0; i < freeList.Count; i++)
             {
-             freeList[i].SetActive(true);
+                freeList[i].SetActive(true);
             }
             counter = 0;
         }
      
     }
-
     public static void StopPooler()
     {
-        for(int i = 0; i < freeList.Count; i++)
+        /*for(int i = 0; i < freeList.Count; i++)
         {
             freeList[i].SetActive(false);
         }
@@ -85,6 +91,20 @@ public class Pooler : MonoBehaviour
         for(int i = 0; i < usedList.Count; i++)
         {
             usedList[i].SetActive(false);
+        }*/
+        
+        #region Performing Loop
+        // Less garbage creating 
+        foreach(GameObject used in usedList)
+        {
+            used.SetActive(false);
         }
+
+        foreach(GameObject free in freeList)
+        {
+            free.SetActive(false);
+        }
+
+        #endregion
     }
 }

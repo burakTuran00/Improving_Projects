@@ -13,6 +13,7 @@ public  class GameManager : MonoBehaviour
     [SerializeField] private Spawner spawner;
     [SerializeField] private Timer timer;
     [SerializeField] private WordListLoader wordListLoader;
+    [SerializeField] private PositionAdjuster positionAdjuster;
     private int score = 0;
     public string sentence{ get; set;}
     private int currentSentenceScore;
@@ -22,6 +23,7 @@ public  class GameManager : MonoBehaviour
     #endregion
 
     #region  Singleton
+
     public static GameManager Instance;
     private void Awake() 
     {
@@ -29,6 +31,7 @@ public  class GameManager : MonoBehaviour
     }
     
     #endregion
+    
     private void Start()
     {
         StartGame();
@@ -46,20 +49,25 @@ public  class GameManager : MonoBehaviour
         score = 0;
     }
 
-    public void AddSentence(char value)
-    {   
+    public void AddSentence(char value) // needs some performing thins
+    {  
         sentence += value;
+        blade.BlastEffect();
 
-        if(wordListLoader.BinarySearch(wordListLoader.words, sentence))
+        if(BinarySearch.Search(wordListLoader.words, sentence))
         {
             subList.Clear();
             subList = wordListLoader.GetAllSubstrings(sentence);
 
             foreach(string subword in subList)
             {
-                if (wordListLoader.BinarySearch(wordListLoader.words, subword) || wordListLoader.BinarySearch(wordListLoader.findedWords, subword))
+                if (BinarySearch.Search(wordListLoader.words, subword) && !BinarySearch.Search(wordListLoader.findedWords, subword))
                 {
-                    totalAmountOfTimeToAdd += Mathf.FloorToInt(subword.Length); // todo: find a proper scor calculation.
+                    totalAmountOfTimeToAdd += Mathf.CeilToInt(subword.Length); // todo: find a proper time calculation.
+                }
+                else if(BinarySearch.Search(wordListLoader.findedWords, subword))
+                {
+                    totalAmountOfTimeToAdd += Mathf.FloorToInt(subword.Length / 2); // todo: find a proper time calculation.
                 }
             }
 
@@ -72,7 +80,7 @@ public  class GameManager : MonoBehaviour
             sentence = "";
         }
 
-        uIManager.SetWordTextColor((wordListLoader.BinarySearch(wordListLoader.findedWords, sentence)) ? Color.yellow : Color.white);
+        uIManager.SetColorOfWordText((BinarySearch.Search(wordListLoader.findedWords, sentence)) ? Color.yellow : Color.white);
         
         if(sentence.Length > 10)
         {
@@ -83,14 +91,30 @@ public  class GameManager : MonoBehaviour
         uIManager.WordText.text = sentence.ToUpper().ToString();
         totalAmountOfTimeToAdd = 0;
     }
+
     public void GetRidOfSentence()
     {
         if(sentence != "")
         {
             sentence = "";
-            
         }
+
         uIManager.SetWordText(sentence);
+    }
+
+    public void RemoveLastCharacterAtSentence()
+    {
+        // This structure doesn't work properly.
+
+        if(sentence != null && sentence != "")
+        {
+            sentence = sentence.Remove(sentence.Length - 1); // remove last char.
+            uIManager.SetWordText(sentence);
+        }
+        else
+        {
+            return;
+        }
     }
     public void GameOver()
     {
@@ -103,10 +127,24 @@ public  class GameManager : MonoBehaviour
 
         foreach(string sentence in wordListLoader.findedWords)
         {
-            findenWordText = sentence + "\n";
+            findenWordText += sentence + "\n";
         }
         
         uIManager.SetFindedText(findenWordText);
         Time.timeScale = 0f;
+    }
+
+    public void BlastEffect()
+    {
+
+    }
+    public Transform SetRandomPosition()
+    {
+        return positionAdjuster.RandomPosition();
+    }
+
+    public int GetRemainingTime()
+    {
+        return timer.getRemainingTime();
     }
 }

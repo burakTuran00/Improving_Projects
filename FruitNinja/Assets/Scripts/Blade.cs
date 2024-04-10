@@ -3,7 +3,8 @@ using UnityEngine;
 public class Blade : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private ParticleSystem blastEffect;
+    [SerializeField] private AudioSource blastAudioEffect;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Collider bladeCollider;
     [SerializeField] private LayerMask sliceLayerMask;
@@ -99,5 +100,11 @@ public class Blade : MonoBehaviour
             //Letter letter = hit.transform.GetComponent<Letter>();
             //gameManager.AddSentence(letter.getLetterChar());
         }
+    }
+
+    public void BlastEffect()
+    {
+        blastEffect.Play();
+        blastAudioEffect.Play();
     }
 }

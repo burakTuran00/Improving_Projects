@@ -17,13 +17,13 @@ public class UIManager : MonoBehaviour
     {
         wordText.text = sentence.ToUpper().ToString();
     }
-    public void SetWordTextColor(Color color)
+    public void SetColorOfWordText(Color color)
     {
         wordText.color = color;
     }
     public void SetFindedText(string sentence)
     {
         findenWordImage.gameObject.SetActive(true);
-        findedWordsText.text = sentence.ToUpper().ToString();
+        findedWordsText.text = (sentence != null) ? sentence.ToUpper().ToString() : "Not FOUND ANY WORD!";
     }
 }
